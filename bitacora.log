@@ -493,3 +493,35 @@
   <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "con" is null****[Ljava.lang.StackTraceElement;@7181bc74</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T18:42:36.904625300Z</date>
+  <millis>1684521756904</millis>
+  <nanos>625300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@121bfacb</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T18:46:13.749721900Z</date>
+  <millis>1684521973749</millis>
+  <nanos>721900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@5e8ad80b</message>
+</record>
+</log>
