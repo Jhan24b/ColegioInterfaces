@@ -67,7 +67,7 @@ public class Inicio extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanelUsuarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTableUsuarios = new javax.swing.JTable();
+        jTableGestionUsuarios = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -194,7 +194,7 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGestionUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -213,7 +213,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTableUsuarios);
+        jScrollPane4.setViewportView(jTableGestionUsuarios);
 
         jButton10.setText("Editar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -1944,10 +1944,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTable jTableGestionAlumnos;
     private javax.swing.JTable jTableGestionApoderados;
     private javax.swing.JTable jTableGestionDocente;
+    private javax.swing.JTable jTableGestionUsuarios;
     private javax.swing.JTable jTableMatricula;
     private javax.swing.JTable jTableNotas;
     private javax.swing.JTable jTablePagos;
-    private javax.swing.JTable jTableUsuarios;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
