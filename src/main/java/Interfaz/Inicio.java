@@ -54,7 +54,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        FiltroCbx = new javax.swing.JComboBox<>();
         jPanelDocente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -226,7 +226,17 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+        FiltroCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+        FiltroCbx.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                FiltroCbxItemStateChanged(evt);
+            }
+        });
+        FiltroCbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroCbxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelUsuariosLayout = new javax.swing.GroupLayout(jPanelUsuarios);
         jPanelUsuarios.setLayout(jPanelUsuariosLayout);
@@ -247,7 +257,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 372, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsuariosLayout.createSequentialGroup()
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FiltroCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jTextField7)))
                 .addContainerGap())
@@ -260,7 +270,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FiltroCbx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
@@ -1319,7 +1329,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel9.setText("I.E.I La Molina");
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\black\\OneDrive\\Documentos\\NetBeansProjects\\ColegioInterfaces\\src\\main\\java\\Interfaz\\logo_la_molina.PNG")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1669,6 +1678,35 @@ public class Inicio extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void FiltroCbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroCbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FiltroCbxActionPerformed
+
+    private void FiltroCbxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_FiltroCbxItemStateChanged
+        // TODO add your handling code here:
+        int index = FiltroCbx.getSelectedIndex();
+        try {
+            switch (index) {
+                case 0:
+                    
+                    alumnos = ordenarPorAlumnosNombre(alumBO.listar());
+                    System.out.println(alumnos.size());
+                    for (int i = 0; i < alumnos.size(); i++) {
+                        Alumno alumno = alumnos.get(i);
+
+                        Object [] fila = new Object[] { (i+1) , alumno.getAlumno_id(), alumno.getDni(), 
+                            alumno.getApellido_paterno(), alumno.getApellido_materno(),
+                            alumno.getNombres(), alumno.getFecha_nacimiento() , alumno.getCorreo_electrico()};
+                        modeloAlumnos.addRow(fila);
+                    }
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_FiltroCbxItemStateChanged
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -1767,8 +1805,11 @@ public class Inicio extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-        
+    }
+    
+    public ArrayList<Alumno> ordenarPorAlumnosNombre(ArrayList<Alumno> alumnos){
+        alumnos.sort((p1,p2)->String.valueOf(p1.getApellidosNombres()).compareTo(String.valueOf(p2.getApellidosNombres())));;
+        return alumnos;
     }
     
     /**
@@ -1807,6 +1848,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> FiltroCbx;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1855,7 +1897,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboxEstudiante;
     private javax.swing.JComboBox<String> jComboxPagos;
     private javax.swing.JLabel jLabel1;
