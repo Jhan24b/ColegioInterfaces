@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-04T05:39:10.848973100Z</date>
+  <millis>1683178750848</millis>
+  <nanos>973100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Error en el formato Contacto****[Ljava.lang.StackTraceElement;@4fd2576b</message>
+</record>
+<record>
+  <date>2023-05-04T05:39:12.248957900Z</date>
+  <millis>1683178752248</millis>
+  <nanos>957900</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Error en el formato Contacto****[Ljava.lang.StackTraceElement;@4ca1ca3d</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-04T07:36:33.134297900Z</date>
+  <millis>1683185793134</millis>
+  <nanos>297900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@77215c80</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-04T07:36:40.625867800Z</date>
+  <millis>1683185800625</millis>
+  <nanos>867800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@2aa1496b</message>
+</record>
+<record>
+  <date>2023-05-04T07:36:40.656127Z</date>
+  <millis>1683185800656</millis>
+  <nanos>127000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@3795d1f4</message>
+</record>
+<record>
+  <date>2023-05-04T07:36:41.024899600Z</date>
+  <millis>1683185801024</millis>
+  <nanos>899600</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@1dbbbb0a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-04T07:37:49.170232700Z</date>
+  <millis>1683185869170</millis>
+  <nanos>232700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@2aa1496b</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:49.699205Z</date>
+  <millis>1683185869699</millis>
+  <nanos>205000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@3795d1f4</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:50.122473700Z</date>
+  <millis>1683185870122</millis>
+  <nanos>473700</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@1dbbbb0a</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:50.378817900Z</date>
+  <millis>1683185870378</millis>
+  <nanos>817900</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@3625a87a</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:50.624404100Z</date>
+  <millis>1683185870624</millis>
+  <nanos>404100</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@3e1621cf</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:50.863879900Z</date>
+  <millis>1683185870863</millis>
+  <nanos>879900</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@529da8b8</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:51.066283800Z</date>
+  <millis>1683185871066</millis>
+  <nanos>283800</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@60361441</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:51.249273600Z</date>
+  <millis>1683185871249</millis>
+  <nanos>273600</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@d464fba</message>
+</record>
+<record>
+  <date>2023-05-04T07:37:51.424649900Z</date>
+  <millis>1683185871424</millis>
+  <nanos>649900</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'apoderado' not found.****[Ljava.lang.StackTraceElement;@324b5363</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-05T05:50:16.910935100Z</date>
+  <millis>1683265816910</millis>
+  <nanos>935100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.time.LocalDate.getYear()" because "date" is null****[Ljava.lang.StackTraceElement;@276c0497</message>
+</record>
+<record>
+  <date>2023-05-05T05:50:23.213809100Z</date>
+  <millis>1683265823213</millis>
+  <nanos>809100</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.time.LocalDate.getYear()" because "date" is null****[Ljava.lang.StackTraceElement;@3f5c1aa7</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-05T06:06:06.054570900Z</date>
+  <millis>1683266766054</millis>
+  <nanos>570900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "String.isEmpty()" because the return value of "JavaBean.Alumno.getCorreo_electrico()" is null****[Ljava.lang.StackTraceElement;@1c5ddbd6</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-05T06:07:35.878366500Z</date>
+  <millis>1683266855878</millis>
+  <nanos>366500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "String.isEmpty()" because the return value of "JavaBean.Alumno.getCorreo_electrico()" is null****[Ljava.lang.StackTraceElement;@6bef4403</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T04:41:09.865403100Z</date>
+  <millis>1684471269865</millis>
+  <nanos>403100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_apoderado_buscar_por_apoderado does not exist****[Ljava.lang.StackTraceElement;@26bfd80e</message>
+</record>
+<record>
+  <date>2023-05-19T04:41:11.897896800Z</date>
+  <millis>1684471271897</millis>
+  <nanos>896800</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@53a622a1</message>
+</record>
+<record>
+  <date>2023-05-19T04:41:12.109088100Z</date>
+  <millis>1684471272109</millis>
+  <nanos>88100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@166d59e4</message>
+</record>
+<record>
+  <date>2023-05-19T04:41:14.532344600Z</date>
+  <millis>1684471274532</millis>
+  <nanos>344600</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_apoderado_buscar_por_apoderado does not exist****[Ljava.lang.StackTraceElement;@7a6608db</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T04:43:18.855402700Z</date>
+  <millis>1684471398855</millis>
+  <nanos>402700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_apoderado_buscar_por_apoderado does not exist****[Ljava.lang.StackTraceElement;@8df85bd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T05:00:28.577628800Z</date>
+  <millis>1684472428577</millis>
+  <nanos>628800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@5bf20e61</message>
+</record>
+<record>
+  <date>2023-05-19T05:00:29.173161Z</date>
+  <millis>1684472429173</millis>
+  <nanos>161000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@4e0c07e6</message>
+</record>
+<record>
+  <date>2023-05-19T05:00:29.438005100Z</date>
+  <millis>1684472429438</millis>
+  <nanos>5100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@41ac299d</message>
+</record>
+<record>
+  <date>2023-05-19T05:00:32.189843700Z</date>
+  <millis>1684472432189</millis>
+  <nanos>843700</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@2808e24</message>
+</record>
+<record>
+  <date>2023-05-19T05:00:32.396508900Z</date>
+  <millis>1684472432396</millis>
+  <nanos>508900</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'correo_electronico' not found.****[Ljava.lang.StackTraceElement;@188de480</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T05:52:41.049137600Z</date>
+  <millis>1684475561049</millis>
+  <nanos>137600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "this.con" is null****[Ljava.lang.StackTraceElement;@3164e9f2</message>
+</record>
+<record>
+  <date>2023-05-19T05:52:42.545073500Z</date>
+  <millis>1684475562545</millis>
+  <nanos>73500</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "con" is null****[Ljava.lang.StackTraceElement;@57a890cf</message>
+</record>
+<record>
+  <date>2023-05-19T05:52:45.641371200Z</date>
+  <millis>1684475565641</millis>
+  <nanos>371200</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "con" is null****[Ljava.lang.StackTraceElement;@29779a4a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-19T05:53:40.714596600Z</date>
+  <millis>1684475620714</millis>
+  <nanos>596600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "con" is null****[Ljava.lang.StackTraceElement;@6b53616</message>
+</record>
+<record>
+  <date>2023-05-19T05:53:42.345831500Z</date>
+  <millis>1684475622345</millis>
+  <nanos>831500</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "this.con" is null****[Ljava.lang.StackTraceElement;@5b1b022d</message>
+</record>
+<record>
+  <date>2023-05-19T05:53:43.825219800Z</date>
+  <millis>1684475623825</millis>
+  <nanos>219800</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot invoke "java.sql.Connection.prepareCall(String)" because "con" is null****[Ljava.lang.StackTraceElement;@69a2a10f</message>
+</record>
