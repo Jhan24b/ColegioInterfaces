@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -45,7 +46,9 @@ public class Inicio extends javax.swing.JFrame {
     }
     
     private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt){
-        System.out.println(jTableGestionAlumnos.getSelectedRow());
+        JTableHeader header = jTableGestionAlumnos.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+        System.out.println(columnIndex);
     }
     
     /**
