@@ -13,8 +13,12 @@ import DataAccessLayer.DocenteDAO;
 import JavaBean.Alumno;
 import JavaBean.Apoderado;
 import JavaBean.Docente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,8 +33,21 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        MyInitComponents();        
     }
-
+    
+    private void MyInitComponents(){
+        jTableGestionAlumnos.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jHeaderGestionAlumnosMouseClicked(evt);
+                        }
+        });
+    }
+    
+    private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt){
+        System.out.println(jTableGestionAlumnos.getSelectedRow());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -227,16 +244,6 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         FiltroCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
-        FiltroCbx.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                FiltroCbxItemStateChanged(evt);
-            }
-        });
-        FiltroCbx.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FiltroCbxActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelUsuariosLayout = new javax.swing.GroupLayout(jPanelUsuarios);
         jPanelUsuarios.setLayout(jPanelUsuariosLayout);
@@ -256,9 +263,9 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 372, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsuariosLayout.createSequentialGroup()
+                    .addGroup(jPanelUsuariosLayout.createSequentialGroup()
                         .addComponent(FiltroCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField7)))
                 .addContainerGap())
         );
@@ -268,9 +275,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FiltroCbx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FiltroCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
@@ -450,6 +457,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+        jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jComboBox4MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAlumnoLayout = new javax.swing.GroupLayout(jPanelAlumno);
         jPanelAlumno.setLayout(jPanelAlumnoLayout);
@@ -1679,34 +1691,11 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void FiltroCbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroCbxActionPerformed
+    private void jComboBox4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_FiltroCbxActionPerformed
-
-    private void FiltroCbxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_FiltroCbxItemStateChanged
-        // TODO add your handling code here:
-        int index = FiltroCbx.getSelectedIndex();
-        try {
-            switch (index) {
-                case 0:
-                    
-                    alumnos = ordenarPorAlumnosNombre(alumBO.listar());
-                    System.out.println(alumnos.size());
-                    for (int i = 0; i < alumnos.size(); i++) {
-                        Alumno alumno = alumnos.get(i);
-
-                        Object [] fila = new Object[] { (i+1) , alumno.getAlumno_id(), alumno.getDni(), 
-                            alumno.getApellido_paterno(), alumno.getApellido_materno(),
-                            alumno.getNombres(), alumno.getFecha_nacimiento() , alumno.getCorreo_electrico()};
-                        modeloAlumnos.addRow(fila);
-                    }
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_FiltroCbxItemStateChanged
+        System.out.println(jComboBox4.getSelectedItem()+"  saliendo");
+        //jComboBox4.s
+    }//GEN-LAST:event_jComboBox4MouseExited
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();

@@ -173,6 +173,7 @@ public class AlumnoDao {
             
         }catch (Exception e) {         
             Bitacora.registrar(e);
+            System.out.println(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
             try {
