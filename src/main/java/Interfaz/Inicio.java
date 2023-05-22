@@ -1441,8 +1441,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         // TODO add your handling code here:
-        InsertDocente insDocente = new InsertDocente();
-        insDocente.setVisible(true);
+        InsertAlumno insAlumno = new InsertAlumno();
+        insAlumno.setVisible(true);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
