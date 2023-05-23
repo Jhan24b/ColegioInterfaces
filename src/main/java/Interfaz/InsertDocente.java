@@ -9,6 +9,7 @@ import DataAccessLayer.ApoderadoDAO;
 import DataAccessLayer.DocenteDAO;
 import JavaBean.Apoderado;
 import JavaBean.Docente;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,14 +47,19 @@ public class InsertDocente extends javax.swing.JFrame {
         jTextApellidoPaterno = new javax.swing.JTextField();
         jTextNombres = new javax.swing.JTextField();
         jTextContacto = new javax.swing.JTextField();
+        jLabelDni = new javax.swing.JLabel();
+        jLabelApellidoPaterno = new javax.swing.JLabel();
+        jLabelApellidoMaterno = new javax.swing.JLabel();
+        jLabelNombres = new javax.swing.JLabel();
+        jLabelContacto = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Insertar Apoderado");
+        jLabel1.setText("Insertar Docente");
 
-        jLabel2.setText("Nombre:");
+        jLabel2.setText("Nombres:");
 
         jLabel3.setText("Apellido materno:");
 
@@ -69,6 +75,21 @@ public class InsertDocente extends javax.swing.JFrame {
             }
         });
 
+        jLabelDni.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelDni.setText("-");
+
+        jLabelApellidoPaterno.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelApellidoPaterno.setText("-");
+
+        jLabelApellidoMaterno.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelApellidoMaterno.setText("-");
+
+        jLabelNombres.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelNombres.setText("-");
+
+        jLabelContacto.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelContacto.setText("-");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,21 +100,28 @@ public class InsertDocente extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(98, 98, 98)
-                        .addComponent(jTextDni, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addComponent(jTextApellidoPaterno)
-                            .addComponent(jTextNombres)
-                            .addComponent(jTextContacto))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextDni, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                                .addComponent(jTextApellidoPaterno)
+                                .addComponent(jTextNombres)
+                                .addComponent(jTextContacto)
+                                .addComponent(jLabelDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabelContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,22 +132,32 @@ public class InsertDocente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(jLabelDni)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(jLabelApellidoPaterno)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
+                .addComponent(jLabelApellidoMaterno)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(jLabelNombres)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -149,13 +187,13 @@ public class InsertDocente extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -172,33 +210,27 @@ public class InsertDocente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Docente docente = new Docente();
         DocenteBO docBO = new DocenteBO();
+
+        docente.setNombres(jTextNombres.getText());
+        docente.setApellido_paterno(jTextApellidoPaterno.getText());
+        docente.setApellido_materno(jTextApellidoMaterno.getText());
+        docente.setDni(jTextDni.getText());
+        docente.setContacto(jTextContacto.getText());
+
+        LimpiarErrores();
         
-        try {
-            docente.setNombres(jTextNombres.getText().trim());
-            docente.setApellido_paterno(jTextApellidoPaterno.getText().trim());
-            docente.setApellido_materno(jTextApellidoMaterno.getText().trim());
-            docente.setDni(jTextDni.getText().trim());
-            docente.setContacto(jTextContacto.getText().trim());
-            
-            
+        if(docente.getErrores().isEmpty()){
             try {
-                
-                
-              docBO.insertar(docente);
+                docBO.insertar(docente);
+                dispose();
             } catch (Exception e) {
-                
-                
+                System.out.println(e.getMessage());
             }
-            
-            
-            
-            
-            dispose();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
         }
-        
-        
+
+        else{
+            ImprimirErrores(docente.getErrores());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -206,6 +238,27 @@ public class InsertDocente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ImprimirErrores(Map<String, String> errores){    
+        for (String error : errores.keySet().toArray(new String[0])) {
+            switch (error) {
+                case "contacto" -> jLabelContacto.setText(errores.get(error));
+                case "apellido_paterno" -> jLabelApellidoPaterno.setText(errores.get(error));
+                case "apellido_materno" -> jLabelApellidoMaterno.setText(errores.get(error));
+                case "dni" -> jLabelDni.setText(errores.get(error));
+                case "nombres" -> jLabelNombres.setText(errores.get(error));
+            }
+            System.out.println(error);
+        }
+    }
+    
+    private void LimpiarErrores(){
+        jLabelContacto.setText("-");
+        jLabelApellidoPaterno.setText("-");
+        jLabelApellidoMaterno.setText("-");
+        jLabelDni.setText("-");
+        jLabelNombres.setText("-");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -251,6 +304,11 @@ public class InsertDocente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelApellidoMaterno;
+    private javax.swing.JLabel jLabelApellidoPaterno;
+    private javax.swing.JLabel jLabelContacto;
+    private javax.swing.JLabel jLabelDni;
+    private javax.swing.JLabel jLabelNombres;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextApellidoMaterno;
     private javax.swing.JTextField jTextApellidoPaterno;
