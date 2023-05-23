@@ -48,7 +48,30 @@ public class Inicio extends javax.swing.JFrame {
     private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt){
         JTableHeader header = jTableGestionAlumnos.getTableHeader();
         int columnIndex = header.columnAtPoint(evt.getPoint());
-        System.out.println(columnIndex);
+        System.out.println("Seleccion: " + columnIndex);
+        switch (columnIndex) {
+            case 0:
+                System.out.println("Ordenando por codigo");
+                break;
+            case 1:
+                System.out.println("Ordenando por dni");
+                break;
+            case 2:
+                System.out.println("Ordenando po apellido paterno");
+                ordenarPorAlumnosxApellidoPaterno(alumnos);
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            case 5:
+                
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
     
     /**
@@ -413,15 +436,23 @@ public class Inicio extends javax.swing.JFrame {
 
         jTableGestionAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Alumnos_id", "DNI", "Apellido paterno", "Apellido materno", "Nombres", "Fecha de nacimiento", "Correo electrónico"
+                "#", "Alumnos id", "DNI", "Apellido paterno", "Apellido materno", "Nombres", "Fecha de nacimiento", "Correo electronico"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane7.setViewportView(jTableGestionAlumnos);
 
         jButton23.setText("Insertar");
@@ -1709,13 +1740,13 @@ public class Inicio extends javax.swing.JFrame {
         jTableGestionAlumnos.setModel(modeloAlumnos);
         
         modeloAlumnos.addColumn("#");
-        modeloAlumnos.addColumn("alumno_id");
-        modeloAlumnos.addColumn("dni");
-        modeloAlumnos.addColumn("apellido_paterno");
-        modeloAlumnos.addColumn("apellido_materno");
-        modeloAlumnos.addColumn("nombres");
-        modeloAlumnos.addColumn("fecha_nacimiento");
-        modeloAlumnos.addColumn("correo_electronico");
+        modeloAlumnos.addColumn("Alumno id");
+        modeloAlumnos.addColumn("DNI");
+        modeloAlumnos.addColumn("Apellido paterno");
+        modeloAlumnos.addColumn("Apellido materno");
+        modeloAlumnos.addColumn("Nombres");
+        modeloAlumnos.addColumn("Fecha de nacimiento");
+        modeloAlumnos.addColumn("Correo electronico");
         
         try {
             alumnos = alumBO.buscarPorAlumno("");
@@ -1799,8 +1830,8 @@ public class Inicio extends javax.swing.JFrame {
         }
     }
     
-    public ArrayList<Alumno> ordenarPorAlumnosNombre(ArrayList<Alumno> alumnos){
-        alumnos.sort((p1,p2)->String.valueOf(p1.getApellidosNombres()).compareTo(String.valueOf(p2.getApellidosNombres())));;
+    public ArrayList<Alumno> ordenarPorAlumnosxApellidoPaterno(ArrayList<Alumno> alumnos){
+        alumnos.sort((p1,p2)->String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
         return alumnos;
     }
     
