@@ -7,10 +7,6 @@ package JavaBean;
 import java.sql.Time;
 import java.time.LocalDate;
 
-/**
- *
- * @author LAB-USR-HUAN-A0305
- */
 public class AsistenciaDocente {
     private int asistencia_id;
     private Time hora_ingreso;
@@ -19,6 +15,10 @@ public class AsistenciaDocente {
     private int docente_id;
 
     public AsistenciaDocente(){
+    }
+    
+    public AsistenciaDocente(String dniDocente, Time horaIngreso){
+        
     }
 
     public int getAsistencia_id() {
