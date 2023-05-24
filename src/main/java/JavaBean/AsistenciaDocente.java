@@ -6,6 +6,8 @@ package JavaBean;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AsistenciaDocente {
     private int asistencia_id;
@@ -13,6 +15,16 @@ public class AsistenciaDocente {
     private Time hora_salida;
     private LocalDate fecha;
     private int docente_id;
+    
+    private Map<String,String> errores = new HashMap<>();
+    
+    public Map<String, String> getErrores() {
+        return errores;
+    }
+
+    public void setErrores(Map<String, String> errores) {
+        this.errores = errores;
+    }
 
     public AsistenciaDocente(){
     }
@@ -33,9 +45,9 @@ public class AsistenciaDocente {
         return hora_ingreso;
     }
 
-    public void setHora_ingreso(Time hora_ingreso) throws Exception{
+    public void setHora_ingreso(Time hora_ingreso){
         if (hora_ingreso == null) {
-            throw new Exception("El hora_salida fecha está vacía");
+            errores.put("hora_ingreso","El hora_salida fecha está vacía");
         }
         this.hora_ingreso = hora_ingreso;
     }
@@ -44,9 +56,9 @@ public class AsistenciaDocente {
         return hora_salida;
     }
 
-    public void setHora_salida(Time hora_salida) throws Exception{
+    public void setHora_salida(Time hora_salida){
         if (hora_salida == null) {
-            throw new Exception("El hora_salida fecha está vacía");
+            errores.put("hora_salida","El hora_salida fecha está vacía");
         }
         this.hora_salida = hora_salida;
     }
@@ -55,9 +67,9 @@ public class AsistenciaDocente {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) throws Exception{
+    public void setFecha(LocalDate fecha){
         if(fecha == null || fecha.equals(LocalDate.MIN) ){
-            throw new Exception("La fecha está vacía o no ha sido inicializada");
+            errores.put("fecha","La fecha está vacía o no ha sido inicializada");
         }
         this.fecha = fecha;
     }    

@@ -7,6 +7,7 @@ package Interfaz;
 import BusinessLayer.UsuarioBO;
 import JavaBean.Usuario;
 import JavaBean.UsuarioGlobal;
+import Utilities.Validator;
 
 /**
  *
@@ -170,12 +171,15 @@ public class InsertUsuario extends javax.swing.JFrame {
         String clave = txtClaveUsuario.getText();
         String rol = txtRolUsuario.getText();
         
-        if(nombres.isBlank()){
-            
+        if(nombres.isBlank() || apellidopaterno.isBlank() || apellidomaterno.isBlank() || dni.isBlank() || clave.isBlank() || rol.isBlank()){
+                        
         }else{
+            if(Validator.isDNI(dni) && clave.length()>=8){
+                                
+            }
             UsuarioBO ubo = new UsuarioBO();
             Usuario usuario = new Usuario(nombres,apellidopaterno,apellidomaterno, dni, clave, rol);
-            ubo.insertar(usuario);
+            //ubo.insertar(usuario);
         }
     }//GEN-LAST:event_JBRegistrarActionPerformed
 
