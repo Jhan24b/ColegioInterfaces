@@ -130,4 +130,8 @@ public class Docente {
     public void setApellidosNombres(String apellidosNombres) {
         this.apellidosNombres = apellidosNombres;
     }
+    
+    public void setApellidosNombres2() {
+        this.apellidosNombres = this.nombres + " " + this.apellido_paterno + " " + this.apellido_materno;
+    }
 }

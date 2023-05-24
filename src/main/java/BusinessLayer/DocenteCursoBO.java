@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.utp.mavenproject1;
+package BusinessLayer;
 
 import DataAccessLayer.DocenteCursoDAO;
-import DataAccessLayer.Docente_CursoDAO;
 import JavaBean.DocenteCurso;
 import java.util.ArrayList;
 
