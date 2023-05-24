@@ -24,6 +24,17 @@ public class Usuario {
     public Usuario(){
     }
 
+    public Usuario(String nombres, String apellido_materno, String apellido_paterno, String dni, String clave, String rol) {
+        this.nombres = nombres;
+        this.apellido_materno = apellido_materno;
+        this.apellido_paterno = apellido_paterno;
+        this.dni = dni;
+        this.clave = clave;
+        this.rol = rol;
+    }
+
+    
+    
     public int getUsuario_id() {
         return usuario_id;
     }
