@@ -50,7 +50,6 @@ public class InsertMatricula extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabelAlumno_id = new javax.swing.JLabel();
-        jLabelDni1 = new javax.swing.JLabel();
         jLabelFechaMatricula = new javax.swing.JLabel();
         jLabelNivel = new javax.swing.JLabel();
         jLabelGrado = new javax.swing.JLabel();
@@ -75,6 +74,7 @@ public class InsertMatricula extends javax.swing.JFrame {
 
         jLabel3.setText("APELLIDOS Y NOMBRES :");
 
+        jTextNombres.setEditable(false);
         jTextNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNombresActionPerformed(evt);
@@ -129,9 +129,6 @@ public class InsertMatricula extends javax.swing.JFrame {
         jLabelAlumno_id.setForeground(new java.awt.Color(255, 51, 51));
         jLabelAlumno_id.setText("-");
 
-        jLabelDni1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelDni1.setText("-");
-
         jLabelFechaMatricula.setForeground(new java.awt.Color(255, 51, 51));
         jLabelFechaMatricula.setText("-");
 
@@ -167,7 +164,7 @@ public class InsertMatricula extends javax.swing.JFrame {
                                         .addComponent(btn_buscar)))
                                 .addGap(51, 51, 51))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,9 +192,7 @@ public class InsertMatricula extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelDni1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                                .addComponent(jTextNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -216,9 +211,7 @@ public class InsertMatricula extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelDni1)
-                .addGap(5, 5, 5)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFechaMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -433,7 +426,6 @@ public class InsertMatricula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAlumno_id;
-    private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelFechaMatricula;
     private javax.swing.JLabel jLabelGrado;
     private javax.swing.JLabel jLabelNivel;
