@@ -1710,33 +1710,33 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         int fila = jTableGestionMatricula.getSelectedRow();
         int columna = jTableGestionMatricula.getSelectedColumn();
+        
+        System.out.println( "Editando valor de Apoderado: "+jTableGestionMatricula.getValueAt(fila, columna));
+        String datoNuevo = "";
 
-        try {
-            System.out.println( "Editando valor de Apoderado: "+jTableGestionMatricula.getValueAt(fila, columna));
-            String datoNuevo = "";
-
-            if(columna == 2)
+        if(columna == 2)
             datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar el campo Fecha\n(El formato a ingresar tiene que ser el siguiente yyyy-mm-dd)");
-            else
+        else
             datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
 
-            Matricula matricula = matriculas.get(fila);
+        Matricula matricula = matriculas.get(fila);
 
-            switch (columna) {
-                case 2 -> matricula.setFecha(Date.valueOf(datoNuevo).toLocalDate() );
-                case 3 -> matricula.setGrado(datoNuevo.charAt(0));
-                case 4 -> matricula.setNivel(datoNuevo.charAt(0));
-                case 5 -> matricula.setTurno(datoNuevo.charAt(0));
-                case 6 -> matricula.setAlumno_id(Integer.parseInt(datoNuevo));
-                default -> {
-                }
-            }
+        switch (columna) {
+            case 2 -> matricula.setFecha(Date.valueOf(datoNuevo).toLocalDate() );
+            case 3 -> matricula.setGrado(datoNuevo.charAt(0));
+            case 4 -> matricula.setNivel(datoNuevo.charAt(0));
+            case 5 -> matricula.setTurno(datoNuevo.charAt(0));
+            case 6 -> matricula.setAlumno_id(Integer.parseInt(datoNuevo));
+        }
+        
+        try {
             matBO.actualizarMatricula(matricula);
-
-            actualizarTablaMatricula();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+            actualizarTablaMatricula();
+        
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed

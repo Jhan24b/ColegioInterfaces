@@ -1060,3 +1060,20 @@
   <thread>24</thread>
   <message>Cannot add or update a child row: a foreign key constraint fails (`colegio`.`matricula`, CONSTRAINT `fk_matricula_alumno_id` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alumno_id`))****[Ljava.lang.StackTraceElement;@79720f0e</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-25T22:54:59.767844400Z</date>
+  <millis>1685055299767</millis>
+  <nanos>844400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot add or update a child row: a foreign key constraint fails (`colegio`.`matricula`, CONSTRAINT `fk_matricula_alumno_id` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alumno_id`))****[Ljava.lang.StackTraceElement;@5f0d964b</message>
+</record>
+</log>
