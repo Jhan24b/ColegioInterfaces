@@ -1044,3 +1044,19 @@
   <thread>24</thread>
   <message>Index 0 out of bounds for length 0****[Ljava.lang.StackTraceElement;@4ddb3373</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-25T17:57:44.698018300Z</date>
+  <millis>1685037464698</millis>
+  <nanos>18300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot add or update a child row: a foreign key constraint fails (`colegio`.`matricula`, CONSTRAINT `fk_matricula_alumno_id` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alumno_id`))****[Ljava.lang.StackTraceElement;@79720f0e</message>
+</record>

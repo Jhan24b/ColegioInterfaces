@@ -8,6 +8,7 @@ import BusinessLayer.AlumnoBO;
 import BusinessLayer.ApoderadoBO;
 import BusinessLayer.AsistenciaDocenteBO;
 import BusinessLayer.DocenteBO;
+import BusinessLayer.MatriculaBO;
 import BusinessLayer.UsuarioBO;
 import DataAccessLayer.AlumnoDao;
 import DataAccessLayer.ApoderadoDAO;
@@ -16,6 +17,7 @@ import JavaBean.Alumno;
 import JavaBean.Apoderado;
 import JavaBean.AsistenciaDocente;
 import JavaBean.Docente;
+import JavaBean.Matricula;
 import JavaBean.Usuario;
 import Utilities.Validator;
 import java.awt.event.ActionEvent;
@@ -187,12 +189,13 @@ public class Inicio extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanelMatricula = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTableMatricula = new javax.swing.JTable();
+        jTableGestionMatricula = new javax.swing.JTable();
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
+        jButton38 = new javax.swing.JButton();
         jPanelCursoArea = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -512,7 +515,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton26.setText("Actualizar");
+        jButton26.setText("Editar");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton26ActionPerformed(evt);
@@ -898,7 +901,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Notas", jPanelNotas);
 
-        jTableMatricula.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGestionMatricula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -917,7 +920,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(jTableMatricula);
+        jScrollPane8.setViewportView(jTableGestionMatricula);
 
         jButton28.setText("Editar");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -950,6 +953,13 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton38.setText("Actualizar tabla");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMatriculaLayout = new javax.swing.GroupLayout(jPanelMatricula);
         jPanelMatricula.setLayout(jPanelMatriculaLayout);
         jPanelMatriculaLayout.setHorizontalGroup(
@@ -958,8 +968,10 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8)
-                    .addGroup(jPanelMatriculaLayout.createSequentialGroup()
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMatriculaLayout.createSequentialGroup()
+                        .addComponent(jButton38)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -967,7 +979,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 372, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelMatriculaLayout.setVerticalGroup(
@@ -977,13 +989,14 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(63, 63, 63)
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton30)
                     .addComponent(jButton28)
                     .addComponent(jButton31)
-                    .addComponent(jButton29))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton29)
+                    .addComponent(jButton38))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Matricula", jPanelMatricula);
@@ -1695,6 +1708,35 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
+        int fila = jTableGestionMatricula.getSelectedRow();
+        int columna = jTableGestionMatricula.getSelectedColumn();
+
+        try {
+            System.out.println( "Editando valor de Apoderado: "+jTableGestionMatricula.getValueAt(fila, columna));
+            String datoNuevo = "";
+
+            if(columna == 2)
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar el campo Fecha\n(El formato a ingresar tiene que ser el siguiente yyyy-mm-dd)");
+            else
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
+
+            Matricula matricula = matriculas.get(fila);
+
+            switch (columna) {
+                case 2 -> matricula.setFecha(Date.valueOf(datoNuevo).toLocalDate() );
+                case 3 -> matricula.setGrado(datoNuevo.charAt(0));
+                case 4 -> matricula.setNivel(datoNuevo.charAt(0));
+                case 5 -> matricula.setTurno(datoNuevo.charAt(0));
+                case 6 -> matricula.setAlumno_id(Integer.parseInt(datoNuevo));
+                default -> {
+                }
+            }
+            matBO.actualizarMatricula(matricula);
+
+            actualizarTablaMatricula();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
@@ -1710,6 +1752,18 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
+        int fila = jTableGestionMatricula.getSelectedRow();
+
+        try {
+            System.out.println( "Eliminando Matricula con id: "+jTableGestionMatricula.getValueAt(fila, 1) );
+            int id = (int) jTableGestionMatricula.getValueAt(fila, 1);
+            System.out.println("ID :"+id);
+            matBO.eliminarMatricula(id);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        modeloMatricula.removeRow(fila);
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
@@ -1811,6 +1865,11 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaMatricula();
+    }//GEN-LAST:event_jButton38ActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -1905,6 +1964,40 @@ public class Inicio extends javax.swing.JFrame {
                     apoderado.getApellido_paterno(), apoderado.getApellido_materno(),
                     apoderado.getNombres(),apoderado.getContacto()};
                 modeloApoderado.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloMatricula;
+    private MatriculaBO matBO = new MatriculaBO();
+    private ArrayList<Matricula>  matriculas;
+    
+    private void actualizarTablaMatricula(){
+        modeloMatricula = new DefaultTableModel();
+        
+        jTableGestionMatricula.setModel(modeloMatricula);
+        
+        modeloMatricula.addColumn("#");
+        modeloMatricula.addColumn("matricula_id");
+        modeloMatricula.addColumn("fecha");
+        modeloMatricula.addColumn("grado");
+        modeloMatricula.addColumn("nivel");
+        modeloMatricula.addColumn("turno");
+        modeloMatricula.addColumn("alumno_id");
+        
+        try {
+            matriculas = matBO.ListarMatriculas();
+            System.out.println(matriculas.size());
+            
+            for (int i = 0; i < matriculas.size(); i++) {
+                Matricula matricula = matriculas.get(i);
+                
+                Object [] fila = new Object[] { (i+1) , matricula.getMatricula_id(), matricula.getFecha(), 
+                    matricula.getGrado(), matricula.getNivel(),
+                    matricula.getTurno(),matricula.getAlumno_id()};
+                modeloMatricula.addRow(fila);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -2031,6 +2124,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
@@ -2098,8 +2192,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTable jTableGestionAlumnos;
     private javax.swing.JTable jTableGestionApoderados;
     private javax.swing.JTable jTableGestionDocente;
+    private javax.swing.JTable jTableGestionMatricula;
     private javax.swing.JTable jTableGestionUsuarios;
-    private javax.swing.JTable jTableMatricula;
     private javax.swing.JTable jTableNotas;
     private javax.swing.JTable jTablePagos;
     private javax.swing.JTextField jTextField1;
