@@ -62,11 +62,11 @@ public class Usuario {
 
     public void setNombres(String nombres) {
         if (nombres == null || nombres.isEmpty()) {
-            errores.put("nombres","El campo Nombres no puede estar vacío");
+            errores.put("nombres","El Nombre no puede estar vacío");
         }
         
         if (nombres.length() > 20) {
-            errores.put("nombres","El campo Nombres no puede sobrepasar los 20 caracteres");
+            errores.put("nombres","El Nombre no puede exxceder los 20 caracteres");
         }
         
         this.nombres = nombres;
@@ -78,11 +78,11 @@ public class Usuario {
 
     public void setApellido_materno(String apellido_materno){
         if (apellido_materno == null || apellido_materno.isEmpty()) {
-            errores.put("apellido_materno","El campo Apellido Materno no puede estar vacío");
+            errores.put("apellido_materno","El Apellido Materno no puede estar vacío");
         }
         
         if (apellido_materno.length() > 20) {
-            errores.put("apellido_materno","El campo Apellido Materno no puede sobrepasar los 20 caracteres");
+            errores.put("apellido_materno","El Apellido Materno no puede exceder los 20 caracteres");
         }
         
         this.apellido_materno = apellido_materno;
@@ -94,11 +94,11 @@ public class Usuario {
 
     public void setApellido_paterno(String apellido_paterno){
         if (apellido_paterno == null || apellido_paterno.isEmpty()) {
-            errores.put("apellido_paterno","El campo Apellido Paterno no puede estar vacío");
+            errores.put("apellido_paterno","El Apellido Paterno no puede estar vacío");
         }
         
         if (apellido_paterno.length() > 20) {
-            errores.put("apellido_paterno","El campo Apellido Paterno no puede sobrepasar los 20 caracteres");
+            errores.put("apellido_paterno","El Apellido Paterno no puede exceder los 20 caracteres");
         }
         
         this.apellido_paterno = apellido_paterno;
@@ -130,7 +130,7 @@ public class Usuario {
         }
         
         if (clave.length() < 8 || clave.length() > 20) {
-            errores.put("clave","La longitud de la Clave debe estar entre 8 y 20 caracteres");
+            errores.put("claveLen","La longitud de la Clave debe estar entre 8 y 20 caracteres");
         }
         
         this.clave = clave;
@@ -141,7 +141,7 @@ public class Usuario {
     }
 
     public void setRol(String rol){
-        if (( rol == null ) && ( rol.isEmpty() )) {
+        if (( rol == null ) || ( rol.isEmpty() )) {
             errores.put("rol","El campo rol esta vacio");
         }
         this.rol = rol;

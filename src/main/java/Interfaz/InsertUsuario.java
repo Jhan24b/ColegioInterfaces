@@ -6,7 +6,6 @@ package Interfaz;
 
 import BusinessLayer.UsuarioBO;
 import JavaBean.Usuario;
-import JavaBean.UsuarioGlobal;
 import Utilities.Validator;
 import java.util.Map;
 
@@ -55,6 +54,7 @@ public class InsertUsuario extends javax.swing.JFrame {
         RolError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBRegistrar.setText("Registrar");
         JBRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,29 +62,37 @@ public class InsertUsuario extends javax.swing.JFrame {
                 JBRegistrarActionPerformed(evt);
             }
         });
+        getContentPane().add(JBRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Insertar Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 338, 30));
 
         jLabel2.setText("Nombres :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel3.setText("Apellido paterno :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel4.setText("DNI :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 99, -1));
+        getContentPane().add(txtNombresUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, -1));
+        getContentPane().add(txtApellidoPaternoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 250, -1));
+        getContentPane().add(txtApellidoMaternoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 250, -1));
 
         jLabel5.setText("Apellido materno :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         jLabel6.setText("Rol : ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        getContentPane().add(txtDNIUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 250, -1));
 
         txtClaveUsuario.setMaximumSize(new java.awt.Dimension(80, 2147483647));
+        getContentPane().add(txtClaveUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 250, -1));
 
         jLabel7.setText("Clave :");
-
-        txtRolUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRolUsuarioActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        getContentPane().add(txtRolUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, -1));
 
         jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,101 +100,25 @@ public class InsertUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(NombreError, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 14, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(txtNombresUsuario))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDNIUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtApellidoPaternoUsuario)
-                            .addComponent(txtApellidoMaternoUsuario)
-                            .addComponent(txtClaveUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ClaveError, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DNIError, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AMaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(APaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRolUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RolError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(56, 56, 56)
-                .addComponent(JBRegistrar)
-                .addGap(83, 83, 83))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombresUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(2, 2, 2)
-                .addComponent(NombreError)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtApellidoPaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(APaternoError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellidoMaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AMaternoError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNIUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(DNIError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtClaveUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(ClaveError)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRolUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RolError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(JBRegistrar))
-                .addGap(13, 13, 13))
-        );
+        NombreError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(NombreError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 85, 250, 20));
+
+        APaternoError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(APaternoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 135, 250, 20));
+
+        AMaternoError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(AMaternoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 185, 250, 20));
+
+        DNIError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(DNIError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 235, 250, 20));
+
+        ClaveError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(ClaveError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 285, 250, 20));
+
+        RolError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(RolError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 335, 250, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,10 +137,22 @@ public class InsertUsuario extends javax.swing.JFrame {
         String clave = txtClaveUsuario.getText();
         String rol = txtRolUsuario.getText();
         UsuarioBO ubo = new UsuarioBO();
-        Usuario usuario = new Usuario(nombres,apellidopaterno,apellidomaterno, dni, clave, rol);
+        Usuario usuario = new Usuario();
+        usuario.setNombres(nombres);
+        usuario.setApellido_paterno(apellidopaterno);
+        usuario.setApellido_materno(apellidomaterno);
+        try {
+            usuario.setDni(dni);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        usuario.setClave(clave);
+        usuario.setRol(rol);
+        LimpiarErrores();
         System.out.println("P1");
         if(nombres.isBlank() || apellidopaterno.isBlank() || apellidomaterno.isBlank() || dni.isBlank() || clave.isBlank() || rol.isBlank()){
-            if(usuario.getErrores().isEmpty()){
+            System.out.println(usuario.getErrores().isEmpty());
+            if(!usuario.getErrores().isEmpty()){
                 ImprimirErrores(usuario.getErrores());
             }
             System.out.println("P1-entro");
@@ -234,23 +178,30 @@ public class InsertUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBRegistrarActionPerformed
 
-    private void txtRolUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRolUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRolUsuarioActionPerformed
-
     
     private void ImprimirErrores(Map<String, String> errores){    
         for (String error : errores.keySet().toArray(new String[0])) {
+            System.out.println(errores.get(error));
             switch (error) {
-                case "correo_electronico" -> NombreError.setText(errores.get(error));
+                case "nombres" -> NombreError.setText(errores.get(error));
                 case "apellido_paterno" -> APaternoError.setText(errores.get(error));
                 case "apellido_materno" -> AMaternoError.setText(errores.get(error));
-                case "DNI" -> DNIError.setText(errores.get(error));
-                case "Clave" -> ClaveError.setText(errores.get(error));
-                case "Rol" -> RolError.setText(errores.get(error));
+                case "dni" -> DNIError.setText(errores.get(error));
+                case "claveLen" -> ClaveError.setText(errores.get(error));
+                case "clave" -> ClaveError.setText(errores.get(error));
+                case "rol" -> RolError.setText(errores.get(error));
             }
             System.out.println(error);
         }
+    }
+    
+    private void LimpiarErrores(){
+        NombreError.setText("");
+        APaternoError.setText("");
+        AMaternoError.setText("");
+        DNIError.setText("");
+        ClaveError.setText("");
+        RolError.setText("");
     }
     
     /**
