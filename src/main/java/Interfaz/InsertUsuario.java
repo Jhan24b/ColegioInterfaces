@@ -32,20 +32,20 @@ public class InsertUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         JBRegistrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        lbNombreUsuario = new javax.swing.JLabel();
+        lbApellidoPaternoUsuario = new javax.swing.JLabel();
+        lbDNIUsuario = new javax.swing.JLabel();
         txtNombresUsuario = new javax.swing.JTextField();
         txtApellidoPaternoUsuario = new javax.swing.JTextField();
         txtApellidoMaternoUsuario = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbApellidoMaternoUsuario = new javax.swing.JLabel();
+        lbRolUsuario = new javax.swing.JLabel();
         txtDNIUsuario = new javax.swing.JTextField();
         txtClaveUsuario = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lbClaveUsuario = new javax.swing.JLabel();
         txtRolUsuario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         NombreError = new javax.swing.JLabel();
         APaternoError = new javax.swing.JLabel();
         AMaternoError = new javax.swing.JLabel();
@@ -54,7 +54,8 @@ public class InsertUsuario extends javax.swing.JFrame {
         RolError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(430, 480));
+        setResizable(false);
 
         JBRegistrar.setText("Registrar");
         JBRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,71 +63,163 @@ public class InsertUsuario extends javax.swing.JFrame {
                 JBRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(JBRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Insertar Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 338, 30));
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("INSERTAR USUARIO");
 
-        jLabel2.setText("Nombres :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        lbNombreUsuario.setText("Nombres :");
 
-        jLabel3.setText("Apellido paterno :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        lbApellidoPaternoUsuario.setText("Apellido paterno :");
 
-        jLabel4.setText("DNI :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 99, -1));
-        getContentPane().add(txtNombresUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, -1));
-        getContentPane().add(txtApellidoPaternoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 250, -1));
-        getContentPane().add(txtApellidoMaternoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 250, -1));
+        lbDNIUsuario.setText("DNI :");
 
-        jLabel5.setText("Apellido materno :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        lbApellidoMaternoUsuario.setText("Apellido materno :");
 
-        jLabel6.setText("Rol : ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
-        getContentPane().add(txtDNIUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 250, -1));
+        lbRolUsuario.setText("Rol : ");
 
         txtClaveUsuario.setMaximumSize(new java.awt.Dimension(80, 2147483647));
-        getContentPane().add(txtClaveUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 250, -1));
 
-        jLabel7.setText("Clave :");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
-        getContentPane().add(txtRolUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, -1));
+        lbClaveUsuario.setText("Clave :");
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
         NombreError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(NombreError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 85, 250, 20));
 
         APaternoError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(APaternoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 135, 250, 20));
 
         AMaternoError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(AMaternoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 185, 250, 20));
 
         DNIError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(DNIError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 235, 250, 20));
 
         ClaveError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(ClaveError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 285, 250, 20));
 
         RolError.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(RolError, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 335, 250, 20));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbNombreUsuario)
+                        .addGap(66, 66, 66)
+                        .addComponent(txtNombresUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(NombreError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbApellidoPaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtApellidoPaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(APaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbApellidoMaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtApellidoMaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(AMaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbDNIUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(txtDNIUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(DNIError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbClaveUsuario)
+                        .addGap(86, 86, 86)
+                        .addComponent(txtClaveUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(ClaveError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbRolUsuario)
+                        .addGap(94, 94, 94)
+                        .addComponent(txtRolUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(RolError, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(JBRegistrar)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnCancelar)))
+                .addGap(20, 20, 20))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNombreUsuario)
+                    .addComponent(txtNombresUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(NombreError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbApellidoPaternoUsuario)
+                    .addComponent(txtApellidoPaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(APaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbApellidoMaternoUsuario)
+                    .addComponent(txtApellidoMaternoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(AMaternoError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbDNIUsuario)
+                    .addComponent(txtDNIUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(DNIError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbClaveUsuario)
+                    .addComponent(txtClaveUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(ClaveError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbRolUsuario)
+                    .addComponent(txtRolUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(RolError, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(JBRegistrar))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void JBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegistrarActionPerformed
         // TODO add your handling code here:
@@ -247,14 +340,14 @@ public class InsertUsuario extends javax.swing.JFrame {
     private javax.swing.JButton JBRegistrar;
     private javax.swing.JLabel NombreError;
     private javax.swing.JLabel RolError;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JLabel lbApellidoMaternoUsuario;
+    private javax.swing.JLabel lbApellidoPaternoUsuario;
+    private javax.swing.JLabel lbClaveUsuario;
+    private javax.swing.JLabel lbDNIUsuario;
+    private javax.swing.JLabel lbNombreUsuario;
+    private javax.swing.JLabel lbRolUsuario;
+    private javax.swing.JLabel titulo;
     private javax.swing.JTextField txtApellidoMaternoUsuario;
     private javax.swing.JTextField txtApellidoPaternoUsuario;
     private javax.swing.JTextField txtClaveUsuario;
