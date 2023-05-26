@@ -213,8 +213,9 @@ public class Inicio extends javax.swing.JFrame {
         btnEliminarDocente = new javax.swing.JButton();
         btnActualizarDocente = new javax.swing.JButton();
         btnSalirDocente = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jTextField5 = new javax.swing.JTextField();
+        cbBuscarDocente = new javax.swing.JComboBox<>();
+        txtBuscarDocente = new javax.swing.JTextField();
+        btnBuscarDocente = new javax.swing.JButton();
         jPanelAlumno = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -224,9 +225,9 @@ public class Inicio extends javax.swing.JFrame {
         btnEliminarAlumnos = new javax.swing.JButton();
         btnEditarAlumnos = new javax.swing.JButton();
         btnSalirAlumnos = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        cbOpcionesBuscarAlumnos = new javax.swing.JComboBox<>();
+        txtBuscarAlumnos = new javax.swing.JTextField();
+        btnBuscarAlumnos = new javax.swing.JButton();
         jPanelApoderado = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -236,8 +237,9 @@ public class Inicio extends javax.swing.JFrame {
         btnEliminarApoderado = new javax.swing.JButton();
         btnEditarApoderado = new javax.swing.JButton();
         btnSalirApoderado = new javax.swing.JButton();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jTextField6 = new javax.swing.JTextField();
+        cbBuscarApoderado = new javax.swing.JComboBox<>();
+        txtBuscarApoderado = new javax.swing.JTextField();
+        btnBuscarApoderados = new javax.swing.JButton();
         jPanelPagos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTablePagos = new javax.swing.JTable();
@@ -396,7 +398,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+        cbBuscarDocente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI" }));
+        cbBuscarDocente.setToolTipText("");
+
+        btnBuscarDocente.setText("Buscar");
+        btnBuscarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDocenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelDocenteLayout = new javax.swing.GroupLayout(jPanelDocente);
         jPanelDocente.setLayout(jPanelDocenteLayout);
@@ -405,28 +415,30 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanelDocenteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
                     .addComponent(jScrollPane6)
                     .addGroup(jPanelDocenteLayout.createSequentialGroup()
                         .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                                .addComponent(btnActualizarTablaDocente)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSalirDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 303, Short.MAX_VALUE))
-                            .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField5)))
-                        .addGap(6, 6, 6))))
+                                .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelDocenteLayout.createSequentialGroup()
+                                        .addComponent(btnActualizarTablaDocente)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSalirDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelDocenteLayout.createSequentialGroup()
+                                        .addComponent(cbBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 15, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanelDocenteLayout.setVerticalGroup(
             jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,8 +447,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(15, 15, 15)
                 .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarDocente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -446,7 +459,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnActualizarDocente)
                     .addComponent(btnInsertarDocente)
                     .addComponent(btnSalirDocente))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Docente", jPanelDocente);
@@ -510,14 +523,19 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
-        jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+        cbOpcionesBuscarAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Apellidos y Nombres" }));
+        cbOpcionesBuscarAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jComboBox4MouseExited(evt);
+                cbOpcionesBuscarAlumnosMouseExited(evt);
             }
         });
 
-        jButton1.setText("Buscar");
+        btnBuscarAlumnos.setText("Buscar");
+        btnBuscarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAlumnosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAlumnoLayout = new javax.swing.GroupLayout(jPanelAlumno);
         jPanelAlumno.setLayout(jPanelAlumnoLayout);
@@ -545,11 +563,11 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSalirAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelAlumnoLayout.createSequentialGroup()
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbOpcionesBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(22, 22, Short.MAX_VALUE))))
         );
         jPanelAlumnoLayout.setVerticalGroup(
@@ -559,9 +577,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(cbOpcionesBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarAlumnos))
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -635,7 +653,14 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+        cbBuscarApoderado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
+
+        btnBuscarApoderados.setText("Buscar");
+        btnBuscarApoderados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarApoderadosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelApoderadoLayout = new javax.swing.GroupLayout(jPanelApoderado);
         jPanelApoderado.setLayout(jPanelApoderadoLayout);
@@ -659,13 +684,15 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelApoderadoLayout.createSequentialGroup()
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbBuscarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField6))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                                .addComponent(txtBuscarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarApoderados, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanelApoderadoLayout.setVerticalGroup(
             jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,8 +701,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbBuscarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarApoderados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -685,7 +713,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnEditarApoderado)
                     .addComponent(btnEliminarApoderado)
                     .addComponent(btnSalirApoderado))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Apoderado", jPanelApoderado);
@@ -1571,20 +1599,25 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(249, 249, 249)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(306, 306, 306)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addComponent(jTabbedPane2)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
@@ -1905,11 +1938,11 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jComboBox4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseExited
+    private void cbOpcionesBuscarAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbOpcionesBuscarAlumnosMouseExited
         // TODO add your handling code here:
-        System.out.println(jComboBox4.getSelectedItem()+"  saliendo");  
+        System.out.println(cbOpcionesBuscarAlumnos.getSelectedItem()+"  saliendo");  
         //jComboBox4.s
-    }//GEN-LAST:event_jComboBox4MouseExited
+    }//GEN-LAST:event_cbOpcionesBuscarAlumnosMouseExited
 
     private void txtDNIDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIDocenteActionPerformed
         // TODO add your handling code here:
@@ -2133,6 +2166,135 @@ public class Inicio extends javax.swing.JFrame {
         }
         modeloCurso.removeRow(fila);
     }//GEN-LAST:event_btnEliminarCursoActionPerformed
+
+    private void btnBuscarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAlumnosActionPerformed
+        // TODO add your handling code here:
+        int opcion = cbOpcionesBuscarAlumnos.getSelectedIndex();
+        String buscar = txtBuscarAlumnos.getText();
+        
+        switch (opcion) {
+            case 0:
+                {
+                    alumnos.clear();
+                    try {
+                        alumnos.add(alumBO.buscarPorDNI(buscar));
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 1:
+                {
+                    try {
+                        alumnos=alumBO.buscarPorAlumno(buscar);
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            default:
+                throw new AssertionError();
+        }
+        actualizarTablaAlumno();
+    }//GEN-LAST:event_btnBuscarAlumnosActionPerformed
+
+    private void btnBuscarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDocenteActionPerformed
+        // TODO add your handling code here:
+        int opcion = cbBuscarDocente.getSelectedIndex();
+        String buscar = txtBuscarDocente.getText();
+        
+        switch (opcion) {
+            case 0:
+                {
+                    docentes.clear();
+                    try {
+                        docentes.add(docenteBO.buscarPorDNI(buscar));
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 1:
+                {
+                    try {
+                        docentes=docenteBO.buscarPorDocente(buscar);
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            default:
+                throw new AssertionError();
+        }
+        actualizarTablaDocente();
+    }//GEN-LAST:event_btnBuscarDocenteActionPerformed
+
+    private void btnBuscarApoderadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarApoderadosActionPerformed
+        // TODO add your handling code here:
+        int opcion = cbBuscarApoderado.getSelectedIndex();
+        String buscar = txtBuscarApoderado.getText();
+        
+        switch (opcion) {
+            case 0:
+                {
+                    apoderados.clear();
+                    try {
+                        apoderados.add(apoBO.buscarApoderadoPorDNI(buscar));
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 1:
+                {
+                    try {
+                        apoderados=apoBO.buscarApoderadoPorNombre(buscar);
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            default:
+                throw new AssertionError();
+        }
+        actualizarTablaApoderado();
+    }//GEN-LAST:event_btnBuscarApoderadosActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2394,6 +2556,59 @@ public class Inicio extends javax.swing.JFrame {
     }
     
     
+    //Funcion para ordenar a los apoderados de acuerdo a su DNI
+    public ArrayList<Apoderado> ordenarPorApoderadosDNI(ArrayList<Apoderado> apoderados){
+        apoderados.sort((p1,p2)->String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
+        return apoderados;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su apellido paterno
+    public ArrayList<Apoderado> ordenarPorApoderadosxApellidoPaterno(ArrayList<Apoderado> apoderados){
+        apoderados.sort((p1,p2)->String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
+        return apoderados;
+    }  
+    //Funcion para ordenar a los apoderados de acuerdo a su apellido materno
+    public ArrayList<Apoderado> ordenarPorApoderadosxApellidoMaterno(ArrayList<Apoderado> apoderados){
+        apoderados.sort((p1,p2)->String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
+        return apoderados;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su nombre
+    public ArrayList<Apoderado> ordenarPorApoderadosxNombre(ArrayList<Apoderado> apoderados){
+        apoderados.sort((p1,p2)->String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
+        return apoderados;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su fecha de nacimientos
+    public ArrayList<Apoderado> ordenarPorApoderadosxContacto(ArrayList<Apoderado> apoderados){
+        apoderados.sort((p1,p2)->String.valueOf(p1.getContacto()).compareTo(String.valueOf(p2.getContacto())));;
+        return apoderados;
+    }
+    
+    //Funcion para ordenar a los docentes de acuerdo a su DNI
+    public ArrayList<Docente> ordenarPorDocenteDNI(ArrayList<Docente> docentes){
+        docentes.sort((p1,p2)->String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
+        return docentes;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su apellido paterno
+    public ArrayList<Docente> ordenarPorDocentesxApellidoPaterno(ArrayList<Docente> docentes){
+        docentes.sort((p1,p2)->String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
+        return docentes;
+    }  
+    //Funcion para ordenar a los apoderados de acuerdo a su apellido materno
+    public ArrayList<Docente> ordenarPorDocentesxApellidoMaterno(ArrayList<Docente> docentes){
+        docentes.sort((p1,p2)->String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
+        return docentes;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su nombre
+    public ArrayList<Docente> ordenarPorDocentesxNombre(ArrayList<Docente> docentes){
+        docentes.sort((p1,p2)->String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
+        return docentes;
+    }
+    //Funcion para ordenar a los apoderados de acuerdo a su fecha de nacimientos
+    public ArrayList<Docente> ordenarPorDocentesxContacto(ArrayList<Docente> docentes){
+        docentes.sort((p1,p2)->String.valueOf(p1.getContacto()).compareTo(String.valueOf(p2.getContacto())));;
+        return docentes;
+    }
+    
+    
     private void actualizarTablaAsistenciaDocentes(){
         modeloAdocentes = new DefaultTableModel();
         
@@ -2489,6 +2704,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizarTablaArea;
     private javax.swing.JButton btnActualizarTablaCurso;
     private javax.swing.JButton btnActualizarTablaDocente;
+    private javax.swing.JButton btnBuscarAlumnos;
+    private javax.swing.JButton btnBuscarApoderados;
+    private javax.swing.JButton btnBuscarDocente;
     private javax.swing.JButton btnEditarAlumnos;
     private javax.swing.JButton btnEditarApoderado;
     private javax.swing.JButton btnEditarUsuario;
@@ -2511,7 +2729,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirApoderado;
     private javax.swing.JButton btnSalirDocente;
     private javax.swing.JButton btnSalirUsuario;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> cbBuscarApoderado;
+    private javax.swing.JComboBox<String> cbBuscarDocente;
+    private javax.swing.JComboBox<String> cbOpcionesBuscarAlumnos;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
@@ -2530,9 +2750,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboxEstudiante;
     private javax.swing.JComboBox<String> jComboxPagos;
     private javax.swing.JLabel jLabel1;
@@ -2592,11 +2809,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTable jTablePagos;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTable tableAsistenciaDocentes;
+    private javax.swing.JTextField txtBuscarAlumnos;
+    private javax.swing.JTextField txtBuscarApoderado;
+    private javax.swing.JTextField txtBuscarDocente;
     private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtDNIDocente;
     // End of variables declaration//GEN-END:variables
