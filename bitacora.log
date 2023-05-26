@@ -1237,3 +1237,19 @@
   <message>Duplicate entry '123456999' for key 'docente.idx_docente_contacto'****[Ljava.lang.StackTraceElement;@63eb7666</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-26T01:10:58.939170600Z</date>
+  <millis>1685063458939</millis>
+  <nanos>170600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Duplicate entry 'area1' for key 'area.idx_area_nombre_UNIQUE'****[Ljava.lang.StackTraceElement;@36889a7a</message>
+</record>
+</log>
