@@ -185,6 +185,12 @@ public class DocenteDAO {
 
         } catch (Exception e) {         
             Bitacora.registrar(e);
+            if ( e.getMessage().contains("idx_docente_dni") ) {
+                throw new Exception("El DNI ingresado ya existe en la base de datos"); 
+            }
+            if ( e.getMessage().contains("idx_docente_contacto") ) {
+                throw new Exception("El Contacto ingresado ya existe en la base de datos"); 
+            }
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
             try {

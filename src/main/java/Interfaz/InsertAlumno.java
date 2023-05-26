@@ -265,7 +265,13 @@ public class InsertAlumno extends javax.swing.JFrame {
             try {
                 alumBO.insertar(alumno);
                 dispose();
-            } catch (Exception e) {
+            } catch (Exception e){
+                if ( e.getMessage().contains("El DNI ingresado ya existe") ) {
+                    jLabelDni.setText("El DNI ingresado ya fue registrado");
+                }
+                if ( e.getMessage().contains("El Correo electrónico ingresado ya existe") ) {
+                    jLabelCorreo.setText("El Correo electrónico ingresado ya fue registrado");
+                }
                 System.out.println(e.getMessage());
             }
         }

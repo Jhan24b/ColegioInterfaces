@@ -222,6 +222,12 @@ public class InsertApoderado extends javax.swing.JFrame {
                 apoBO.insertarApoderado(apoderado);
                 dispose();
             } catch (Exception e) {
+                if ( e.getMessage().contains("El DNI ingresado ya existe") ) {
+                    jLabelDni.setText("El DNI ingresado ya fue registrado");
+                }
+                if ( e.getMessage().contains("El Contacto ingresado ya existe") ) {
+                    jLabelContacto.setText("El Contacto ingresado ya fue registrado");
+                }
                 System.out.println(e.getMessage());
             }
         }
