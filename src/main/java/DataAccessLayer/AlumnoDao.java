@@ -47,11 +47,10 @@ public class AlumnoDao {
             //alumno.setAlumno_id(csmt.getInt(1));
 
         } catch (Exception e) {
-
             if (e.getMessage().contains("idx_alumno_dni")) {
                 throw new Exception("El DNI ingresado ya existe en la base de datos");
             }
-            if (e.getMessage().contains("idx_correo_electronico")) {
+            if (e.getMessage().contains("idx_alumno_correo_electronico")) {
                 throw new Exception("El Correo electrónico ingresado ya existe en la base de datos");
             }
             throw e;

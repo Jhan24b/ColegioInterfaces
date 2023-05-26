@@ -6,16 +6,21 @@ package Interfaz;
 
 import BusinessLayer.AlumnoBO;
 import BusinessLayer.ApoderadoBO;
+import BusinessLayer.AreaBO;
 import BusinessLayer.AsistenciaDocenteBO;
 import BusinessLayer.DocenteBO;
+import BusinessLayer.MatriculaBO;
 import BusinessLayer.UsuarioBO;
 import DataAccessLayer.AlumnoDao;
 import DataAccessLayer.ApoderadoDAO;
 import DataAccessLayer.DocenteDAO;
 import JavaBean.Alumno;
 import JavaBean.Apoderado;
+import JavaBean.Area;
 import JavaBean.AsistenciaDocente;
+import JavaBean.Curso;
 import JavaBean.Docente;
+import JavaBean.Matricula;
 import JavaBean.Usuario;
 import Utilities.Validator;
 import java.awt.event.ActionEvent;
@@ -187,25 +192,28 @@ public class Inicio extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanelMatricula = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTableMatricula = new javax.swing.JTable();
+        jTableGestionMatricula = new javax.swing.JTable();
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
+        jButton38 = new javax.swing.JButton();
         jPanelCursoArea = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableGestionCurso = new javax.swing.JTable();
         jButton35 = new javax.swing.JButton();
         jButton36 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
+        jButton42 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
+        jTableGestionArea = new javax.swing.JTable();
+        jButton43 = new javax.swing.JButton();
+        jButton44 = new javax.swing.JButton();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -324,7 +332,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 372, Short.MAX_VALUE))
+                        .addGap(0, 422, Short.MAX_VALUE))
                     .addGroup(jPanelUsuariosLayout.createSequentialGroup()
                         .addComponent(FiltroCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -437,7 +445,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 241, Short.MAX_VALUE))
+                                .addGap(0, 291, Short.MAX_VALUE))
                             .addGroup(jPanelDocenteLayout.createSequentialGroup()
                                 .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
@@ -512,7 +520,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton26.setText("Actualizar");
+        jButton26.setText("Editar");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton26ActionPerformed(evt);
@@ -558,7 +566,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 241, Short.MAX_VALUE))
+                                .addGap(0, 291, Short.MAX_VALUE))
                             .addGroup(jPanelAlumnoLayout.createSequentialGroup()
                                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -677,7 +685,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField6))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanelApoderadoLayout.setVerticalGroup(
             jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -779,7 +787,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 372, Short.MAX_VALUE)))
+                        .addGap(0, 422, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelPagosLayout.setVerticalGroup(
@@ -875,7 +883,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 372, Short.MAX_VALUE)))
+                        .addGap(0, 422, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelNotasLayout.setVerticalGroup(
@@ -898,7 +906,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Notas", jPanelNotas);
 
-        jTableMatricula.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGestionMatricula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -917,7 +925,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(jTableMatricula);
+        jScrollPane8.setViewportView(jTableGestionMatricula);
 
         jButton28.setText("Editar");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -950,6 +958,13 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton38.setText("Actualizar tabla");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMatriculaLayout = new javax.swing.GroupLayout(jPanelMatricula);
         jPanelMatricula.setLayout(jPanelMatriculaLayout);
         jPanelMatriculaLayout.setHorizontalGroup(
@@ -958,16 +973,17 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8)
-                    .addGroup(jPanelMatriculaLayout.createSequentialGroup()
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMatriculaLayout.createSequentialGroup()
+                        .addComponent(jButton38)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 372, Short.MAX_VALUE)))
+                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelMatriculaLayout.setVerticalGroup(
@@ -977,20 +993,21 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(63, 63, 63)
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton30)
                     .addComponent(jButton28)
                     .addComponent(jButton31)
-                    .addComponent(jButton29))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton29)
+                    .addComponent(jButton38))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Matricula", jPanelMatricula);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Curso\n")));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGestionCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1001,9 +1018,9 @@ public class Inicio extends javax.swing.JFrame {
                 "NOMBRE", "GRADO", "NIVEL", "AREA ID"
             }
         ));
-        jTable3.setCellSelectionEnabled(true);
-        jScrollPane10.setViewportView(jTable3);
-        jTable3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTableGestionCurso.setCellSelectionEnabled(true);
+        jScrollPane10.setViewportView(jTableGestionCurso);
+        jTableGestionCurso.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jButton35.setText("INSERTAR");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -1016,39 +1033,53 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton37.setText("ELIMINAR");
 
+        jButton42.setText("ACTUALIZAR TABLA");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jButton37)
+                        .addGap(19, 19, 19))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton36)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton37))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton42, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton37)
                     .addComponent(jButton36)
                     .addComponent(jButton35))
-                .addGap(96, 96, 96))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Area\n"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGestionArea.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -1059,21 +1090,33 @@ public class Inicio extends javax.swing.JFrame {
                 "ID", "NOMBRE AREA"
             }
         ));
-        jScrollPane9.setViewportView(jTable2);
+        jScrollPane9.setViewportView(jTableGestionArea);
 
-        jButton32.setText("INSERTAR");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        jButton43.setText("INSERTAR");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                jButton43ActionPerformed(evt);
             }
         });
 
-        jButton33.setText("ACTUALIZAR");
-
-        jButton34.setText("ELIMINAR");
-        jButton34.addActionListener(new java.awt.event.ActionListener() {
+        jButton44.setText("ACTUALIZAR");
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton34ActionPerformed(evt);
+                jButton44ActionPerformed(evt);
+            }
+        });
+
+        jButton45.setText("ACTUALIZAR TABLA");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+
+        jButton46.setText("ELIMINAR");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
             }
         });
 
@@ -1081,30 +1124,36 @@ public class Inicio extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton32)
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton33)
-                        .addGap(73, 73, 73)
-                        .addComponent(jButton34))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                        .addComponent(jButton46)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton33)
-                    .addComponent(jButton32)
-                    .addComponent(jButton34))
+                    .addComponent(jButton46)
+                    .addComponent(jButton44)
+                    .addComponent(jButton43))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1113,9 +1162,11 @@ public class Inicio extends javax.swing.JFrame {
         jPanelCursoAreaLayout.setHorizontalGroup(
             jPanelCursoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCursoAreaLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 445, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCursoAreaLayout.setVerticalGroup(
             jPanelCursoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1210,12 +1261,12 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 18, Short.MAX_VALUE)
+                                .addGap(0, 47, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -1345,7 +1396,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
+                        .addGap(0, 66, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1695,6 +1746,35 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
+        int fila = jTableGestionMatricula.getSelectedRow();
+        int columna = jTableGestionMatricula.getSelectedColumn();
+        
+        System.out.println( "Editando valor de Apoderado: "+jTableGestionMatricula.getValueAt(fila, columna));
+        String datoNuevo = "";
+
+        if(columna == 2)
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar el campo Fecha\n(El formato a ingresar tiene que ser el siguiente yyyy-mm-dd)");
+        else
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
+
+        Matricula matricula = matriculas.get(fila);
+
+        switch (columna) {
+            case 2 -> matricula.setFecha(Date.valueOf(datoNuevo).toLocalDate() );
+            case 3 -> matricula.setGrado(datoNuevo.charAt(0));
+            case 4 -> matricula.setNivel(datoNuevo.charAt(0));
+            case 5 -> matricula.setTurno(datoNuevo.charAt(0));
+            case 6 -> matricula.setAlumno_id(Integer.parseInt(datoNuevo));
+        }
+        
+        try {
+            matBO.actualizarMatricula(matricula);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+            actualizarTablaMatricula();
+        
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
@@ -1710,23 +1790,19 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
+        int fila = jTableGestionMatricula.getSelectedRow();
+
+        try {
+            System.out.println( "Eliminando Matricula con id: "+jTableGestionMatricula.getValueAt(fila, 1) );
+            int id = (int) jTableGestionMatricula.getValueAt(fila, 1);
+            System.out.println("ID :"+id);
+            matBO.eliminarMatricula(id);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        modeloMatricula.removeRow(fila);
     }//GEN-LAST:event_jButton31ActionPerformed
-
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        // TODO add your handling code here:
-        InsertArea insArea = new InsertArea();
-        insArea.setVisible(true);
-    }//GEN-LAST:event_jButton32ActionPerformed
-
-    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton34ActionPerformed
-
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        // TODO add your handling code here:
-        InsertCurso insCurso = new InsertCurso();
-        insCurso.setVisible(true);
-    }//GEN-LAST:event_jButton35ActionPerformed
 
     private void btnMarcarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarTodoActionPerformed
         // TODO add your handling code here:
@@ -1811,6 +1887,78 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaMatricula();
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        // TODO add your handling code here:
+        InsertCurso insCurso = new InsertCurso();
+        insCurso.setVisible(true);
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaCurso();
+    }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+        InsertArea insArea = new InsertArea();
+        insArea.setVisible(true);
+        
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaArea();
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        // TODO add your handling code here:
+        int fila = jTableGestionArea.getSelectedRow();
+        int columna = jTableGestionArea.getSelectedColumn();
+        
+        System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
+        String datoNuevo = "";
+        
+        if(columna > 1)
+            return;
+        
+        datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
+
+        Area area = areas.get(fila);
+
+        switch (columna) {
+            case 2 -> area.setArea_nombre(datoNuevo);
+        }
+        
+        try {
+            areaBO.actualizar(area);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+            actualizarTablaMatricula();
+    }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        // TODO add your handling code here:
+        int fila = jTableGestionArea.getSelectedRow();
+
+        try {
+            System.out.println( "Eliminando Apoderado con id: "+jTableGestionArea.getValueAt(fila, 1) );
+            int id = (int)jTableGestionArea.getValueAt(fila, 0);
+            System.out.println("ID :"+id);
+            areaBO.eliminar(id);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        modeloArea.removeRow(fila);
+    }//GEN-LAST:event_jButton46ActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -1905,6 +2053,101 @@ public class Inicio extends javax.swing.JFrame {
                     apoderado.getApellido_paterno(), apoderado.getApellido_materno(),
                     apoderado.getNombres(),apoderado.getContacto()};
                 modeloApoderado.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloMatricula;
+    private MatriculaBO matBO = new MatriculaBO();
+    private ArrayList<Matricula>  matriculas;
+    
+    private void actualizarTablaMatricula(){
+        modeloMatricula = new DefaultTableModel();
+        
+        jTableGestionMatricula.setModel(modeloMatricula);
+        
+        modeloMatricula.addColumn("#");
+        modeloMatricula.addColumn("matricula_id");
+        modeloMatricula.addColumn("fecha");
+        modeloMatricula.addColumn("grado");
+        modeloMatricula.addColumn("nivel");
+        modeloMatricula.addColumn("turno");
+        modeloMatricula.addColumn("alumno_id");
+        
+        try {
+            matriculas = matBO.ListarMatriculas();
+            System.out.println(matriculas.size());
+            
+            for (int i = 0; i < matriculas.size(); i++) {
+                Matricula matricula = matriculas.get(i);
+                
+                Object [] fila = new Object[] { (i+1) , matricula.getMatricula_id(), matricula.getFecha(), 
+                    matricula.getGrado(), matricula.getNivel(),
+                    matricula.getTurno(),matricula.getAlumno_id()};
+                modeloMatricula.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloArea;
+    private AreaBO areaBO = new AreaBO();
+    private ArrayList<Area>  areas;
+    
+    private void actualizarTablaArea(){
+        modeloArea = new DefaultTableModel();
+        
+        jTableGestionArea.setModel(modeloArea);
+        
+        modeloArea.addColumn("Area_id");
+        modeloArea.addColumn("Nombre");
+        
+        
+        try {
+            areas = areaBO.listar();
+            System.out.println(areas.size());
+            
+            for (int i = 0; i < areas.size(); i++) {
+                Area area = areas.get(i);
+                
+                Object [] fila = new Object[] { area.getArea_id(), area.getArea_nombre()};
+                modeloArea.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloCurso;
+    private ArrayList<Curso> cursos;
+    private ApoderadoBO cursoBO = new ApoderadoBO();
+    
+    private void actualizarTablaCurso(){
+        modeloCurso = new DefaultTableModel();
+        
+        jTableGestionCurso.setModel(modeloCurso);
+        
+        modeloCurso.addColumn("#");
+        modeloCurso.addColumn("apoderado_id");
+        modeloCurso.addColumn("dni");
+        modeloCurso.addColumn("apellido_paterno");
+        modeloCurso.addColumn("apellido_materno");
+        modeloCurso.addColumn("nombres");
+        modeloCurso.addColumn("contacto");
+        
+        try {
+             
+            System.out.println(cursos.size());
+            for (int i = 0; i < cursos.size(); i++) {
+                Curso curso = cursos.get(i);
+                
+                Object [] fila = new Object[] { curso.getCurso_id(), curso.getNombre(), 
+                    curso.getGrado(), curso.getNivel(),
+                    curso.getArea_id()};
+                modeloCurso.addRow(fila);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -2025,15 +2268,18 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2092,14 +2338,14 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTableGestionAlumnos;
     private javax.swing.JTable jTableGestionApoderados;
+    private javax.swing.JTable jTableGestionArea;
+    private javax.swing.JTable jTableGestionCurso;
     private javax.swing.JTable jTableGestionDocente;
+    private javax.swing.JTable jTableGestionMatricula;
     private javax.swing.JTable jTableGestionUsuarios;
-    private javax.swing.JTable jTableMatricula;
     private javax.swing.JTable jTableNotas;
     private javax.swing.JTable jTablePagos;
     private javax.swing.JTextField jTextField1;
