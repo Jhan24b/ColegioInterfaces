@@ -2314,7 +2314,8 @@ public class Inicio extends javax.swing.JFrame {
         modeloAlumnos.addColumn("Fecha de nacimiento");
         modeloAlumnos.addColumn("Correo electronico");
         
-        try {    
+        try {
+            alumnos = alumBO.buscarPorAlumno("");
             System.out.println(alumnos.size());
             for (int i = 0; i < alumnos.size(); i++) {
                 Alumno alumno = alumnos.get(i);
