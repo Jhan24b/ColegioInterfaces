@@ -1253,3 +1253,19 @@
   <message>Duplicate entry 'area1' for key 'area.idx_area_nombre_UNIQUE'****[Ljava.lang.StackTraceElement;@36889a7a</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-26T03:15:16.740314400Z</date>
+  <millis>1685070916740</millis>
+  <nanos>314400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Column 'apellido_paterno' not found.****[Ljava.lang.StackTraceElement;@792d3fa</message>
+</record>
+</log>

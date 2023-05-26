@@ -221,7 +221,10 @@ public class UsuarioDAO {
                 usuario = new Usuario();
                 usuario.setUsuario_id(rs.getInt("usuario_id"));
                 usuario.setDni(rs.getString("dni"));
-                usuario.setApellidosNombres(rs.getString("apellidos_nombres"));
+                usuario.setApellido_paterno(rs.getString("apellido_paterno"));
+                usuario.setApellido_materno(rs.getString("apellido_materno"));
+                usuario.setNombres(rs.getString("nombres"));
+                usuario.setRol(rs.getString("rol"));
                 
                 usuarios.add(usuario);
             }
@@ -259,9 +262,12 @@ public class UsuarioDAO {
             
             while(rs.next()){
                 usuario = new Usuario();
-                usuario.setUsuario_id(rs.getInt("usuario_id"));
-                usuario.setDni(rs.getString("dni"));
-                usuario.setApellidosNombres(rs.getString("apellidos_nombres"));             
+                System.out.println(rs.getString("apellido_paterno"));
+                usuario.setApellido_paterno(rs.getString("apellido_paterno"));             
+                usuario.setApellido_materno(rs.getString("apellido_materno"));             
+                usuario.setNombres(rs.getString("nombres"));
+                usuario.setClave(rs.getString("clave"));
+                usuario.setRol(rs.getString("rol"));           
             }
             
         }catch (Exception e) {         

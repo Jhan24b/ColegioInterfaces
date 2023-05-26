@@ -51,17 +51,20 @@ public class Inicio extends javax.swing.JFrame {
     /// OBJETOS
     private AsistenciaDocente adocente = new AsistenciaDocente();
     private Docente docente = new Docente();
+    private Usuario usuario = new Usuario();
     
     /// BUSSINESSLAYER
     private AsistenciaDocenteBO asisdocBO = new AsistenciaDocenteBO();
     private DocenteBO docenteBO = new DocenteBO();
-    
+    private UsuarioBO usuarioBO = new UsuarioBO();
     
     /// ARRAYS
     private ArrayList<AsistenciaDocente> adocentes = new ArrayList<>();
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
     
     /// MODELOS DE TABLAS
     private DefaultTableModel modeloAdocentes = new DefaultTableModel();
+    private DefaultTableModel modeloUsuarios = new DefaultTableModel();
     
     /****
      * 
@@ -76,7 +79,8 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        MyInitComponents();        
+        MyInitComponents();   
+        actualizarTablaUsuarios();
     }
     
     private void MyInitComponents(){
@@ -133,44 +137,44 @@ public class Inicio extends javax.swing.JFrame {
         jPanelUsuarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableGestionUsuarios = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnEditarUsuario = new javax.swing.JButton();
+        btnSalirUsuario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btnInsertarUsuario = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         FiltroCbx = new javax.swing.JComboBox<>();
         jPanelDocente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableGestionDocente = new javax.swing.JTable();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
+        btnInsertarDocente = new javax.swing.JButton();
+        btnActualizarTablaDocente = new javax.swing.JButton();
+        btnEliminarDocente = new javax.swing.JButton();
+        btnActualizarDocente = new javax.swing.JButton();
+        btnSalirDocente = new javax.swing.JButton();
         jComboBox5 = new javax.swing.JComboBox<>();
         jTextField5 = new javax.swing.JTextField();
         jPanelAlumno = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableGestionAlumnos = new javax.swing.JTable();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
+        btnInsertarAlumnos = new javax.swing.JButton();
+        btnActualizarTablaAlumnos = new javax.swing.JButton();
+        btnEliminarAlumnos = new javax.swing.JButton();
+        btnEditarAlumnos = new javax.swing.JButton();
+        btnSalirAlumnos = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
         jTextField4 = new javax.swing.JTextField();
         jPanelApoderado = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableGestionApoderados = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        btnInsertarApoderado = new javax.swing.JButton();
+        btnActualizarTablaApoderados = new javax.swing.JButton();
+        btnEliminarApoderado = new javax.swing.JButton();
+        btnEditarApoderado = new javax.swing.JButton();
+        btnSalirApoderado = new javax.swing.JButton();
         jComboBox6 = new javax.swing.JComboBox<>();
         jTextField6 = new javax.swing.JTextField();
         jPanelPagos = new javax.swing.JPanel();
@@ -204,17 +208,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTableGestionCurso = new javax.swing.JTable();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
+        btnInsertarCurso = new javax.swing.JButton();
+        btnActualizarCurso = new javax.swing.JButton();
+        btnEliminarCurso = new javax.swing.JButton();
+        btnActualizarTablaCurso = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTableGestionArea = new javax.swing.JTable();
-        jButton43 = new javax.swing.JButton();
-        jButton44 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
-        jButton46 = new javax.swing.JButton();
+        btnInsertarArea = new javax.swing.JButton();
+        btnActualizarArea = new javax.swing.JButton();
+        btnActualizarTablaArea = new javax.swing.JButton();
+        btnEliminarArea = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -274,7 +278,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -283,34 +287,34 @@ public class Inicio extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableGestionUsuarios);
 
-        jButton10.setText("Editar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarUsuario.setText("Editar");
+        btnEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnEditarUsuarioActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Salir");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirUsuario.setText("Salir");
+        btnSalirUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btnSalirUsuarioActionPerformed(evt);
             }
         });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("GESTION USUARIOS");
 
-        jButton12.setText("Insertar");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarUsuario.setText("Insertar");
+        btnInsertarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btnInsertarUsuarioActionPerformed(evt);
             }
         });
 
-        jButton13.setText("Eliminar");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                btnEliminarUsuarioActionPerformed(evt);
             }
         });
 
@@ -326,13 +330,13 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
                     .addGroup(jPanelUsuariosLayout.createSequentialGroup()
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInsertarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 422, Short.MAX_VALUE))
                     .addGroup(jPanelUsuariosLayout.createSequentialGroup()
                         .addComponent(FiltroCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -353,10 +357,10 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(jPanelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jButton10)
-                    .addComponent(jButton13)
-                    .addComponent(jButton11))
+                    .addComponent(btnInsertarUsuario)
+                    .addComponent(btnEditarUsuario)
+                    .addComponent(btnEliminarUsuario)
+                    .addComponent(btnSalirUsuario))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
 
@@ -386,38 +390,38 @@ public class Inicio extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jTableGestionDocente);
 
-        jButton18.setText("Insertar");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarDocente.setText("Insertar");
+        btnInsertarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btnInsertarDocenteActionPerformed(evt);
             }
         });
 
-        jButton19.setText("Actualizar tabla");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTablaDocente.setText("Actualizar tabla");
+        btnActualizarTablaDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                btnActualizarTablaDocenteActionPerformed(evt);
             }
         });
 
-        jButton20.setText("Eliminar");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarDocente.setText("Eliminar");
+        btnEliminarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                btnEliminarDocenteActionPerformed(evt);
             }
         });
 
-        jButton21.setText("Actualizar");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarDocente.setText("Actualizar");
+        btnActualizarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                btnActualizarDocenteActionPerformed(evt);
             }
         });
 
-        jButton22.setText("Salir");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirDocente.setText("Salir");
+        btnSalirDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                btnSalirDocenteActionPerformed(evt);
             }
         });
 
@@ -437,15 +441,15 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(jPanelDocenteLayout.createSequentialGroup()
                         .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                                .addComponent(jButton19)
+                                .addComponent(btnActualizarTablaDocente)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSalirDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 291, Short.MAX_VALUE))
                             .addGroup(jPanelDocenteLayout.createSequentialGroup()
                                 .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,11 +470,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton19)
-                    .addComponent(jButton20)
-                    .addComponent(jButton21)
-                    .addComponent(jButton18)
-                    .addComponent(jButton22))
+                    .addComponent(btnActualizarTablaDocente)
+                    .addComponent(btnEliminarDocente)
+                    .addComponent(btnActualizarDocente)
+                    .addComponent(btnInsertarDocente)
+                    .addComponent(btnSalirDocente))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
 
@@ -500,38 +504,38 @@ public class Inicio extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(jTableGestionAlumnos);
 
-        jButton23.setText("Insertar");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarAlumnos.setText("Insertar");
+        btnInsertarAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                btnInsertarAlumnosActionPerformed(evt);
             }
         });
 
-        jButton24.setText("Actualizar tabla");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTablaAlumnos.setText("Actualizar tabla");
+        btnActualizarTablaAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                btnActualizarTablaAlumnosActionPerformed(evt);
             }
         });
 
-        jButton25.setText("Eliminar");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarAlumnos.setText("Eliminar");
+        btnEliminarAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                btnEliminarAlumnosActionPerformed(evt);
             }
         });
 
-        jButton26.setText("Editar");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarAlumnos.setText("Editar");
+        btnEditarAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                btnEditarAlumnosActionPerformed(evt);
             }
         });
 
-        jButton27.setText("Salir");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirAlumnos.setText("Salir");
+        btnSalirAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                btnSalirAlumnosActionPerformed(evt);
             }
         });
 
@@ -558,15 +562,15 @@ public class Inicio extends javax.swing.JFrame {
                         .addGroup(jPanelAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAlumnoLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jButton24)
+                                .addComponent(btnActualizarTablaAlumnos)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInsertarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEditarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEliminarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSalirAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 291, Short.MAX_VALUE))
                             .addGroup(jPanelAlumnoLayout.createSequentialGroup()
                                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -587,11 +591,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanelAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton27)
-                    .addComponent(jButton25)
-                    .addComponent(jButton26)
-                    .addComponent(jButton23)
-                    .addComponent(jButton24))
+                    .addComponent(btnSalirAlumnos)
+                    .addComponent(btnEliminarAlumnos)
+                    .addComponent(btnEditarAlumnos)
+                    .addComponent(btnInsertarAlumnos)
+                    .addComponent(btnActualizarTablaAlumnos))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -621,38 +625,38 @@ public class Inicio extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTableGestionApoderados);
 
-        jButton1.setText("Insertar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarApoderado.setText("Insertar");
+        btnInsertarApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInsertarApoderadoActionPerformed(evt);
             }
         });
 
-        jButton14.setText("Actualizar tabla");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTablaApoderados.setText("Actualizar tabla");
+        btnActualizarTablaApoderados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                btnActualizarTablaApoderadosActionPerformed(evt);
             }
         });
 
-        jButton15.setText("Eliminar");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarApoderado.setText("Eliminar");
+        btnEliminarApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                btnEliminarApoderadoActionPerformed(evt);
             }
         });
 
-        jButton16.setText("Editar");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarApoderado.setText("Editar");
+        btnEditarApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                btnEditarApoderadoActionPerformed(evt);
             }
         });
 
-        jButton17.setText("Salir");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirApoderado.setText("Salir");
+        btnSalirApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btnSalirApoderadoActionPerformed(evt);
             }
         });
 
@@ -666,15 +670,15 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton14)
+                        .addComponent(btnActualizarTablaApoderados)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSalirApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -701,11 +705,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14)
-                    .addComponent(jButton1)
-                    .addComponent(jButton16)
-                    .addComponent(jButton15)
-                    .addComponent(jButton17))
+                    .addComponent(btnActualizarTablaApoderados)
+                    .addComponent(btnInsertarApoderado)
+                    .addComponent(btnEditarApoderado)
+                    .addComponent(btnEliminarApoderado)
+                    .addComponent(btnSalirApoderado))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -1023,26 +1027,31 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane10.setViewportView(jTableGestionCurso);
         jTableGestionCurso.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jButton35.setText("INSERTAR");
-        jButton35.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarCurso.setText("INSERTAR");
+        btnInsertarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton35ActionPerformed(evt);
+                btnInsertarCursoActionPerformed(evt);
             }
         });
 
-        jButton36.setText("ACTUALIZAR");
-        jButton36.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarCurso.setText("ACTUALIZAR");
+        btnActualizarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton36ActionPerformed(evt);
+                btnActualizarCursoActionPerformed(evt);
             }
         });
 
-        jButton37.setText("ELIMINAR");
-
-        jButton42.setText("ACTUALIZAR TABLA");
-        jButton42.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarCurso.setText("ELIMINAR");
+        btnEliminarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton42ActionPerformed(evt);
+                btnEliminarCursoActionPerformed(evt);
+            }
+        });
+
+        btnActualizarTablaCurso.setText("ACTUALIZAR TABLA");
+        btnActualizarTablaCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaCursoActionPerformed(evt);
             }
         });
 
@@ -1057,15 +1066,15 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInsertarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
-                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnActualizarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                        .addComponent(jButton37)
+                        .addComponent(btnEliminarCurso)
                         .addGap(19, 19, 19))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton42, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizarTablaCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(138, 138, 138))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1074,12 +1083,12 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton42)
+                .addComponent(btnActualizarTablaCurso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton37)
-                    .addComponent(jButton36)
-                    .addComponent(jButton35))
+                    .addComponent(btnEliminarCurso)
+                    .addComponent(btnActualizarCurso)
+                    .addComponent(btnInsertarCurso))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -1098,31 +1107,31 @@ public class Inicio extends javax.swing.JFrame {
         ));
         jScrollPane9.setViewportView(jTableGestionArea);
 
-        jButton43.setText("INSERTAR");
-        jButton43.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarArea.setText("INSERTAR");
+        btnInsertarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton43ActionPerformed(evt);
+                btnInsertarAreaActionPerformed(evt);
             }
         });
 
-        jButton44.setText("ACTUALIZAR");
-        jButton44.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarArea.setText("ACTUALIZAR");
+        btnActualizarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton44ActionPerformed(evt);
+                btnActualizarAreaActionPerformed(evt);
             }
         });
 
-        jButton45.setText("ACTUALIZAR TABLA");
-        jButton45.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTablaArea.setText("ACTUALIZAR TABLA");
+        btnActualizarTablaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton45ActionPerformed(evt);
+                btnActualizarTablaAreaActionPerformed(evt);
             }
         });
 
-        jButton46.setText("ELIMINAR");
-        jButton46.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarArea.setText("ELIMINAR");
+        btnEliminarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton46ActionPerformed(evt);
+                btnEliminarAreaActionPerformed(evt);
             }
         });
 
@@ -1136,15 +1145,15 @@ public class Inicio extends javax.swing.JFrame {
                         .addContainerGap(9, Short.MAX_VALUE)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInsertarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
-                        .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnActualizarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton46)))
+                        .addComponent(btnEliminarArea)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(140, 140, 140))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1153,12 +1162,12 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton45)
+                .addComponent(btnActualizarTablaArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton46)
-                    .addComponent(jButton44)
-                    .addComponent(jButton43))
+                    .addComponent(btnEliminarArea)
+                    .addComponent(btnActualizarArea)
+                    .addComponent(btnInsertarArea))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1515,12 +1524,12 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void btnSalirAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAlumnosActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_btnSalirAlumnosActionPerformed
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void btnEditarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAlumnosActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionAlumnos.getSelectedRow();
         int columna = jTableGestionAlumnos.getSelectedColumn();
@@ -1552,9 +1561,9 @@ public class Inicio extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_btnEditarAlumnosActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void btnEliminarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAlumnosActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
         int fila = jTableGestionAlumnos.getSelectedRow();
@@ -1569,18 +1578,18 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
         modeloAlumnos.removeRow(fila);
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }//GEN-LAST:event_btnEliminarAlumnosActionPerformed
 
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    private void btnActualizarTablaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaAlumnosActionPerformed
         // TODO add your handling code here:
         actualizarTablaAlumno();
-    }//GEN-LAST:event_jButton24ActionPerformed
+    }//GEN-LAST:event_btnActualizarTablaAlumnosActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void btnInsertarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarAlumnosActionPerformed
         // TODO add your handling code here:
         InsertAlumno insAlumno = new InsertAlumno();
         insAlumno.setVisible(true);
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_btnInsertarAlumnosActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -1606,12 +1615,12 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void btnSalirApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirApoderadoActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_btnSalirApoderadoActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void btnEditarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarApoderadoActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionApoderados.getSelectedRow();
         int columna = jTableGestionApoderados.getSelectedColumn();
@@ -1638,9 +1647,9 @@ public class Inicio extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_btnEditarApoderadoActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void btnEliminarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarApoderadoActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
         int fila = jTableGestionApoderados.getSelectedRow();
@@ -1655,25 +1664,25 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
         modeloApoderado.removeRow(fila);
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_btnEliminarApoderadoActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void btnActualizarTablaApoderadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaApoderadosActionPerformed
         // TODO add your handling code here:
         actualizarTablaApoderado();
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_btnActualizarTablaApoderadosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInsertarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarApoderadoActionPerformed
         // TODO add your handling code here:
         InsertApoderado PanelInsertarApoderado = new InsertApoderado();
         PanelInsertarApoderado.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnInsertarApoderadoActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void btnSalirDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDocenteActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }//GEN-LAST:event_btnSalirDocenteActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void btnActualizarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDocenteActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionDocente.getSelectedRow();
         int columna = jTableGestionDocente.getSelectedColumn();
@@ -1700,9 +1709,9 @@ public class Inicio extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_btnActualizarDocenteActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
         int fila = jTableGestionDocente.getSelectedRow();
@@ -1717,18 +1726,18 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
         modeloDocente.removeRow(fila);
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_btnEliminarDocenteActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void btnActualizarTablaDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaDocenteActionPerformed
         // TODO add your handling code here:
         actualizarTablaDocente();
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_btnActualizarTablaDocenteActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void btnInsertarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarDocenteActionPerformed
         // TODO add your handling code here:
         InsertDocente insDocente = new InsertDocente();
         insDocente.setVisible(true);
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_btnInsertarDocenteActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -1874,54 +1883,54 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegistrarIngresoActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void btnInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarUsuarioActionPerformed
         // TODO add your handling code here:
         InsertUsuario insUsu = new InsertUsuario();
         insUsu.setVisible(true);
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_btnInsertarUsuarioActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btnSalirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirUsuarioActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btnSalirUsuarioActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
         // TODO add your handling code here:
         actualizarTablaMatricula();
     }//GEN-LAST:event_jButton38ActionPerformed
 
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+    private void btnInsertarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarCursoActionPerformed
         // TODO add your handling code here:
         InsertCurso insCurso = new InsertCurso();
         insCurso.setVisible(true);
-    }//GEN-LAST:event_jButton35ActionPerformed
+    }//GEN-LAST:event_btnInsertarCursoActionPerformed
 
-    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+    private void btnActualizarTablaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaCursoActionPerformed
         // TODO add your handling code here:
         actualizarTablaCurso();
-    }//GEN-LAST:event_jButton42ActionPerformed
+    }//GEN-LAST:event_btnActualizarTablaCursoActionPerformed
 
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+    private void btnInsertarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarAreaActionPerformed
         // TODO add your handling code here:
         InsertArea insArea = new InsertArea();
         insArea.setVisible(true);
         
-    }//GEN-LAST:event_jButton43ActionPerformed
+    }//GEN-LAST:event_btnInsertarAreaActionPerformed
 
-    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+    private void btnActualizarTablaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaAreaActionPerformed
         // TODO add your handling code here:
         actualizarTablaArea();
-    }//GEN-LAST:event_jButton45ActionPerformed
+    }//GEN-LAST:event_btnActualizarTablaAreaActionPerformed
 
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+    private void btnActualizarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAreaActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionArea.getSelectedRow();
         int columna = jTableGestionArea.getSelectedColumn();
@@ -1948,9 +1957,9 @@ public class Inicio extends javax.swing.JFrame {
         }
 
         actualizarTablaArea();
-    }//GEN-LAST:event_jButton44ActionPerformed
+    }//GEN-LAST:event_btnActualizarAreaActionPerformed
 
-    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+    private void btnEliminarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAreaActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionArea.getSelectedRow();
 
@@ -1964,9 +1973,9 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
         modeloArea.removeRow(fila);
-    }//GEN-LAST:event_jButton46ActionPerformed
+    }//GEN-LAST:event_btnEliminarAreaActionPerformed
 
-    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+    private void btnActualizarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCursoActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionCurso.getSelectedRow();
         int columna = jTableGestionCurso.getSelectedColumn();
@@ -1981,22 +1990,42 @@ public class Inicio extends javax.swing.JFrame {
             return;
         
         Curso curso = cursos.get(fila);
-
-        switch (columna) {
-            case 1 -> curso.setNombre(datoNuevo);
-            case 2 -> curso.setGrado(datoNuevo);
-            case 3 -> curso.setNombre(datoNuevo);
-            case 4 -> curso.setArea_id(Integer.parseInt(datoNuevo));
+        
+        if((columna==2 && datoNuevo.length()>1) || (columna==3 && datoNuevo.length()>1)){
+            columna = 5;
         }
         
         try {
-            areaBO.actualizar(area);
+            switch (columna){
+            case 1 -> curso.setNombre(datoNuevo);
+            case 2 -> curso.setGrado(datoNuevo.charAt(0));
+            case 3 -> curso.setNivel(datoNuevo.charAt(0));
+            case 4 -> curso.setArea_id(Integer.parseInt(datoNuevo));
+            }
+            
+            cursoBO.actualizar(curso);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        actualizarTablaArea();
-    }//GEN-LAST:event_jButton36ActionPerformed
+        actualizarTablaCurso();
+    }//GEN-LAST:event_btnActualizarCursoActionPerformed
+
+    private void btnEliminarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCursoActionPerformed
+        // TODO add your handling code here:
+        int fila = jTableGestionCurso.getSelectedRow();
+
+        try {
+            System.out.println( "Eliminando Apoderado con id: "+jTableGestionCurso.getValueAt(fila, 1) );
+            int id = (int)jTableGestionCurso.getValueAt(fila, 0);
+            System.out.println("ID :"+id);
+            cursoBO.eliminar(id);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        modeloCurso.removeRow(fila);
+    }//GEN-LAST:event_btnEliminarCursoActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2180,7 +2209,7 @@ public class Inicio extends javax.swing.JFrame {
             for (int i = 0; i < cursos.size(); i++) {
                 Curso curso = cursos.get(i);
                 
-                Object [] fila = new Object[] { (i+1) , curso.getCurso_id(), curso.getNombre(), 
+                Object [] fila = new Object[] {curso.getCurso_id(), curso.getNombre(), 
                     curso.getGrado(), curso.getNivel(),
                     curso.getArea_id()};
                 modeloCurso.addRow(fila);
@@ -2232,6 +2261,32 @@ public class Inicio extends javax.swing.JFrame {
         }
     }
     
+    
+    private void actualizarTablaUsuarios(){
+        modeloUsuarios = (DefaultTableModel) jTableGestionUsuarios.getModel();
+        modeloUsuarios.setRowCount(0);
+        try {
+            usuarios = usuarioBO.buscarPorUsuario("");
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        System.out.println(usuarios.size());
+        try {
+            for (int i = 0; i < usuarios.size(); i++) {
+                usuario = usuarios.get(i);
+                System.out.println(usuario.getDni());
+                System.out.println(usuario.getApellido_paterno());
+                System.out.println(usuario.getClave());
+                Object [] fila = new Object[] {usuario.getUsuario_id(), usuario.getDni(), usuario.getApellido_paterno(), usuario.getApellido_materno(), usuario.getNombres(), usuario.getClave(), usuario.getRol()};
+                modeloUsuarios.addRow(fila);
+            }
+            jTableGestionUsuarios.setModel(modeloUsuarios);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /*****
     *
     * FIN FUNCIONES
@@ -2276,46 +2331,46 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> FiltroCbx;
+    private javax.swing.JButton btnActualizarArea;
+    private javax.swing.JButton btnActualizarCurso;
+    private javax.swing.JButton btnActualizarDocente;
+    private javax.swing.JButton btnActualizarTablaAlumnos;
+    private javax.swing.JButton btnActualizarTablaApoderados;
+    private javax.swing.JButton btnActualizarTablaArea;
+    private javax.swing.JButton btnActualizarTablaCurso;
+    private javax.swing.JButton btnActualizarTablaDocente;
+    private javax.swing.JButton btnEditarAlumnos;
+    private javax.swing.JButton btnEditarApoderado;
+    private javax.swing.JButton btnEditarUsuario;
+    private javax.swing.JButton btnEliminarAlumnos;
+    private javax.swing.JButton btnEliminarApoderado;
+    private javax.swing.JButton btnEliminarArea;
+    private javax.swing.JButton btnEliminarCurso;
+    private javax.swing.JButton btnEliminarDocente;
+    private javax.swing.JButton btnEliminarUsuario;
+    private javax.swing.JButton btnInsertarAlumnos;
+    private javax.swing.JButton btnInsertarApoderado;
+    private javax.swing.JButton btnInsertarArea;
+    private javax.swing.JButton btnInsertarCurso;
+    private javax.swing.JButton btnInsertarDocente;
+    private javax.swing.JButton btnInsertarUsuario;
     private javax.swing.JButton btnMarcarTodo;
     private javax.swing.JButton btnRegistrarIngreso;
     private javax.swing.JButton btnRegistrarSalida;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
+    private javax.swing.JButton btnSalirAlumnos;
+    private javax.swing.JButton btnSalirApoderado;
+    private javax.swing.JButton btnSalirDocente;
+    private javax.swing.JButton btnSalirUsuario;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
