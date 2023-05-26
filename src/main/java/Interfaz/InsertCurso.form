@@ -38,15 +38,13 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabelAreaId" pref="175" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelGrado" max="32767" attributes="0"/>
-                              <Component id="jTextNombres" max="32767" attributes="0"/>
-                              <Component id="jComboBoxGrado" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBoxNivel" alignment="0" pref="175" max="32767" attributes="0"/>
-                              <Component id="jTextAreaId" max="32767" attributes="0"/>
-                              <Component id="jLabelNombre" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelNivel" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelGrado" max="32767" attributes="0"/>
+                          <Component id="jTextNombres" max="32767" attributes="0"/>
+                          <Component id="jComboBoxGrado" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jComboBoxNivel" alignment="0" pref="175" max="32767" attributes="0"/>
+                          <Component id="jTextAreaId" max="32767" attributes="0"/>
+                          <Component id="jLabelNombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelNivel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
@@ -71,21 +69,21 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextNombres" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxGrado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelGrado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxNivel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="jLabelNivel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -185,12 +183,36 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNombre">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelGrado">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNivel">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelAreaId">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
