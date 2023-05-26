@@ -2139,7 +2139,7 @@ public class Inicio extends javax.swing.JFrame {
         modeloCurso.addColumn("contacto");
         
         try {
-            
+             
             System.out.println(cursos.size());
             for (int i = 0; i < cursos.size(); i++) {
                 Curso curso = cursos.get(i);
