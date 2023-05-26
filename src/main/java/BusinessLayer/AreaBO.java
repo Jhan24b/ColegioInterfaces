@@ -23,6 +23,7 @@ public class AreaBO {
         
         try {
             AreaDAO areaDAO = new AreaDAO();
+            System.out.println("insertando");
             areaDAO.insertar(area);
         } catch (Exception e) {
             throw e;

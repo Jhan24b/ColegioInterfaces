@@ -375,7 +375,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnActualizarDocente)
                     .addComponent(btnInsertarDocente)
                     .addComponent(btnSalirDocente))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Docente", jPanelDocente);
@@ -1513,7 +1513,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(643, 643, 643))
+                .addContainerGap())
         );
 
         pack();
@@ -1895,6 +1895,33 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         // TODO add your handling code here:
+        System.out.println("Intentandopipipi");
+        int fila = jTableGestionUsuarios.getSelectedRow();
+        int columna = jTableGestionUsuarios.getSelectedColumn();
+
+        try {
+            String datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");;
+
+            Usuario interno = usuarios.get(fila);
+
+            switch (columna) {
+                case 1 -> interno.setDni(datoNuevo);
+                case 2 -> interno.setApellido_paterno(datoNuevo);
+                case 3 -> interno.setApellido_materno(datoNuevo);
+                case 4 -> interno.setNombres(datoNuevo);
+                case 5 -> interno.setClave(datoNuevo );
+                case 6 -> interno.setRol(datoNuevo);
+                default -> {
+                }
+            }
+            
+            System.out.println(datoNuevo + " - " + interno.getUsuario_id());
+            usuarioBO.actualizar(interno);
+
+            actualizarTablaUsuarios();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
