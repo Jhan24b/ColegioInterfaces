@@ -164,7 +164,7 @@ public class AlumnoDao {
                 else alumno.setNombres(nombres[2]+" "+nombres[3]); 
                 
                 alumno.setCorreo_electrico(rs.getString("correo_electronico"));
-                
+                System.out.println(rs.getString("correo_electronico"));
                 alumno.setFecha_nacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
                 
                 alumnos.add(alumno);

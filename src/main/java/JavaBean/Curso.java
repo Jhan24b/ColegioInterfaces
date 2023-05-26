@@ -47,6 +47,7 @@ public class Curso {
     public void setNombre(String nombre){
         if( (nombre==null) || (nombre.isEmpty()) ){
             errores.put("nombres","El campo Nombre no puede estar vacio");
+            return;
         }
         this.nombre = nombre;
     }
@@ -58,6 +59,7 @@ public class Curso {
     public void setGrado(char grado){
         if (grado == ' '){
             errores.put("grado","El campo grado no puede estar vacio");
+            return;
         }
         this.grado = grado;
     }    
@@ -69,6 +71,7 @@ public class Curso {
     public void setNivel(char nivel){
         if (nivel == ' '){
             errores.put("nivel","El campo nivel no puede estar vacio");
+            return;
         }
         this.nivel = nivel;
     }

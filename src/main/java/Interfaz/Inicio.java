@@ -62,6 +62,7 @@ public class Inicio extends javax.swing.JFrame {
     private ArrayList<AsistenciaDocente> adocentes = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     
+    
     /// MODELOS DE TABLAS
     private DefaultTableModel modeloAdocentes = new DefaultTableModel();
     private DefaultTableModel modeloUsuarios = new DefaultTableModel();
@@ -81,6 +82,13 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         MyInitComponents();   
         actualizarTablaUsuarios();
+        
+        try {
+            alumnos = alumBO.buscarPorAlumno("");
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        actualizarTablaAlumno();
     }
     
     private void MyInitComponents(){
@@ -96,28 +104,32 @@ public class Inicio extends javax.swing.JFrame {
         int columnIndex = header.columnAtPoint(evt.getPoint());
         System.out.println("Seleccion: " + columnIndex);
         switch (columnIndex) {
-            case 0:
+            case 1:
                 System.out.println("Ordenando por codigo");
                 break;
-            case 1:
-                System.out.println("Ordenando por dni");
-                break;
             case 2:
+                System.out.println("Ordenando por dni");
+                ordenarPorAlumnosDNI(alumnos);
+                break;
+            case 3:
                 System.out.println("Ordenando po apellido paterno");
                 ordenarPorAlumnosxApellidoPaterno(alumnos);
                 break;
-            case 3:
-                
-                break;
             case 4:
-                
+                System.out.println("Ordenando po apellido materno");
+                ordenarPorAlumnosxApellidoMaterno(alumnos);
                 break;
             case 5:
-                
+                System.out.println("Ordenando po Nombre");
+                ordenarPorAlumnosxNombre(alumnos);
+                break;
+            case 6:
+                ordenarPorAlumnosxFechaNacimiento(alumnos);
                 break;
             default:
                 throw new AssertionError();
         }
+        actualizarTablaAlumno();
     }
     
     /**
@@ -1880,6 +1892,17 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
         // TODO add your handling code here:
+        int fila = jTableGestionUsuarios.getSelectedRow();
+
+        try {
+            int id = (int)jTableGestionUsuarios.getValueAt(fila, 0);
+            System.out.println("ID :"+id);
+            usuarioBO.eliminar(id);
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        actualizarTablaUsuarios();
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
     private void btnInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarUsuarioActionPerformed
@@ -1895,7 +1918,6 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         // TODO add your handling code here:
-        System.out.println("Intentandopipipi");
         int fila = jTableGestionUsuarios.getSelectedRow();
         int columna = jTableGestionUsuarios.getSelectedColumn();
 
@@ -2052,6 +2074,7 @@ public class Inicio extends javax.swing.JFrame {
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
     private ArrayList<Alumno>  alumnos;
+    
     private void actualizarTablaAlumno(){
         modeloAlumnos = new DefaultTableModel();
         
@@ -2067,11 +2090,10 @@ public class Inicio extends javax.swing.JFrame {
         modeloAlumnos.addColumn("Correo electronico");
         
         try {
-            alumnos = alumBO.buscarPorAlumno("");
             System.out.println(alumnos.size());
             for (int i = 0; i < alumnos.size(); i++) {
                 Alumno alumno = alumnos.get(i);
-                
+                System.out.println(alumno.getCorreo_electrico());
                 Object [] fila = new Object[] { (i+1) , alumno.getAlumno_id(), alumno.getDni(), 
                     alumno.getApellido_paterno(), alumno.getApellido_materno(),
                     alumno.getNombres(), alumno.getFecha_nacimiento() , alumno.getCorreo_electrico()};
@@ -2247,6 +2269,12 @@ public class Inicio extends javax.swing.JFrame {
     *
     *****/
     
+    //Funcion para ordenar a los alumnos de acuerdo a su DNI
+    public ArrayList<Alumno> ordenarPorAlumnosDNI(ArrayList<Alumno> alumnos){
+        alumnos.sort((p1,p2)->String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
+        return alumnos;
+    }
+    
     //Funcion para ordenar a los alumnos de acuerdo a su apellido paterno
     public ArrayList<Alumno> ordenarPorAlumnosxApellidoPaterno(ArrayList<Alumno> alumnos){
         alumnos.sort((p1,p2)->String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
@@ -2265,6 +2293,11 @@ public class Inicio extends javax.swing.JFrame {
         return alumnos;
     }
     
+    //Funcion para ordenar a los alumnos de acuerdo a su fecha de nacimientos
+    public ArrayList<Alumno> ordenarPorAlumnosxFechaNacimiento(ArrayList<Alumno> alumnos){
+        alumnos.sort((p1,p2)->String.valueOf(p1.getFecha_nacimiento()).compareTo(String.valueOf(p2.getFecha_nacimiento())));;
+        return alumnos;
+    }
     
     private void actualizarTablaAsistenciaDocentes(){
         modeloAdocentes = new DefaultTableModel();
