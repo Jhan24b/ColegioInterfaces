@@ -8,6 +8,7 @@ import BusinessLayer.AlumnoBO;
 import BusinessLayer.ApoderadoBO;
 import BusinessLayer.AreaBO;
 import BusinessLayer.AsistenciaDocenteBO;
+import BusinessLayer.CursoBO;
 import BusinessLayer.DocenteBO;
 import BusinessLayer.MatriculaBO;
 import BusinessLayer.UsuarioBO;
@@ -1030,6 +1031,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButton36.setText("ACTUALIZAR");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
 
         jButton37.setText("ELIMINAR");
 
@@ -1051,8 +1057,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
+                        .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
                         .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addComponent(jButton37)
@@ -1125,14 +1131,13 @@ public class Inicio extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addContainerGap(9, Short.MAX_VALUE)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
+                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
                         .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton46)))
@@ -1921,18 +1926,19 @@ public class Inicio extends javax.swing.JFrame {
         int fila = jTableGestionArea.getSelectedRow();
         int columna = jTableGestionArea.getSelectedColumn();
         
-        System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
         String datoNuevo = "";
         
-        if(columna > 1)
+        if(columna > 0){
+            System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
+        }
+        else
             return;
         
-        datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-
         Area area = areas.get(fila);
 
         switch (columna) {
-            case 2 -> area.setArea_nombre(datoNuevo);
+            case 1 -> area.setArea_nombre(datoNuevo);
         }
         
         try {
@@ -1941,7 +1947,7 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
 
-            actualizarTablaMatricula();
+        actualizarTablaArea();
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
@@ -1959,6 +1965,35 @@ public class Inicio extends javax.swing.JFrame {
         }
         modeloArea.removeRow(fila);
     }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        // TODO add your handling code here:
+        int fila = jTableGestionArea.getSelectedRow();
+        int columna = jTableGestionArea.getSelectedColumn();
+        
+        String datoNuevo = "";
+        
+        if(columna > 0){
+            System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
+            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
+        }
+        else
+            return;
+        
+        Area area = areas.get(fila);
+
+        switch (columna) {
+            case 1 -> area.setArea_nombre(datoNuevo);
+        }
+        
+        try {
+            areaBO.actualizar(area);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        actualizarTablaArea();
+    }//GEN-LAST:event_jButton36ActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2123,28 +2158,26 @@ public class Inicio extends javax.swing.JFrame {
     
     private DefaultTableModel modeloCurso;
     private ArrayList<Curso> cursos;
-    private ApoderadoBO cursoBO = new ApoderadoBO();
+    private CursoBO cursoBO = new CursoBO();
     
     private void actualizarTablaCurso(){
         modeloCurso = new DefaultTableModel();
         
         jTableGestionCurso.setModel(modeloCurso);
         
-        modeloCurso.addColumn("#");
-        modeloCurso.addColumn("apoderado_id");
-        modeloCurso.addColumn("dni");
-        modeloCurso.addColumn("apellido_paterno");
-        modeloCurso.addColumn("apellido_materno");
-        modeloCurso.addColumn("nombres");
-        modeloCurso.addColumn("contacto");
+        modeloCurso.addColumn("curso_id");
+        modeloCurso.addColumn("curso_nombre");
+        modeloCurso.addColumn("grado");
+        modeloCurso.addColumn("nivel");
+        modeloCurso.addColumn("area_id");
         
         try {
-             
+            cursos = cursoBO.buscarPorCurso("");
             System.out.println(cursos.size());
             for (int i = 0; i < cursos.size(); i++) {
                 Curso curso = cursos.get(i);
                 
-                Object [] fila = new Object[] { curso.getCurso_id(), curso.getNombre(), 
+                Object [] fila = new Object[] { (i+1) , curso.getCurso_id(), curso.getNombre(), 
                     curso.getGrado(), curso.getNivel(),
                     curso.getArea_id()};
                 modeloCurso.addRow(fila);
