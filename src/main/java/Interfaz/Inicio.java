@@ -1010,13 +1010,13 @@ public class Inicio extends javax.swing.JFrame {
 
         jTableGestionCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "GRADO", "NIVEL", "AREA ID"
+                "CURSO ID", "NOMBRE", "GRADO", "NIVEL", "AREA ID"
             }
         ));
         jTableGestionCurso.setCellSelectionEnabled(true);
@@ -1968,22 +1968,25 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
         // TODO add your handling code here:
-        int fila = jTableGestionArea.getSelectedRow();
-        int columna = jTableGestionArea.getSelectedColumn();
+        int fila = jTableGestionCurso.getSelectedRow();
+        int columna = jTableGestionCurso.getSelectedColumn();
         
         String datoNuevo = "";
         
         if(columna > 0){
-            System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
+            System.out.println( "Editando valor de Area: "+jTableGestionCurso.getValueAt(fila, columna));
             datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
         }
         else
             return;
         
-        Area area = areas.get(fila);
+        Curso curso = cursos.get(fila);
 
         switch (columna) {
-            case 1 -> area.setArea_nombre(datoNuevo);
+            case 1 -> curso.setNombre(datoNuevo);
+            case 2 -> curso.setGrado(datoNuevo);
+            case 3 -> curso.setNombre(datoNuevo);
+            case 4 -> curso.setArea_id(Integer.parseInt(datoNuevo));
         }
         
         try {
