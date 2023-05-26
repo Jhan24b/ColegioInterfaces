@@ -97,7 +97,20 @@ public class Inicio extends javax.swing.JFrame {
                         jHeaderGestionAlumnosMouseClicked(evt);
                         }
         });
+        
+        jTableGestionUsuarios.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jHeaderGestionUsuariosMouseClicked(evt);
+                        }
+        });
     }
+    
+    
+    /*****
+     * 
+     *  EVENTOS CREADOS
+     * 
+    *****/
     
     private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt){
         JTableHeader header = jTableGestionAlumnos.getTableHeader();
@@ -131,6 +144,47 @@ public class Inicio extends javax.swing.JFrame {
         }
         actualizarTablaAlumno();
     }
+    
+    
+    private void jHeaderGestionUsuariosMouseClicked(java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionUsuarios.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+        System.out.println("Seleccion: " + columnIndex);
+        switch (columnIndex) {
+            case 0:
+                System.out.println("Ordenando por codigo");
+                break;
+            case 1:
+                System.out.println("Ordenando por dni");
+                ordenarUsuariosPorDNI(usuarios);
+                break;
+            case 2:
+                System.out.println("Ordenando po apellido paterno");
+                ordenarUsuariosPorApellidoPaterno(usuarios);
+                break;
+            case 3:
+                System.out.println("Ordenando po apellido materno");
+                ordenarUsuariosPorApellidoMaterno(usuarios);
+                break;
+            case 4:
+                System.out.println("Ordenando po Nombre");
+                ordenarUsuariosPorNombre(usuarios);
+                break;
+            case 6:
+                ordenarUsuariosPorRol(usuarios);
+                break;
+            default:
+                throw new AssertionError();
+        }
+        actualizarTablaAlumno();
+    }
+    
+    
+    /*****
+     * 
+     *  FIN EVENTOS CREADOS
+     * 
+    *****/
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2298,6 +2352,38 @@ public class Inicio extends javax.swing.JFrame {
         alumnos.sort((p1,p2)->String.valueOf(p1.getFecha_nacimiento()).compareTo(String.valueOf(p2.getFecha_nacimiento())));;
         return alumnos;
     }
+    
+    
+    //Funcion para ordenar a los usuarios de acuerdo a su dni
+    public ArrayList<Usuario> ordenarUsuariosPorDNI(ArrayList<Usuario> usuarios){
+        usuarios.sort((p1,p2)->String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
+        return usuarios;
+    }
+    
+    //Funcion para ordenar a los usuarios de acuerdo a su apellido paterno
+    public ArrayList<Usuario> ordenarUsuariosPorApellidoPaterno(ArrayList<Usuario> usuarios){
+        usuarios.sort((p1,p2)->String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
+        return usuarios;
+    }
+    
+    //Funcion para ordenar a los usuarios de acuerdo a su apellido materno
+    public ArrayList<Usuario> ordenarUsuariosPorApellidoMaterno(ArrayList<Usuario> usuarios){
+        usuarios.sort((p1,p2)->String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
+        return usuarios;
+    }
+    
+    //Funcion para ordenar a los usuarios de acuerdo a su nombre
+    public ArrayList<Usuario> ordenarUsuariosPorNombre(ArrayList<Usuario> usuarios){
+        usuarios.sort((p1,p2)->String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
+        return usuarios;
+    }
+    
+    //Funcion para ordenar a los usuarios de acuerdo a su nombre
+    public ArrayList<Usuario> ordenarUsuariosPorRol(ArrayList<Usuario> usuarios){
+        usuarios.sort((p1,p2)->String.valueOf(p1.getRol()).compareTo(String.valueOf(p2.getRol())));;
+        return usuarios;
+    }
+    
     
     private void actualizarTablaAsistenciaDocentes(){
         modeloAdocentes = new DefaultTableModel();
