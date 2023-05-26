@@ -1747,7 +1747,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jComboBox4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseExited
         // TODO add your handling code here:
-        System.out.println(jComboBox4.getSelectedItem()+"  saliendo");
+        System.out.println(jComboBox4.getSelectedItem()+"  saliendo");  
         //jComboBox4.s
     }//GEN-LAST:event_jComboBox4MouseExited
 
