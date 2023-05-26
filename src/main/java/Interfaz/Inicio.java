@@ -53,6 +53,7 @@ public class Inicio extends javax.swing.JFrame {
     private Docente docente = new Docente();
     private Usuario usuario = new Usuario();
     
+      private Usuario usuario3 = new Usuario();
     /// BUSSINESSLAYER
     private AsistenciaDocenteBO asisdocBO = new AsistenciaDocenteBO();
     private DocenteBO docenteBO = new DocenteBO();
