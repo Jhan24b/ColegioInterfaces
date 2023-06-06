@@ -2374,7 +2374,6 @@ public class Inicio extends javax.swing.JFrame {
         modeloMatricula.addColumn("alumno_id");
         
         try {
-            matriculas = matBO.ListarMatriculas();
             System.out.println(matriculas.size());
             
             for (int i = 0; i < matriculas.size(); i++) {
@@ -2433,7 +2432,6 @@ public class Inicio extends javax.swing.JFrame {
         modeloCurso.addColumn("area_id");
         
         try {
-            cursos = cursoBO.buscarPorCurso("");
             System.out.println(cursos.size());
             for (int i = 0; i < cursos.size(); i++) {
                 Curso curso = cursos.get(i);
@@ -2591,7 +2589,7 @@ public class Inicio extends javax.swing.JFrame {
         modeloUsuarios = (DefaultTableModel) jTableGestionUsuarios.getModel();
         modeloUsuarios.setRowCount(0);
         try {
-            usuarios = usuarioBO.buscarPorUsuario("");
+            //usuarios = usuarioBO.buscarPorUsuario("");
         } catch (Exception ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
