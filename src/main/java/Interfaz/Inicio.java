@@ -89,12 +89,25 @@ public class Inicio extends javax.swing.JFrame {
         MyInitComponents();   
         actualizarTablaUsuarios();
         
+                    
         try {
             alumnos = alumBO.buscarPorAlumno("");
+            docentes = docBO.buscarPorDocente("");
+            apoderados = apoBO.buscarApoderadoPorNombre("");
+            
+            areas = areaBO.listar();
+            cursos = cursoBO.buscarPorCurso("");
+            matriculas = matBO.ListarMatriculas();
         } catch (Exception ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         actualizarTablaAlumno();
+        actualizarTablaDocente();
+        actualizarTablaApoderado();
+        
+        actualizarTablaArea();
+        actualizarTablaCurso();
+        actualizarTablaMatricula();
     }
     
     private void MyInitComponents(){
@@ -251,7 +264,6 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableGestionDocente = new javax.swing.JTable();
         btnInsertarDocente = new javax.swing.JButton();
-        btnActualizarTablaDocente = new javax.swing.JButton();
         btnEliminarDocente = new javax.swing.JButton();
         btnActualizarDocente = new javax.swing.JButton();
         btnSalirDocente = new javax.swing.JButton();
@@ -263,7 +275,6 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableGestionAlumnos = new javax.swing.JTable();
         btnInsertarAlumnos = new javax.swing.JButton();
-        btnActualizarTablaAlumnos = new javax.swing.JButton();
         btnEliminarAlumnos = new javax.swing.JButton();
         btnEditarAlumnos = new javax.swing.JButton();
         btnSalirAlumnos = new javax.swing.JButton();
@@ -275,7 +286,6 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableGestionApoderados = new javax.swing.JTable();
         btnInsertarApoderado = new javax.swing.JButton();
-        btnActualizarTablaApoderados = new javax.swing.JButton();
         btnEliminarApoderado = new javax.swing.JButton();
         btnEditarApoderado = new javax.swing.JButton();
         btnSalirApoderado = new javax.swing.JButton();
@@ -304,11 +314,10 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         jTableGestionMatricula = new javax.swing.JTable();
         jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
         jPanelCursoArea = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -316,13 +325,11 @@ public class Inicio extends javax.swing.JFrame {
         btnInsertarCurso = new javax.swing.JButton();
         btnActualizarCurso = new javax.swing.JButton();
         btnEliminarCurso = new javax.swing.JButton();
-        btnActualizarTablaCurso = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTableGestionArea = new javax.swing.JTable();
         btnInsertarArea = new javax.swing.JButton();
         btnActualizarArea = new javax.swing.JButton();
-        btnActualizarTablaArea = new javax.swing.JButton();
         btnEliminarArea = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -412,13 +419,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btnActualizarTablaDocente.setText("Actualizar tabla");
-        btnActualizarTablaDocente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaDocenteActionPerformed(evt);
-            }
-        });
-
         btnEliminarDocente.setText("Eliminar");
         btnEliminarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,13 +464,11 @@ public class Inicio extends javax.swing.JFrame {
                             .addGroup(jPanelDocenteLayout.createSequentialGroup()
                                 .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                                        .addComponent(btnActualizarTablaDocente)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnSalirDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelDocenteLayout.createSequentialGroup()
@@ -494,14 +492,13 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnBuscarDocente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizarTablaDocente)
                     .addComponent(btnEliminarDocente)
                     .addComponent(btnActualizarDocente)
                     .addComponent(btnInsertarDocente)
                     .addComponent(btnSalirDocente))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Docente", jPanelDocente);
@@ -534,13 +531,6 @@ public class Inicio extends javax.swing.JFrame {
         btnInsertarAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarAlumnosActionPerformed(evt);
-            }
-        });
-
-        btnActualizarTablaAlumnos.setText("Actualizar tabla");
-        btnActualizarTablaAlumnos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaAlumnosActionPerformed(evt);
             }
         });
 
@@ -592,25 +582,21 @@ public class Inicio extends javax.swing.JFrame {
                             .addComponent(jScrollPane7))
                         .addContainerGap())
                     .addGroup(jPanelAlumnoLayout.createSequentialGroup()
-                        .addGroup(jPanelAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAlumnoLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnActualizarTablaAlumnos)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnInsertarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEditarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSalirAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAlumnoLayout.createSequentialGroup()
-                                .addComponent(cbOpcionesBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, Short.MAX_VALUE))))
+                        .addComponent(cbOpcionesBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, Short.MAX_VALUE))
+                    .addGroup(jPanelAlumnoLayout.createSequentialGroup()
+                        .addComponent(btnInsertarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSalirAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanelAlumnoLayout.setVerticalGroup(
             jPanelAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -629,8 +615,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnSalirAlumnos)
                     .addComponent(btnEliminarAlumnos)
                     .addComponent(btnEditarAlumnos)
-                    .addComponent(btnInsertarAlumnos)
-                    .addComponent(btnActualizarTablaAlumnos))
+                    .addComponent(btnInsertarAlumnos))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -664,13 +649,6 @@ public class Inicio extends javax.swing.JFrame {
         btnInsertarApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarApoderadoActionPerformed(evt);
-            }
-        });
-
-        btnActualizarTablaApoderados.setText("Actualizar tabla");
-        btnActualizarTablaApoderados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaApoderadosActionPerformed(evt);
             }
         });
 
@@ -711,22 +689,19 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnActualizarTablaApoderados)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSalirApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelApoderadoLayout.createSequentialGroup()
+                                .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSalirApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                                 .addComponent(cbBuscarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -748,14 +723,13 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnBuscarApoderados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizarTablaApoderados)
                     .addComponent(btnInsertarApoderado)
                     .addComponent(btnEditarApoderado)
                     .addComponent(btnEliminarApoderado)
                     .addComponent(btnSalirApoderado))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Apoderado", jPanelApoderado);
@@ -984,13 +958,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton29.setText("Salir");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
-            }
-        });
-
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("GESTION MATRICULA");
 
@@ -1008,10 +975,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton38.setText("Actualizar tabla");
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
+        jButton32.setText("Salir");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
+                jButton32ActionPerformed(evt);
             }
         });
 
@@ -1024,16 +991,15 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMatriculaLayout.createSequentialGroup()
-                        .addComponent(jButton38)
-                        .addGap(18, 18, 18)
+                    .addGroup(jPanelMatriculaLayout.createSequentialGroup()
                         .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelMatriculaLayout.setVerticalGroup(
@@ -1042,15 +1008,14 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel8)
                 .addGap(23, 23, 23)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton30)
                     .addComponent(jButton28)
                     .addComponent(jButton31)
-                    .addComponent(jButton29)
-                    .addComponent(jButton38))
-                .addContainerGap(85, Short.MAX_VALUE))
+                    .addComponent(jButton32))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Matricula", jPanelMatricula);
@@ -1093,13 +1058,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btnActualizarTablaCurso.setText("ACTUALIZAR TABLA");
-        btnActualizarTablaCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaCursoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1107,34 +1065,26 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnInsertarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
+                        .addGap(45, 45, 45)
                         .addComponent(btnActualizarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                        .addComponent(btnEliminarCurso)
-                        .addGap(19, 19, 19))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnActualizarTablaCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarCurso)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnActualizarTablaCurso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarCurso)
                     .addComponent(btnActualizarCurso)
                     .addComponent(btnInsertarCurso))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Area\n"));
@@ -1166,13 +1116,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btnActualizarTablaArea.setText("ACTUALIZAR TABLA");
-        btnActualizarTablaArea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaAreaActionPerformed(evt);
-            }
-        });
-
         btnEliminarArea.setText("ELIMINAR");
         btnEliminarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1191,29 +1134,23 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnInsertarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnActualizarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
                         .addComponent(btnEliminarArea)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnActualizarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnActualizarTablaArea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarArea)
                     .addComponent(btnActualizarArea)
                     .addComponent(btnInsertarArea))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelCursoAreaLayout = new javax.swing.GroupLayout(jPanelCursoArea);
@@ -1225,7 +1162,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanelCursoAreaLayout.setVerticalGroup(
             jPanelCursoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1675,37 +1612,24 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirAlumnosActionPerformed
 
     private void btnEditarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAlumnosActionPerformed
-        // TODO add your handling code here:
         int fila = jTableGestionAlumnos.getSelectedRow();
-        int columna = jTableGestionAlumnos.getSelectedColumn();
-
-        try {
-            System.out.println( "Editando valor de Apoderado: "+jTableGestionAlumnos.getValueAt(fila, columna));
-            String datoNuevo = "";
-
-            if(columna == 6)
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar el campo Fecha\n(El formato a ingresar tiene que ser el siguiente yyyy-mm-dd)");
-            else
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-
-            Alumno alumno = alumnos.get(fila);
-
-            switch (columna) {
-                case 2 -> alumno.setDni(datoNuevo);
-                case 3 -> alumno.setApellido_paterno(datoNuevo);
-                case 4 -> alumno.setApellido_materno(datoNuevo);
-                case 5 -> alumno.setNombres(datoNuevo);
-                case 6 -> alumno.setFecha_nacimiento(Date.valueOf(datoNuevo).toLocalDate() );
-                case 7 -> alumno.setCorreo_electrico(datoNuevo);
-                default -> {
+        Alumno alumno = alumnos.get(fila); 
+        
+        VentanaAlumno ventanaInsertar = new VentanaAlumno(alumno);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    alumnos = alumBO.buscarPorAlumno("");
+                    actualizarTablaAlumno();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            alumBO.actualizar(alumno);
-
-            actualizarTablaAlumno();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnEditarAlumnosActionPerformed
 
     private void btnEliminarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAlumnosActionPerformed
@@ -1725,15 +1649,23 @@ public class Inicio extends javax.swing.JFrame {
         modeloAlumnos.removeRow(fila);
     }//GEN-LAST:event_btnEliminarAlumnosActionPerformed
 
-    private void btnActualizarTablaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaAlumnosActionPerformed
-        // TODO add your handling code here:
-        actualizarTablaAlumno();
-    }//GEN-LAST:event_btnActualizarTablaAlumnosActionPerformed
-
     private void btnInsertarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarAlumnosActionPerformed
         // TODO add your handling code here:
-        InsertAlumno insAlumno = new InsertAlumno();
-        insAlumno.setVisible(true);
+        VentanaAlumno ventanaInsertar = new VentanaAlumno();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    alumnos = alumBO.buscarPorAlumno("");
+                    actualizarTablaAlumno();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnInsertarAlumnosActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -1774,7 +1706,12 @@ public class Inicio extends javax.swing.JFrame {
         ventanaInsertar.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                actualizarTablaApoderado();
+                try {
+                    apoderados = apoBO.buscarApoderadoPorNombre("");
+                    actualizarTablaApoderado();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         // Mostrar la ventana
@@ -1798,22 +1735,18 @@ public class Inicio extends javax.swing.JFrame {
         modeloApoderado.removeRow(fila);
     }//GEN-LAST:event_btnEliminarApoderadoActionPerformed
 
-    private void btnActualizarTablaApoderadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaApoderadosActionPerformed
-        try {
-            apoderados = apoBO.buscarApoderadoPorNombre("");
-        } catch (Exception ex) {
-            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        actualizarTablaApoderado();
-    }//GEN-LAST:event_btnActualizarTablaApoderadosActionPerformed
-
     private void btnInsertarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarApoderadoActionPerformed
         VentanaApoderado ventanaInsertar = new VentanaApoderado();
         // Agregar el WindowListener a la ventana
         ventanaInsertar.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                actualizarTablaApoderado();
+                try {
+                    apoderados = apoBO.buscarApoderadoPorNombre("");
+                    actualizarTablaApoderado();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         // Mostrar la ventana
@@ -1828,35 +1761,28 @@ public class Inicio extends javax.swing.JFrame {
     private void btnActualizarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDocenteActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionDocente.getSelectedRow();
-        int columna = jTableGestionDocente.getSelectedColumn();
+        Docente docente1 = docentes.get(fila);
 
-        try {
-            System.out.println( "Editando valor de Apoderado: "+jTableGestionDocente.getValueAt(fila, columna));
-            String datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-
-            Docente docente = docentes.get(fila);
-
-            switch (columna) {
-                case 2 -> docente.setDni(datoNuevo);
-                case 3 -> docente.setApellido_paterno(datoNuevo);
-                case 4 -> docente.setApellido_materno(datoNuevo);
-                case 5 -> docente.setNombres(datoNuevo);
-                case 6 -> docente.setContacto(datoNuevo);
-                default -> {
+        VentanaDocente ventanaInsertar = new VentanaDocente(docente1);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    docentes = docBO.buscarPorDocente("");
+                    actualizarTablaDocente();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
-            docBO.actualizar(docente);
-
-            actualizarTablaDocente();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnActualizarDocenteActionPerformed
 
     private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+    
         int fila = jTableGestionDocente.getSelectedRow();
 
         try {
@@ -1871,15 +1797,23 @@ public class Inicio extends javax.swing.JFrame {
         modeloDocente.removeRow(fila);
     }//GEN-LAST:event_btnEliminarDocenteActionPerformed
 
-    private void btnActualizarTablaDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaDocenteActionPerformed
-        // TODO add your handling code here:
-        actualizarTablaDocente();
-    }//GEN-LAST:event_btnActualizarTablaDocenteActionPerformed
-
     private void btnInsertarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarDocenteActionPerformed
         // TODO add your handling code here:
-        InsertDocente insDocente = new InsertDocente();
-        insDocente.setVisible(true);
+        VentanaApoderado ventanaInsertar = new VentanaApoderado();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    docentes = docBO.buscarPorDocente("");
+                    actualizarTablaDocente();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnInsertarDocenteActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -1904,45 +1838,42 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionMatricula.getSelectedRow();
-        int columna = jTableGestionMatricula.getSelectedColumn();
-        
-        System.out.println( "Editando valor de Apoderado: "+jTableGestionMatricula.getValueAt(fila, columna));
-        String datoNuevo = "";
-
-        if(columna == 2)
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar el campo Fecha\n(El formato a ingresar tiene que ser el siguiente yyyy-mm-dd)");
-        else
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-
         Matricula matricula = matriculas.get(fila);
-
-        switch (columna) {
-            case 2 -> matricula.setFecha(Date.valueOf(datoNuevo).toLocalDate() );
-            case 3 -> matricula.setGrado(datoNuevo.charAt(0));
-            case 4 -> matricula.setNivel(datoNuevo.charAt(0));
-            case 5 -> matricula.setTurno(datoNuevo.charAt(0));
-            case 6 -> matricula.setAlumno_id(Integer.parseInt(datoNuevo));
-        }
         
-        try {
-            matBO.actualizarMatricula(matricula);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-            actualizarTablaMatricula();
-        
+        VentanaMatricula ventanaInsertar = new VentanaMatricula(matricula);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    matriculas = matBO.ListarMatriculas();
+                    actualizarTablaMatricula();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_jButton28ActionPerformed
-
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
         // TODO add your handling code here:
-        InsertMatricula insMat = new InsertMatricula();
-        insMat.setVisible(true);
+        VentanaMatricula ventanaInsertar = new VentanaMatricula();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    matriculas = matBO.ListarMatriculas();
+                    actualizarTablaMatricula();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
@@ -2082,61 +2013,63 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-        // TODO add your handling code here:
-        actualizarTablaMatricula();
-    }//GEN-LAST:event_jButton38ActionPerformed
-
     private void btnInsertarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarCursoActionPerformed
-        // TODO add your handling code here:
-        InsertCurso insCurso = new InsertCurso();
-        insCurso.setVisible(true);
+        VentanaCurso ventanaInsertar = new VentanaCurso();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    cursos = cursoBO.buscarPorCurso("");
+                    actualizarTablaCurso();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnInsertarCursoActionPerformed
-
-    private void btnActualizarTablaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaCursoActionPerformed
-        // TODO add your handling code here:
-        actualizarTablaCurso();
-    }//GEN-LAST:event_btnActualizarTablaCursoActionPerformed
 
     private void btnInsertarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarAreaActionPerformed
         // TODO add your handling code here:
-        InsertArea insArea = new InsertArea();
-        insArea.setVisible(true);
-        
+        VentanaArea ventanaInsertar = new VentanaArea();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    areas = areaBO.listar();
+                    actualizarTablaArea();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnInsertarAreaActionPerformed
-
-    private void btnActualizarTablaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaAreaActionPerformed
-        // TODO add your handling code here:
-        actualizarTablaArea();
-    }//GEN-LAST:event_btnActualizarTablaAreaActionPerformed
 
     private void btnActualizarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAreaActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionArea.getSelectedRow();
-        int columna = jTableGestionArea.getSelectedColumn();
-        
-        String datoNuevo = "";
-        
-        if(columna > 0){
-            System.out.println( "Editando valor de Area: "+jTableGestionArea.getValueAt(fila, columna));
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-        }
-        else
-            return;
-        
         Area area = areas.get(fila);
-
-        switch (columna) {
-            case 1 -> area.setArea_nombre(datoNuevo);
-        }
         
-        try {
-            areaBO.actualizar(area);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        actualizarTablaArea();
+        VentanaArea ventanaInsertar = new VentanaArea(area);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    areas = areaBO.listar();
+                    actualizarTablaArea();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnActualizarAreaActionPerformed
 
     private void btnEliminarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAreaActionPerformed
@@ -2158,37 +2091,23 @@ public class Inicio extends javax.swing.JFrame {
     private void btnActualizarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCursoActionPerformed
         // TODO add your handling code here:
         int fila = jTableGestionCurso.getSelectedRow();
-        int columna = jTableGestionCurso.getSelectedColumn();
-        
-        String datoNuevo = "";
-        
-        if(columna > 0){
-            System.out.println( "Editando valor de Area: "+jTableGestionCurso.getValueAt(fila, columna));
-            datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-        }
-        else
-            return;
-        
         Curso curso = cursos.get(fila);
         
-        if((columna==2 && datoNuevo.length()>1) || (columna==3 && datoNuevo.length()>1)){
-            columna = 5;
-        }
-        
-        try {
-            switch (columna){
-            case 1 -> curso.setNombre(datoNuevo);
-            case 2 -> curso.setGrado(datoNuevo.charAt(0));
-            case 3 -> curso.setNivel(datoNuevo.charAt(0));
-            case 4 -> curso.setArea_id(Integer.parseInt(datoNuevo));
+        VentanaCurso ventanaInsertar = new VentanaCurso(curso);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    cursos = cursoBO.buscarPorCurso("");
+                    actualizarTablaCurso();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            
-            cursoBO.actualizar(curso);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        actualizarTablaCurso();
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnActualizarCursoActionPerformed
 
     private void btnEliminarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCursoActionPerformed
@@ -2335,6 +2254,11 @@ public class Inicio extends javax.swing.JFrame {
         }
         actualizarTablaApoderado();
     }//GEN-LAST:event_btnBuscarApoderadosActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton32ActionPerformed
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2355,7 +2279,6 @@ public class Inicio extends javax.swing.JFrame {
         modeloAlumnos.addColumn("Correo electronico");
         
         try {
-            alumnos = alumBO.buscarPorAlumno("");
             System.out.println(alumnos.size());
             for (int i = 0; i < alumnos.size(); i++) {
                 Alumno alumno = alumnos.get(i);
@@ -2388,7 +2311,6 @@ public class Inicio extends javax.swing.JFrame {
         modeloDocente.addColumn("contacto");
         
         try {
-            docentes = docBO.buscarPorDocente("");
             System.out.println(docentes.size());
             for (int i = 0; i < docentes.size(); i++) {
                 Docente docente = docentes.get(i);
@@ -2482,7 +2404,6 @@ public class Inicio extends javax.swing.JFrame {
         
         
         try {
-            areas = areaBO.listar();
             System.out.println(areas.size());
             
             for (int i = 0; i < areas.size(); i++) {
@@ -2738,11 +2659,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizarArea;
     private javax.swing.JButton btnActualizarCurso;
     private javax.swing.JButton btnActualizarDocente;
-    private javax.swing.JButton btnActualizarTablaAlumnos;
-    private javax.swing.JButton btnActualizarTablaApoderados;
-    private javax.swing.JButton btnActualizarTablaArea;
-    private javax.swing.JButton btnActualizarTablaCurso;
-    private javax.swing.JButton btnActualizarTablaDocente;
     private javax.swing.JButton btnBuscarAlumnos;
     private javax.swing.JButton btnBuscarApoderados;
     private javax.swing.JButton btnBuscarDocente;
@@ -2773,11 +2689,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbOpcionesBuscarAlumnos;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;

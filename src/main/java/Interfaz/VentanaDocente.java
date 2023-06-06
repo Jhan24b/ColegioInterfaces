@@ -4,41 +4,41 @@
  */
 package Interfaz;
 
-import BusinessLayer.ApoderadoBO;
+import BusinessLayer.DocenteBO;
 import DataAccessLayer.ApoderadoDAO;
+import DataAccessLayer.DocenteDAO;
 import JavaBean.Apoderado;
+import JavaBean.Docente;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author black
  */
-public class VentanaApoderado extends javax.swing.JFrame {
+public class VentanaDocente extends javax.swing.JFrame {
 
     /**
      * Creates new form InsertApoderado
-     * @param apoderado
      */
-    public VentanaApoderado(Apoderado apoderado) {
+    public VentanaDocente(Docente docente) {
         initComponents();
-        jlTitulo.setText("Actualizar Apoderado: ");
-        jlID.setText(String.valueOf(apoderado.getApoderado_id()));
+        jlTitulo.setText("Actualizar Docente: ");
+        jlID.setText(String.valueOf(docente.getDocente_id()));
         jbPrincipal.setText("Actualizar");
                 
         //Se completa el formulario
-        jTextDni.setText(apoderado.getDni());
-        jTextApellidoPaterno.setText(apoderado.getApellido_paterno());
-        jTextApellidoMaterno.setText(apoderado.getApellido_materno());
-        jTextNombres.setText(apoderado.getNombres());
-        jTextContacto.setText(apoderado.getContacto());
+        jTextDni.setText(docente.getDni());
+        jTextApellidoPaterno.setText(docente.getApellido_paterno());
+        jTextApellidoMaterno.setText(docente.getApellido_materno());
+        jTextNombres.setText(docente.getNombres());
+        jTextContacto.setText(docente.getContacto());
     }
     
-    public VentanaApoderado() {
+    public VentanaDocente() {
         initComponents();
-        jlTitulo.setText("Insertar Apoderado");
+        jlTitulo.setText("Insertar Docente");
         jlID.setText("");
         jbPrincipal.setText("Insertar");
     }
@@ -53,7 +53,6 @@ public class VentanaApoderado extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jlTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -69,13 +68,12 @@ public class VentanaApoderado extends javax.swing.JFrame {
         jLabelApellidoMaterno = new javax.swing.JLabel();
         jLabelNombres = new javax.swing.JLabel();
         jLabelContacto = new javax.swing.JLabel();
+        jlTitulo = new javax.swing.JLabel();
         jlID = new javax.swing.JLabel();
         jbPrincipal = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jlTitulo.setText("Actualizar Apoderado: ");
 
         jLabel2.setText("Nombres:");
 
@@ -108,6 +106,8 @@ public class VentanaApoderado extends javax.swing.JFrame {
         jLabelContacto.setForeground(new java.awt.Color(255, 51, 51));
         jLabelContacto.setText("-");
 
+        jlTitulo.setText("Actualizar Docente: ");
+
         jlID.setForeground(new java.awt.Color(51, 51, 255));
         jlID.setText("-");
 
@@ -115,15 +115,15 @@ public class VentanaApoderado extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabelContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
@@ -140,12 +140,12 @@ public class VentanaApoderado extends javax.swing.JFrame {
                                 .addComponent(jLabelDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabelNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabelContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,38 +234,43 @@ public class VentanaApoderado extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextDniActionPerformed
 
     private void jbPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPrincipalActionPerformed
-        Apoderado apoderado = recibirDatos();
+        Docente docente = RecibirDatos();
         
         if(jbPrincipal.getText().equals("Insertar"))
-            insertar(apoderado);
+            Insertar(docente);
         
         else if(jbPrincipal.getText().equals("Actualizar"))
-            actualizar(apoderado);
+            Actualizar(docente);
         
     }//GEN-LAST:event_jbPrincipalActionPerformed
 
-    private Apoderado recibirDatos(){
-        Apoderado apoderado = new Apoderado();
+    public Docente RecibirDatos(){
+        Docente docente = new Docente();
         
-        apoderado.setNombres(jTextNombres.getText());
-        apoderado.setApellido_paterno(jTextApellidoPaterno.getText());
-        apoderado.setApellido_materno(jTextApellidoMaterno.getText());
-        apoderado.setDni(jTextDni.getText());
-        apoderado.setContacto(jTextContacto.getText());
+        try {
+            docente.setNombres(jTextNombres.getText());
+            docente.setApellido_paterno(jTextApellidoPaterno.getText());
+            docente.setApellido_materno(jTextApellidoMaterno.getText());
+            docente.setDni(jTextDni.getText());
+            docente.setContacto(jTextContacto.getText());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         
         if(!jlID.getText().isEmpty())
-            apoderado.setApoderado_id(Integer.parseInt(jlID.getText()));
+            docente.setDocente_id(Integer.parseInt(jlID.getText()));
+
+        LimpiarErrores();
         
-        limpiarErrores();
-        return apoderado;
+        return docente;
     }
     
-    private void insertar(Apoderado apoderado){
-        ApoderadoBO apoBO = new ApoderadoBO();
+    public void Insertar(Docente docente){
+        DocenteBO docBO = new DocenteBO();
         
-        if(apoderado.getErrores().isEmpty()){
+        if(docente.getErrores().isEmpty()){
             try {
-                apoBO.insertarApoderado(apoderado);
+                docBO.insertar(docente);
                 dispose();
             } catch (Exception e) {
                 if ( e.getMessage().contains("El DNI ingresado ya existe") ) {
@@ -277,18 +282,18 @@ public class VentanaApoderado extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
             }
         }
-        
+
         else{
-            imprimirErrores(apoderado.getErrores());
+            ImprimirErrores(docente.getErrores());
         }
     }
     
-    private void actualizar(Apoderado apoderado){
-        ApoderadoBO apoBO = new ApoderadoBO();
+    public void Actualizar(Docente docente){
+        DocenteBO docBO = new DocenteBO();
         
-        if(apoderado.getErrores().isEmpty()){
+        if(docente.getErrores().isEmpty()){
             try {
-                apoBO.actualizarApoderado(apoderado);
+                docBO.actualizar(docente);
                 dispose();
             } catch (Exception e) {
                 if ( e.getMessage().contains("El DNI ingresado ya existe") ) {
@@ -300,13 +305,18 @@ public class VentanaApoderado extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
             }
         }
-        
+
         else{
-            imprimirErrores(apoderado.getErrores());
+            ImprimirErrores(docente.getErrores());
         }
     }
     
-    private void imprimirErrores(Map<String, String> errores){    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ImprimirErrores(Map<String, String> errores){    
         for (String error : errores.keySet().toArray(new String[0])) {
             switch (error) {
                 case "contacto" -> jLabelContacto.setText(errores.get(error));
@@ -319,7 +329,7 @@ public class VentanaApoderado extends javax.swing.JFrame {
         }
     }
     
-    private void limpiarErrores(){
+    private void LimpiarErrores(){
         jLabelContacto.setText("-");
         jLabelApellidoPaterno.setText("-");
         jLabelApellidoMaterno.setText("-");
@@ -327,11 +337,6 @@ public class VentanaApoderado extends javax.swing.JFrame {
         jLabelNombres.setText("-");
     }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -349,21 +354,23 @@ public class VentanaApoderado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaApoderado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaApoderado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaApoderado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaApoderado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaApoderado().setVisible(true);
+                new VentanaDocente().setVisible(true);
             }
         });
     }
