@@ -26,6 +26,8 @@ import JavaBean.Usuario;
 import Utilities.Validator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalTime;
@@ -107,6 +109,12 @@ public class Inicio extends javax.swing.JFrame {
                         jHeaderGestionUsuariosMouseClicked(evt);
                         }
         });
+        
+        jTableGestionApoderados.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jHeaderGestionApoderadosMouseClicked(evt);
+                        }
+        });
     }
     
     
@@ -115,6 +123,40 @@ public class Inicio extends javax.swing.JFrame {
      *  EVENTOS CREADOS
      * 
     *****/
+    
+    private void jHeaderGestionApoderadosMouseClicked(java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionApoderados.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+        System.out.println("Seleccion: " + columnIndex);
+        switch (columnIndex) {
+            case 1:
+                System.out.println("Ordenando por codigo");
+                break;
+            case 2:
+                System.out.println("Ordenando por dni");
+                ordenarPorApoderadosDNI(apoderados);
+                break;
+            case 3:
+                System.out.println("Ordenando po apellido paterno");
+                ordenarPorApoderadosxApellidoPaterno(apoderados);
+                break;
+            case 4:
+                System.out.println("Ordenando po apellido materno");
+                ordenarPorApoderadosxApellidoMaterno(apoderados);
+                break;
+            case 5:
+                System.out.println("Ordenando po Nombre");
+                ordenarPorApoderadosxNombre(apoderados);
+                break;
+            case 6:
+                System.out.println("Ordenando por Contacto");
+                ordenarPorApoderadosxContacto(apoderados);
+                break;
+            default:
+                throw new AssertionError();
+        }
+        actualizarTablaApoderado();
+    }
     
     private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt){
         JTableHeader header = jTableGestionAlumnos.getTableHeader();
@@ -1724,32 +1766,19 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirApoderadoActionPerformed
 
     private void btnEditarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarApoderadoActionPerformed
-        // TODO add your handling code here:
         int fila = jTableGestionApoderados.getSelectedRow();
-        int columna = jTableGestionApoderados.getSelectedColumn();
+        Apoderado apoderado = apoderados.get(fila);
 
-        try {
-            System.out.println( "Editando valor de Apoderado: "+jTableGestionApoderados.getValueAt(fila, columna));
-            String datoNuevo = JOptionPane.showInputDialog("Ingrese el valor con la que desee actualizar");
-
-            Apoderado apoderado = apoderados.get(fila);
-
-            switch (columna) {
-                case 2 -> apoderado.setDni(datoNuevo);
-                case 3 -> apoderado.setApellido_paterno(datoNuevo);
-                case 4 -> apoderado.setApellido_materno(datoNuevo);
-                case 5 -> apoderado.setNombres(datoNuevo);
-                case 6 -> apoderado.setContacto(datoNuevo);
-                default -> {
-                }
+        VentanaApoderado ventanaInsertar = new VentanaApoderado(apoderado);
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                actualizarTablaApoderado();
             }
-
-            apoBO.actualizarApoderado(apoderado);
-
-            actualizarTablaApoderado();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnEditarApoderadoActionPerformed
 
     private void btnEliminarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarApoderadoActionPerformed
@@ -1770,14 +1799,25 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarApoderadoActionPerformed
 
     private void btnActualizarTablaApoderadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaApoderadosActionPerformed
-        // TODO add your handling code here:
+        try {
+            apoderados = apoBO.buscarApoderadoPorNombre("");
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         actualizarTablaApoderado();
     }//GEN-LAST:event_btnActualizarTablaApoderadosActionPerformed
 
     private void btnInsertarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarApoderadoActionPerformed
-        // TODO add your handling code here:
-        InsertApoderado PanelInsertarApoderado = new InsertApoderado();
-        PanelInsertarApoderado.setVisible(true);
+        VentanaApoderado ventanaInsertar = new VentanaApoderado();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                actualizarTablaApoderado();
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_btnInsertarApoderadoActionPerformed
 
     private void btnSalirDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDocenteActionPerformed
@@ -2263,7 +2303,8 @@ public class Inicio extends javax.swing.JFrame {
                 {
                     apoderados.clear();
                     try {
-                        apoderados.add(apoBO.buscarApoderadoPorDNI(buscar));
+                        apoderados=apoBO.buscarApoderadoPorNombre(buscar);
+                        
                     } catch (Exception ex) {
                         Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -2273,8 +2314,7 @@ public class Inicio extends javax.swing.JFrame {
             case 1:
                 {
                     try {
-                        apoderados=apoBO.buscarApoderadoPorNombre(buscar);
-                        
+                        apoderados.add(apoBO.buscarApoderadoPorDNI(buscar)); 
                     } catch (Exception ex) {
                         Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -2381,8 +2421,6 @@ public class Inicio extends javax.swing.JFrame {
         modeloApoderado.addColumn("contacto");
         
         try {
-            apoderados = apoBO.buscarApoderadoPorNombre("");
-            System.out.println(apoderados.size());
             for (int i = 0; i < apoderados.size(); i++) {
                 Apoderado apoderado = apoderados.get(i);
                 
