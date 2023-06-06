@@ -57,4 +57,22 @@ public class CursoBO {
             throw e;
         }
     }
+    
+    public ArrayList<Curso> buscarPorNivel(String cadena) throws Exception{
+        try {
+            CursoDAO cursoDAO = new CursoDAO();
+            return cursoDAO.buscarPorNivel(cadena);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public ArrayList<Curso> buscarPorGrado(String nivel, String grado) throws Exception{
+        try {
+            CursoDAO cursoDAO = new CursoDAO();
+            return cursoDAO.buscarPorGrado(grado,nivel);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

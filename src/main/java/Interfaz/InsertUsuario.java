@@ -252,13 +252,19 @@ public class InsertUsuario extends javax.swing.JFrame {
         }else{
             System.out.println("P2");
             if(Validator.isDNI(dni) && clave.length()>=8){
-                System.out.println("P2-entro1");
-                try {
-                    ubo.insertar(usuario);
-                    dispose();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                if(Inicio.dniUsuarios.contains(dni)){
+                    usuario.agregarErrores("dniI","El dni ingresado ya pertenece a otro usuario");
+                    DNIError.setText("El dni ingresado ya pertenece a otro usuario");
+                }else{
+                    try {
+                        ubo.insertar(usuario);
+                        dispose();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                 }
+                System.out.println("P2-entro1");
+                
             }else{
                 System.out.println("Entro error");
                 if(!Validator.isDNI(dni)){

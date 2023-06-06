@@ -92,11 +92,11 @@ public class UsuarioBO {
         }     
      }
 
-      public void cambiarClave(Usuario usuario) throws Exception{ 
+      public void cambiarClave(Usuario usuario, String nueva) throws Exception{ 
           
         try {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.cambiarClave(usuario);
+            usuarioDAO.cambiarClave(usuario, nueva);
         } catch (Exception e) {
             throw e;
         }

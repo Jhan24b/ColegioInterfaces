@@ -8,6 +8,7 @@ package DataAccessLayer;
 import Connection.UConnection;
 import JavaBean.Usuario;
 import Utilities.Bitacora;
+import Utilities.Encriptador;
 import java.sql.CallableStatement;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.Connection;
@@ -97,12 +98,10 @@ public class UsuarioDAO {
             cstm.setString(4, usuario.getApellido_materno());
             cstm.setString(5, usuario.getNombres());
             
-                 
-            String bcryptHashString = BCrypt.withDefaults().hashToString(12, usuario.getClave().toCharArray());
+            Encriptador en = new Encriptador();
+            String encriptado = en.Encriptar(usuario.getClave());
             
-            System.out.println(bcryptHashString.length());
-            
-            cstm.setString(6, bcryptHashString); 
+            cstm.setString(6, encriptado); 
             cstm.setString(7, usuario.getRol());
             
             
@@ -138,17 +137,14 @@ public class UsuarioDAO {
         try {
             con=UConnection.getConnection();
             String sql="";            
-            sql="call sp_usuario_actualizar(?,?,?,?,?,?,?)";
+            sql="call sp_usuario_actualizar(?,?,?,?,?,?)";
             cstm=con.prepareCall(sql);
             cstm.setInt(1, usuario.getUsuario_id());           
             cstm.setString(2, usuario.getDni());            
             cstm.setString(3, usuario.getApellido_paterno());
             cstm.setString(4, usuario.getApellido_materno());
             cstm.setString(5, usuario.getNombres());
-            String claveEncriptada="";
-            cstm.setString(6, claveEncriptada);
-            
-            cstm.setString(7, usuario.getRol());
+            cstm.setString(6, usuario.getRol());
             
             cstm.execute(); //se puede usar .execute() para todas las operaciones
              
@@ -157,6 +153,7 @@ public class UsuarioDAO {
                 throw new Exception("El DNI ingresado ya existe en la base de datos");
             }          
             Bitacora.registrar(e);
+            System.out.println(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
             try {
@@ -326,9 +323,9 @@ public class UsuarioDAO {
         return usuario;     
      }
 
-      public void cambiarClave(Usuario usuario) throws Exception{ 
+      public void cambiarClave(Usuario usuario, String nueva) throws Exception{ 
           
-        loguin(usuario);
+        //loguin(usuario);
         
         Connection con=null;
         CallableStatement cstm = null;    
@@ -339,15 +336,8 @@ public class UsuarioDAO {
             sql="call sp_usuario_cambiar_clave(?,?)";
             cstm=con.prepareCall(sql);
             cstm.setInt(1, usuario.getUsuario_id());   
-            
-          //  String bcryptHashString = BCrypt.withDefaults().hashToString(12, usuario.getClaveNueva().toCharArray());
-          //  usuario.setClave(bcryptHashString);
-            
-            cstm.setString(2, usuario.getClave());            
-      
-            
+            cstm.setString(2, nueva);  
             cstm.executeUpdate(); //se puede usar .execute() para todas las operaciones
-             
         }catch (Exception e) {                     
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
@@ -357,7 +347,7 @@ public class UsuarioDAO {
             } catch (Exception e) {
                 Bitacora.registrar(e);
             }        
-        }    
+        }
     }
     
 }

@@ -23,18 +23,35 @@ public class Usuario {
     private String clave;
     private String rol;
     private String apellidosNombres;
+    private String claveEncriptada;
     
     private Map<String,String> errores = new HashMap<>();
     
     public Map<String, String> getErrores() {
         return errores;
     }
+    
+    public void limpiarErrores(){
+        errores = new HashMap<>();
+    }
 
     public void setErrores(Map<String, String> errores) {
         this.errores = errores;
     }
+    
+    public void agregarErrores(String identificador, String error){
+        this.errores.put(identificador, error);
+    }
 
     public Usuario(){
+    }
+
+    public String getClaveEncriptada() {
+        return claveEncriptada;
+    }
+
+    public void setClaveEncriptada(String claveEncriptada) {
+        this.claveEncriptada = claveEncriptada;
     }
 
     public Usuario(String nombres, String apellido_materno, String apellido_paterno, String dni, String clave, String rol) {
