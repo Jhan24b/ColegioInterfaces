@@ -426,6 +426,11 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jScrollPane6.setViewportView(jTableGestionDocente);
+        if (jTableGestionDocente.getColumnModel().getColumnCount() > 0) {
+            jTableGestionDocente.getColumnModel().getColumn(0).setMinWidth(100);
+            jTableGestionDocente.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTableGestionDocente.getColumnModel().getColumn(0).setMaxWidth(100);
+        }
 
         btnInsertarDocente.setText("Insertar");
         btnInsertarDocente.addActionListener(new java.awt.event.ActionListener() {
