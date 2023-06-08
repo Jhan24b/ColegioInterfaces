@@ -4,12 +4,14 @@
  */
 package Interfaz;
 
+import BusinessLayer.AlumnoBO;
 import BusinessLayer.AsistenciaDocenteBO;
 import BusinessLayer.CursoBO;
 import BusinessLayer.DocenteBO;
 import BusinessLayer.HistorialNotasBO;
 import BusinessLayer.NotasBO;
 import BusinessLayer.UsuarioBO;
+import JavaBean.Alumno;
 import JavaBean.AsistenciaDocente;
 import JavaBean.Curso;
 import JavaBean.Docente;
@@ -41,17 +43,20 @@ public class InsertNotas extends javax.swing.JFrame {
     private CursoBO cursoBO = new CursoBO();
     private NotasBO notasBO = new NotasBO();
     private HistorialNotasBO hnotasBO = new HistorialNotasBO();
+    private AlumnoBO alumBO = new AlumnoBO();
     
     /// ARRAYS
     private ArrayList<Curso> cursosXNivel = new ArrayList<>();
     private ArrayList<Curso> cursosXGrado = new ArrayList<>();
     public static ArrayList<String> dniUsuarios = new ArrayList<>();
     private ArrayList<HistorialNotas> hnotaslist = new ArrayList<>();
+    private ArrayList<Alumno> alumnosXCurso = new ArrayList<>();
     
     /// MODELOS DE TABLAS
     private DefaultTableModel modeloAdocentes = new DefaultTableModel();
     private DefaultTableModel modeloUsuarios = new DefaultTableModel();
     private DefaultTableModel modeloNotas = new DefaultTableModel();
+    private DefaultTableModel modeloAlumnosxCurso = new DefaultTableModel();
     
     /**
      * Creates new form InsertNotas
@@ -90,14 +95,14 @@ public class InsertNotas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNota1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnInsertarNotas = new javax.swing.JButton();
+        btnDescartarNotas = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtBuscarNombre = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnBuscarAlumno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,9 +204,9 @@ public class InsertNotas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbNivelNotaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cbNivelNotaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbGradoNotaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,18 +232,18 @@ public class InsertNotas extends javax.swing.JFrame {
 
         jLabel4.setText("Nota 1: ");
 
-        jButton1.setText("Insertar");
-        jButton1.setEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarNotas.setText("Insertar");
+        btnInsertarNotas.setEnabled(false);
+        btnInsertarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInsertarNotasActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Descartar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnDescartarNotas.setText("Descartar");
+        btnDescartarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDescartarNotasActionPerformed(evt);
             }
         });
 
@@ -254,6 +259,10 @@ public class InsertNotas extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -280,18 +289,12 @@ public class InsertNotas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jButton1)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(43, 43, 43)
+                        .addComponent(btnInsertarNotas)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnDescartarNotas)))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,8 +325,8 @@ public class InsertNotas extends javax.swing.JFrame {
                     .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnInsertarNotas)
+                    .addComponent(btnDescartarNotas))
                 .addGap(439, 439, 439))
         );
 
@@ -333,8 +336,8 @@ public class InsertNotas extends javax.swing.JFrame {
 
         txtBuscarNombre.setEnabled(false);
 
-        jButton3.setText("Buscar");
-        jButton3.setEnabled(false);
+        btnBuscarAlumno.setText("Buscar");
+        btnBuscarAlumno.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -348,7 +351,7 @@ public class InsertNotas extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnBuscarAlumno)
                 .addGap(96, 96, 96))
         );
         jPanel4Layout.setVerticalGroup(
@@ -359,7 +362,7 @@ public class InsertNotas extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnBuscarAlumno)
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -404,19 +407,18 @@ public class InsertNotas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnDescartarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarNotasActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnDescartarNotasActionPerformed
 
     private void cbCursoNotaInsertPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbCursoNotaInsertPopupMenuWillBecomeInvisible
         try {
             // TODO add your handling code here:
-            String name=cursosXGrado.get(0).getNombre();
+            String name= cursosXGrado.get(0).getNombre();
             String grado = String.valueOf(cursosXGrado.get(0).getGrado());
             String nivel = String.valueOf(cbNivelNotaInsert.getItemAt(cbNivelNotaInsert.getSelectedIndex()).charAt(0));
-            hnotaslist = hnotasBO.buscarPorCurso(name,grado,nivel);
-            
+            alumnosXCurso = alumBO.buscarPorAlumnoxCurso(name,grado,nivel);
         } catch (Exception ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -428,7 +430,6 @@ public class InsertNotas extends javax.swing.JFrame {
             char val = String.valueOf(cbGradoNotaInsert.getSelectedItem()).charAt(0);
             cursosXGrado = cursoBO.buscarPorGrado(String.valueOf(cursosXNivel.get(0).getNivel()), String.valueOf(val));
         } catch (Exception ex) {
-            System.out.println("no se sabe");
             System.out.println(ex);
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -487,10 +488,10 @@ public class InsertNotas extends javax.swing.JFrame {
         cbGradoNotaInsert.setEnabled(true);
     }//GEN-LAST:event_cbNivelNotaInsertPopupMenuWillBecomeInvisible
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInsertarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarNotasActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnInsertarNotasActionPerformed
 
     ///
     ///////    Funciones
@@ -534,12 +535,12 @@ public class InsertNotas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarAlumno;
+    private javax.swing.JButton btnDescartarNotas;
+    private javax.swing.JButton btnInsertarNotas;
     private javax.swing.JComboBox<String> cbCursoNotaInsert;
     private javax.swing.JComboBox<String> cbGradoNotaInsert;
     private javax.swing.JComboBox<String> cbNivelNotaInsert;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;

@@ -260,8 +260,120 @@ public class AlumnoDao {
             }        
         }        
         return alumno;     
-     }
     }
+     
+    public ArrayList<Alumno> buscarPorAlumnoxCursoBuscar(String cadena, String nombre, String grado, String nivel) throws Exception{
+     
+        ArrayList<Alumno>alumnos=new ArrayList<>();
+        Alumno alumno=null;
+        
+        Connection con=null;
+        CallableStatement cstm = null;  
+        ResultSet rs=null;
+        
+        try {            
+            con=UConnection.getConnection();
+            String sql="";            
+            sql="call sp_alumno_buscar_por_alumno(?,?,?,?)";
+            cstm=con.prepareCall(sql);
+            cstm.setString(1, cadena);
+            cstm.setString(2, nombre);
+            cstm.setString(3, grado);
+            cstm.setString(4, nivel);
+         
+            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones         
+            
+            while(rs.next()){
+                alumno = new Alumno();
+                alumno.setAlumno_id(rs.getInt("alumno_id"));
+                alumno.setDni(rs.getString("dni"));
+                //alumno.setApellidosNombres(rs.getString("apellidos_nombres"));
+                String[] nombres = rs.getString("apellidos_nombres").replace(",", "").split(" ");
+                System.out.println(rs.getString("apellidos_nombres"));
+                alumno.setApellido_paterno(nombres[0]);
+                alumno.setApellido_materno(nombres[1]);
+                
+                if (nombres.length < 4) alumno.setNombres(nombres[2]);
+                else alumno.setNombres(nombres[2]+" "+nombres[3]); 
+                
+                alumno.setCorreo_electrico(rs.getString("correo_electronico"));
+                System.out.println(rs.getString("correo_electronico"));
+                alumno.setFecha_nacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+                
+                alumnos.add(alumno);
+            }
+            
+        }catch (Exception e) {         
+            Bitacora.registrar(e);
+            System.out.println(e);
+            throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
+        }finally{
+            try {
+                if(rs!=null)rs.close();
+                if(cstm!=null)cstm.close();                
+            } catch (Exception e) {
+                Bitacora.registrar(e);
+            }        
+        }        
+        return alumnos;     
+     }
+    
+    
+    public ArrayList<Alumno> buscarPorAlumnoxCurso(String nombre, String grado, String nivel) throws Exception{
+     
+        ArrayList<Alumno>alumnos=new ArrayList<>();
+        Alumno alumno=null;
+        
+        Connection con=null;
+        CallableStatement cstm = null;  
+        ResultSet rs=null;
+        
+        try {            
+            con=UConnection.getConnection();
+            String sql="";            
+            sql="call sp_alumno_buscar_alumno_por_curso(?,?,?)";
+            cstm=con.prepareCall(sql);
+            cstm.setString(1, nombre);
+            cstm.setString(2, nivel);
+            cstm.setString(3, grado);
+         
+            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones         
+            
+            while(rs.next()){
+                alumno = new Alumno();
+                alumno.setAlumno_id(rs.getInt("alumno_id"));
+                alumno.setDni(rs.getString("dni"));
+                //alumno.setApellidosNombres(rs.getString("apellidos_nombres"));
+                String[] nombres = rs.getString("apellidos_nombres").replace(",", "").split(" ");
+                System.out.println(rs.getString("apellidos_nombres"));
+                alumno.setApellido_paterno(nombres[0]);
+                alumno.setApellido_materno(nombres[1]);
+                
+                if (nombres.length < 4) alumno.setNombres(nombres[2]);
+                else alumno.setNombres(nombres[2]+" "+nombres[3]); 
+                
+                alumno.setCorreo_electrico(rs.getString("correo_electronico"));
+                System.out.println(rs.getString("correo_electronico"));
+                alumno.setFecha_nacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+                
+                alumnos.add(alumno);
+            }
+            
+        }catch (Exception e) {         
+            Bitacora.registrar(e);
+            System.out.println(e);
+            throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
+        }finally{
+            try {
+                if(rs!=null)rs.close();
+                if(cstm!=null)cstm.close();                
+            } catch (Exception e) {
+                Bitacora.registrar(e);
+            }        
+        }        
+        return alumnos;     
+     }
+}
 
 
 
