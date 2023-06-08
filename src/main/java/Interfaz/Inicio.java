@@ -10,7 +10,9 @@ import BusinessLayer.AreaBO;
 import BusinessLayer.AsistenciaDocenteBO;
 import BusinessLayer.CursoBO;
 import BusinessLayer.DocenteBO;
+import BusinessLayer.HistorialNotasBO;
 import BusinessLayer.MatriculaBO;
+import BusinessLayer.NotasBO;
 import BusinessLayer.UsuarioBO;
 import DataAccessLayer.AlumnoDao;
 import DataAccessLayer.ApoderadoDAO;
@@ -21,7 +23,9 @@ import JavaBean.Area;
 import JavaBean.AsistenciaDocente;
 import JavaBean.Curso;
 import JavaBean.Docente;
+import JavaBean.HistorialNotas;
 import JavaBean.Matricula;
+import JavaBean.Notas;
 import JavaBean.Usuario;
 import Utilities.Validator;
 import java.awt.event.ActionEvent;
@@ -61,12 +65,15 @@ public class Inicio extends javax.swing.JFrame {
     private AsistenciaDocente adocente = new AsistenciaDocente();
     private Docente docente = new Docente();
     private Usuario usuario = new Usuario();
+    private Notas notas = new Notas();
     
     /// BUSSINESSLAYER
     private AsistenciaDocenteBO asisdocBO = new AsistenciaDocenteBO();
     private DocenteBO docenteBO = new DocenteBO();
     private UsuarioBO usuarioBO = new UsuarioBO();
     private CursoBO cursoBO = new CursoBO();
+    private NotasBO notasBO = new NotasBO();
+    private HistorialNotasBO hnotasBO = new HistorialNotasBO();
     
     /// ARRAYS
     private ArrayList<AsistenciaDocente> adocentes = new ArrayList<>();
@@ -74,10 +81,12 @@ public class Inicio extends javax.swing.JFrame {
     private ArrayList<Curso> cursosXNivel = new ArrayList<>();
     private ArrayList<Curso> cursosXGrado = new ArrayList<>();
     public static ArrayList<String> dniUsuarios = new ArrayList<>();
+    private ArrayList<HistorialNotas> hnotaslist = new ArrayList<>();
     
     /// MODELOS DE TABLAS
     private DefaultTableModel modeloAdocentes = new DefaultTableModel();
     private DefaultTableModel modeloUsuarios = new DefaultTableModel();
+    private DefaultTableModel modeloNotas = new DefaultTableModel();
     
     /****
      * 
@@ -1539,7 +1548,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        cbCursoNota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matematica", "Comunicación", "Educación Física" }));
+        cbCursoNota.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbCursoNotaPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
 
         btnEliminarNota.setText("Eliminar");
         btnEliminarNota.addActionListener(new java.awt.event.ActionListener() {
@@ -1548,7 +1565,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        cbGradoNota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbGradoNota.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -2477,6 +2493,7 @@ public class Inicio extends javax.swing.JFrame {
             char val = String.valueOf(cbGradoNota.getSelectedItem()).charAt(0);
             cursosXGrado = cursoBO.buscarPorGrado(String.valueOf(cursosXNivel.get(0).getNivel()), String.valueOf(val));
         } catch (Exception ex) {
+            System.out.println("no se sabe");
             System.out.println(ex);
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2485,6 +2502,18 @@ public class Inicio extends javax.swing.JFrame {
             cbCursoNota.addItem(cg.getNombre());
         }
     }//GEN-LAST:event_cbGradoNotaPopupMenuWillBecomeInvisible
+
+    private void cbCursoNotaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbCursoNotaPopupMenuWillBecomeInvisible
+        try {
+            // TODO add your handling code here:
+            hnotaslist = hnotasBO.buscarPorCurso(cursosXGrado.get(0).getNombre(),String.valueOf(cursosXGrado.get(0).getGrado()),String.valueOf(cbNivelNota.getItemAt(cbNivelNota.getSelectedIndex()).charAt(0)));
+            mostrarTablaNotas(hnotaslist);
+        } catch (Exception ex) {
+            System.out.println("Fallo en Interface");
+            System.out.println(ex);
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cbCursoNotaPopupMenuWillBecomeInvisible
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2828,6 +2857,30 @@ public class Inicio extends javax.swing.JFrame {
                 System.out.println(usuario.getApellido_paterno());
                 System.out.println(usuario.getClave());
                 Object [] fila = new Object[] {usuario.getUsuario_id(), usuario.getDni(), usuario.getApellido_paterno(), usuario.getApellido_materno(), usuario.getNombres(), usuario.getClave(), usuario.getRol()};
+                modeloUsuarios.addRow(fila);
+            }
+            jTableGestionUsuarios.setModel(modeloUsuarios);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    public void mostrarTablaNotas(ArrayList<HistorialNotas> hnl){
+        modeloNotas = (DefaultTableModel) jTableNotas.getModel();
+        modeloNotas.setRowCount(0);
+        
+        System.out.println(hnl.size());
+        try {
+            for (HistorialNotas hhh : hnl) {
+                Notas n = hhh.getNota();
+                Object [] fila = new Object[] {hhh.getAlumno().getApellidosNombres(),
+                n.getNota1(),
+                n.getNota2(),
+                n.getNota3(),
+                n.getNota4(),
+                n.getNota5(),
+                };
                 modeloUsuarios.addRow(fila);
             }
             jTableGestionUsuarios.setModel(modeloUsuarios);

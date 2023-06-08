@@ -1935,3 +1935,218 @@
   <thread>25</thread>
   <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@60e35ad6</message>
 </record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T19:51:27.809298500Z</date>
+  <millis>1686167487809</millis>
+  <nanos>298500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@38e1a74b</message>
+</record>
+<record>
+  <date>2023-06-07T19:51:29.588969600Z</date>
+  <millis>1686167489588</millis>
+  <nanos>969600</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@3e4cf314</message>
+</record>
+<record>
+  <date>2023-06-07T19:51:32.153920Z</date>
+  <millis>1686167492153</millis>
+  <nanos>920000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@7f0f6138</message>
+</record>
+<record>
+  <date>2023-06-07T19:51:34.587161200Z</date>
+  <millis>1686167494587</millis>
+  <nanos>161200</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@521ee258</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T19:52:11.435454300Z</date>
+  <millis>1686167531435</millis>
+  <nanos>454300</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@761ea177</message>
+</record>
+<record>
+  <date>2023-06-07T19:52:14.068729800Z</date>
+  <millis>1686167534068</millis>
+  <nanos>729800</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@96946d1</message>
+</record>
+<record>
+  <date>2023-06-07T19:52:17.274326600Z</date>
+  <millis>1686167537274</millis>
+  <nanos>326600</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@eb5e72d</message>
+</record>
+<record>
+  <date>2023-06-07T19:52:20.476311Z</date>
+  <millis>1686167540476</millis>
+  <nanos>311000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@4d7e1377</message>
+</record>
+<record>
+  <date>2023-06-07T19:52:24.071475800Z</date>
+  <millis>1686167544071</millis>
+  <nanos>475800</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@1dc00e39</message>
+</record>
+<record>
+  <date>2023-06-07T19:52:58.490397200Z</date>
+  <millis>1686167578490</millis>
+  <nanos>397200</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@3ca4c97c</message>
+</record>
+<record>
+  <date>2023-06-07T19:53:01.111082800Z</date>
+  <millis>1686167581111</millis>
+  <nanos>82800</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@31e42fd5</message>
+</record>
+<record>
+  <date>2023-06-07T19:53:08.551389300Z</date>
+  <millis>1686167588551</millis>
+  <nanos>389300</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@d90c871</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T20:07:45.528075Z</date>
+  <millis>1686168465528</millis>
+  <nanos>75000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Cannot invoke "java.time.LocalDate.getYear()" because "date" is null****[Ljava.lang.StackTraceElement;@e7f7976</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T20:18:54.880357500Z</date>
+  <millis>1686169134880</millis>
+  <nanos>357500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@521e45b7</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T20:34:46.462064400Z</date>
+  <millis>1686170086462</millis>
+  <nanos>64400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>PROCEDURE colegio.sp_curso_buscar_por_grado does not exist****[Ljava.lang.StackTraceElement;@2d0902b4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-07T22:50:10.577038700Z</date>
+  <millis>1686178210577</millis>
+  <nanos>38700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@2f2436a5</message>
+</record>

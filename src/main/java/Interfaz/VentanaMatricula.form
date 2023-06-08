@@ -212,10 +212,9 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxTurno">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Selecciona"/>
-            <StringItem index="1" value="Dia"/>
-            <StringItem index="2" value="Tarde"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Dia"/>
+            <StringItem index="1" value="Tarde"/>
           </StringArray>
         </Property>
       </Properties>
@@ -229,11 +228,10 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxNivel">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Selecciona"/>
-            <StringItem index="1" value="Inicial"/>
-            <StringItem index="2" value="Primaria"/>
-            <StringItem index="3" value="Secundaria"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Inicial"/>
+            <StringItem index="1" value="Primaria"/>
+            <StringItem index="2" value="Secundaria"/>
           </StringArray>
         </Property>
       </Properties>
@@ -252,15 +250,13 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxGrado">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
-            <StringItem index="0" value="Selecciona"/>
-            <StringItem index="1" value="1er&#xb0; GRADO"/>
-            <StringItem index="2" value="2er&#xb0; GRADO"/>
-            <StringItem index="3" value="3er&#xb0; GRADO"/>
-            <StringItem index="4" value="4er&#xb0; GRADO"/>
-            <StringItem index="5" value="5er&#xb0; GRADO"/>
-            <StringItem index="6" value="6er&#xb0; GRADO"/>
-            <StringItem index="7" value=""/>
+          <StringArray count="6">
+            <StringItem index="0" value="1er&#xb0; GRADO"/>
+            <StringItem index="1" value="2er&#xb0; GRADO"/>
+            <StringItem index="2" value="3er&#xb0; GRADO"/>
+            <StringItem index="3" value="4er&#xb0; GRADO"/>
+            <StringItem index="4" value="5er&#xb0; GRADO"/>
+            <StringItem index="5" value="6er&#xb0; GRADO"/>
           </StringArray>
         </Property>
       </Properties>

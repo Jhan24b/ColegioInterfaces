@@ -119,14 +119,14 @@ public class VentanaMatricula extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Dia", "Tarde" }));
+        jComboBoxTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "Tarde" }));
         jComboBoxTurno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTurnoActionPerformed(evt);
             }
         });
 
-        jComboBoxNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Inicial", "Primaria", "Secundaria" }));
+        jComboBoxNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inicial", "Primaria", "Secundaria" }));
         jComboBoxNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxNivelActionPerformed(evt);
@@ -135,7 +135,7 @@ public class VentanaMatricula extends javax.swing.JFrame {
 
         jLabel8.setText("GRADO:");
 
-        jComboBoxGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "1er° GRADO", "2er° GRADO", "3er° GRADO", "4er° GRADO", "5er° GRADO", "6er° GRADO", "" }));
+        jComboBoxGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1er° GRADO", "2er° GRADO", "3er° GRADO", "4er° GRADO", "5er° GRADO", "6er° GRADO" }));
         jComboBoxGrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxGradoActionPerformed(evt);

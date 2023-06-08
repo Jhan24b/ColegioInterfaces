@@ -310,7 +310,9 @@ public class CursoDAO {
                 cursos.add(curso);
             }
             
-        }catch (Exception e) {         
+        }catch (Exception e) {     
+            System.out.println("Error aqui");
+            System.out.println(e);
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
