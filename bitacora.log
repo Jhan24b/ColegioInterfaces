@@ -2330,3 +2330,31 @@
   <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@650bfdbe</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T17:04:45.587200800Z</date>
+  <millis>1686243885587</millis>
+  <nanos>200800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_notas_mostrar_por_curso does not exist****[Ljava.lang.StackTraceElement;@3d97398e</message>
+</record>
+<record>
+  <date>2023-06-08T17:04:49.197148100Z</date>
+  <millis>1686243889197</millis>
+  <nanos>148100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_notas_mostrar_por_curso does not exist****[Ljava.lang.StackTraceElement;@4ae76d1c</message>
+</record>
+</log>
