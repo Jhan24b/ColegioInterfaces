@@ -299,21 +299,25 @@ public class VentanaMatricula extends javax.swing.JFrame {
     private Matricula RecibirDatos(){
         Matricula matricula = new Matricula();
         
-        if(!(jComboBoxNivel.getSelectedIndex() == 0))
-            matricula.setNivel(jComboBoxNivel.getSelectedItem().toString().charAt(0));
-        else
-            matricula.setNivel(' ');
-        
-        if(!(jComboBoxGrado.getSelectedIndex() == 0))
-            matricula.setGrado(jComboBoxGrado.getSelectedItem().toString().charAt(0));
-        else
-            matricula.setGrado(' ');
-        
-        if(!(jComboBoxTurno.getSelectedIndex() == 0))
-            matricula.setTurno(jComboBoxTurno.getSelectedItem().toString().charAt(0));
-        else 
-            matricula.setTurno(' ');
-        
+//        if(!(jComboBoxNivel.getSelectedIndex() == 0))
+//            matricula.setNivel(jComboBoxNivel.getSelectedItem().toString().charAt(0));
+//        else
+//            matricula.setNivel(' ');
+//        
+//        if(!(jComboBoxGrado.getSelectedIndex() == 0))
+//            matricula.setGrado(jComboBoxGrado.getSelectedItem().toString().charAt(0));
+//        else
+//            matricula.setGrado(' ');
+//        
+//        if(!(jComboBoxTurno.getSelectedIndex() == 0))
+//            matricula.setTurno(jComboBoxTurno.getSelectedItem().toString().charAt(0));
+//        else 
+//            matricula.setTurno(' ');
+        matricula.setNivel(jComboBoxNivel.getSelectedItem().toString().charAt(0));
+        matricula.setGrado(jComboBoxGrado.getSelectedItem().toString().charAt(0));
+        matricula.setTurno(jComboBoxTurno.getSelectedItem().toString().charAt(0));
+
+
         LimpiarErrores();
         try {
             matricula.setAlumno_id(Integer.parseInt(jTextAlumno_id.getText()));

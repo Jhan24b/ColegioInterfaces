@@ -342,19 +342,15 @@ public class AlumnoDao {
             while(rs.next()){
                 alumno = new Alumno();
                 alumno.setAlumno_id(rs.getInt("alumno_id"));
-                alumno.setDni(rs.getString("dni"));
-                //alumno.setApellidosNombres(rs.getString("apellidos_nombres"));
-                String[] nombres = rs.getString("apellidos_nombres").replace(",", "").split(" ");
-                System.out.println(rs.getString("apellidos_nombres"));
-                alumno.setApellido_paterno(nombres[0]);
-                alumno.setApellido_materno(nombres[1]);
-                
-                if (nombres.length < 4) alumno.setNombres(nombres[2]);
-                else alumno.setNombres(nombres[2]+" "+nombres[3]); 
-                
-                alumno.setCorreo_electrico(rs.getString("correo_electronico"));
-                System.out.println(rs.getString("correo_electronico"));
-                alumno.setFecha_nacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+//                alumno.setDni(rs.getString("dni"));
+                alumno.setApellidosNombres(rs.getString("Apellidos y Nombres"));
+//                String[] nombres = rs.getString("Apellidos y Nombres").replace(",", "").split(" ");
+//                System.out.println(rs.getString("Apellidos y Nombres"));
+//                alumno.setApellido_paterno(nombres[0]);
+//                alumno.setApellido_materno(nombres[1]);
+//                
+//                if (nombres.length < 4) alumno.setNombres(nombres[2]);
+//                else alumno.setNombres(nombres[2]+" "+nombres[3]);
                 
                 alumnos.add(alumno);
             }

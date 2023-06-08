@@ -83,7 +83,7 @@ public class InsertNotas extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblAlumnosDelCurso = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         txtNota5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -97,7 +97,7 @@ public class InsertNotas extends javax.swing.JFrame {
         txtNota1 = new javax.swing.JTextField();
         btnInsertarNotas = new javax.swing.JButton();
         btnDescartarNotas = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtAlumnoNombreNotaInsertar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -147,7 +147,7 @@ public class InsertNotas extends javax.swing.JFrame {
 
         jLabel22.setText("Curso:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblAlumnosDelCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -170,9 +170,14 @@ public class InsertNotas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        tblAlumnosDelCurso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAlumnosDelCursoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblAlumnosDelCurso);
+        if (tblAlumnosDelCurso.getColumnModel().getColumnCount() > 0) {
+            tblAlumnosDelCurso.getColumnModel().getColumn(0).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -221,6 +226,10 @@ public class InsertNotas extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar Notas"));
+        jPanel3.setMaximumSize(new java.awt.Dimension(275, 680));
+        jPanel3.setMinimumSize(new java.awt.Dimension(275, 680));
+        jPanel3.setName(""); // NOI18N
+        jPanel3.setPreferredSize(new java.awt.Dimension(275, 680));
 
         jLabel7.setText("Nota 5: ");
 
@@ -247,11 +256,11 @@ public class InsertNotas extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setEnabled(false);
-        jTextField1.setMaximumSize(new java.awt.Dimension(250, 22));
-        jTextField1.setMinimumSize(new java.awt.Dimension(250, 22));
-        jTextField1.setName(""); // NOI18N
-        jTextField1.setPreferredSize(new java.awt.Dimension(250, 22));
+        txtAlumnoNombreNotaInsertar.setEnabled(false);
+        txtAlumnoNombreNotaInsertar.setMaximumSize(new java.awt.Dimension(250, 22));
+        txtAlumnoNombreNotaInsertar.setMinimumSize(new java.awt.Dimension(250, 22));
+        txtAlumnoNombreNotaInsertar.setName(""); // NOI18N
+        txtAlumnoNombreNotaInsertar.setPreferredSize(new java.awt.Dimension(250, 22));
 
         jLabel1.setText("Alumno:");
 
@@ -289,20 +298,20 @@ public class InsertNotas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(42, 42, 42)
                         .addComponent(btnInsertarNotas)
-                        .addGap(27, 27, 27)
+                        .addGap(28, 28, 28)
                         .addComponent(btnDescartarNotas)))
-                .addContainerGap(43, Short.MAX_VALUE))
-            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(txtAlumnoNombreNotaInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAlumnoNombreNotaInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -323,11 +332,11 @@ public class InsertNotas extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertarNotas)
                     .addComponent(btnDescartarNotas))
-                .addGap(439, 439, 439))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar"));
@@ -374,19 +383,19 @@ public class InsertNotas extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -419,6 +428,11 @@ public class InsertNotas extends javax.swing.JFrame {
             String grado = String.valueOf(cursosXGrado.get(0).getGrado());
             String nivel = String.valueOf(cbNivelNotaInsert.getItemAt(cbNivelNotaInsert.getSelectedIndex()).charAt(0));
             alumnosXCurso = alumBO.buscarPorAlumnoxCurso(name,grado,nivel);
+            mostrarTablaAlumnosDelCurso(alumnosXCurso);
+            if(alumnosXCurso.size()>=1){
+                txtBuscarNombre.setEnabled(true);
+                btnBuscarAlumno.setEnabled(true);
+            }
         } catch (Exception ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -493,12 +507,44 @@ public class InsertNotas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnInsertarNotasActionPerformed
 
+    private void tblAlumnosDelCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnosDelCursoMouseClicked
+        // TODO add your handling code here:
+        if(tblAlumnosDelCurso.getSelectedRow()!=-1){
+            txtAlumnoNombreNotaInsertar.setText(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getApellidosNombres());
+            btnInsertarNotas.setEnabled(true);
+            inicializarNotas();
+        }
+    }//GEN-LAST:event_tblAlumnosDelCursoMouseClicked
+
     ///
     ///////    Funciones
     ///
     
+    public void mostrarTablaAlumnosDelCurso(ArrayList<Alumno> alucurso){
+        modeloNotas = (DefaultTableModel) tblAlumnosDelCurso.getModel();
+        modeloNotas.setRowCount(0);
+        
+        System.out.println(alucurso.size());
+        try {
+            for (Alumno hhh : alucurso) {
+                Object [] fila = new Object[] {hhh.getApellidosNombres()};
+                modeloNotas.addRow(fila);
+            }
+            tblAlumnosDelCurso.setModel(modeloNotas);
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
+        }
+    }
     
     
+    public void inicializarNotas(){
+        txtNota1.setText("0");
+        txtNota2.setText("0");
+        txtNota3.setText("0");
+        txtNota4.setText("0");
+        txtNota5.setText("0");
+    }
     /**
      * @param args the command line arguments
      */
@@ -556,8 +602,8 @@ public class InsertNotas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblAlumnosDelCurso;
+    private javax.swing.JTextField txtAlumnoNombreNotaInsertar;
     private javax.swing.JTextField txtBuscarNombre;
     private javax.swing.JTextField txtNota1;
     private javax.swing.JTextField txtNota2;
