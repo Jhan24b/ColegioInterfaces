@@ -268,34 +268,35 @@ public class HistorialNotasDAO {
             sql="call sp_notas_mostrar_por_curso(?,?,?)";//es historial notas no notas
             cstm=con.prepareCall(sql);
             cstm.setString(1, nombre);
-            cstm.setString(2, nivel);
-            cstm.setString(3, grado);
-         
-            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones         
+            cstm.setString(2, grado);
+            cstm.setString(3, nivel);
+            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones 
             
-            hnotas.setHistorial_id(rs.getInt("historial_notas_id"));
+            while(rs.next()){
+                hnotas.setHistorial_id(rs.getInt("historial_notas_id"));
             
-            notas.setHistorial_notas_id(rs.getInt("historial_notas_id"));
-            notas.setNota1(rs.getDouble("nota1"));
-            notas.setNota2(rs.getDouble("nota2"));
-            notas.setNota3(rs.getDouble("nota3"));
-            notas.setNota4(rs.getDouble("nota4"));
-            notas.setNota5(rs.getDouble("nota5"));
-            
-            alumno.setAlumno_id(rs.getInt("alumno_id"));
-            alumno.setApellidosNombres(rs.getString("Apellidos y Nombres"));
-            
-            
-            curso.setCurso_id(rs.getInt("curso_id"));
-            curso.setNivel(rs.getString("nivel").charAt(0));
-            curso.setGrado(rs.getString("grado").charAt(0));
-            curso.setNombre(rs.getString("nombre"));
+                notas.setHistorial_notas_id(rs.getInt("historial_notas_id"));
+                notas.setNota1(rs.getDouble("nota1"));
+                notas.setNota2(rs.getDouble("nota2"));
+                notas.setNota3(rs.getDouble("nota3"));
+                notas.setNota4(rs.getDouble("nota4"));
+                notas.setNota5(rs.getDouble("nota5"));
 
-            hnotas.setNota(notas);
-            hnotas.setCurso(curso);
-            hnotas.setAlumno(alumno);
-            
-            hnotasl.add(hnotas);
+                alumno.setAlumno_id(rs.getInt("alumno_id"));
+                alumno.setApellidosNombres(rs.getString("Apellidos y Nombres"));
+
+
+                curso.setCurso_id(rs.getInt("curso_id"));
+                curso.setNivel(rs.getString("nivel").charAt(0));
+                curso.setGrado(rs.getString("grado").charAt(0));
+                curso.setNombre(rs.getString("nombre"));
+
+                hnotas.setNota(notas);
+                hnotas.setCurso(curso);
+                hnotas.setAlumno(alumno);
+
+                hnotasl.add(hnotas);
+            }
         }catch (Exception e) {   
             System.out.println("Resuelve aqui");
             System.out.println(e);

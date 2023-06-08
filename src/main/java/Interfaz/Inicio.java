@@ -1510,7 +1510,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
@@ -1548,6 +1548,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        cbCursoNota.setEnabled(false);
         cbCursoNota.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -1565,6 +1566,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        cbGradoNota.setEnabled(false);
         cbGradoNota.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -2485,6 +2487,7 @@ public class Inicio extends javax.swing.JFrame {
         for(Character ch : gr){
             cbGradoNota.addItem(String.valueOf(ch)+"' grado");
         }
+        cbGradoNota.setEnabled(true);
     }//GEN-LAST:event_cbNivelNotaPopupMenuWillBecomeInvisible
 
     private void cbGradoNotaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbGradoNotaPopupMenuWillBecomeInvisible
@@ -2501,12 +2504,16 @@ public class Inicio extends javax.swing.JFrame {
         for(Curso cg: cursosXGrado){
             cbCursoNota.addItem(cg.getNombre());
         }
+        cbCursoNota.setEnabled(true);
     }//GEN-LAST:event_cbGradoNotaPopupMenuWillBecomeInvisible
 
     private void cbCursoNotaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbCursoNotaPopupMenuWillBecomeInvisible
         try {
             // TODO add your handling code here:
-            hnotaslist = hnotasBO.buscarPorCurso(cursosXGrado.get(0).getNombre(),String.valueOf(cursosXGrado.get(0).getGrado()),String.valueOf(cbNivelNota.getItemAt(cbNivelNota.getSelectedIndex()).charAt(0)));
+            String name=cursosXGrado.get(0).getNombre();
+            String grado = String.valueOf(cursosXGrado.get(0).getGrado());
+            String nivel = String.valueOf(cbNivelNota.getItemAt(cbNivelNota.getSelectedIndex()).charAt(0));
+            hnotaslist = hnotasBO.buscarPorCurso(name,grado,nivel);
             mostrarTablaNotas(hnotaslist);
         } catch (Exception ex) {
             System.out.println("Fallo en Interface");
@@ -2881,9 +2888,9 @@ public class Inicio extends javax.swing.JFrame {
                 n.getNota4(),
                 n.getNota5(),
                 };
-                modeloUsuarios.addRow(fila);
+                modeloNotas.addRow(fila);
             }
-            jTableGestionUsuarios.setModel(modeloUsuarios);
+            jTableNotas.setModel(modeloNotas);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

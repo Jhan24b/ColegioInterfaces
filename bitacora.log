@@ -2150,3 +2150,127 @@
   <thread>25</thread>
   <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@2f2436a5</message>
 </record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:02:56.975435200Z</date>
+  <millis>1686193376975</millis>
+  <nanos>435200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@6300f7f</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:13:25.141211400Z</date>
+  <millis>1686194005141</millis>
+  <nanos>211400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@3f18a064</message>
+</record>
+<record>
+  <date>2023-06-08T03:13:27.427520200Z</date>
+  <millis>1686194007427</millis>
+  <nanos>520200</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@51dcfb3c</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:14:49.909780200Z</date>
+  <millis>1686194089909</millis>
+  <nanos>780200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@7333ff53</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:17:48.679057900Z</date>
+  <millis>1686194268679</millis>
+  <nanos>57900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@6a9ad826</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:25:16.755375900Z</date>
+  <millis>1686194716755</millis>
+  <nanos>375900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@35907ed</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:26:46.639835900Z</date>
+  <millis>1686194806639</millis>
+  <nanos>835900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@6a19bf</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-08T03:33:48.488914400Z</date>
+  <millis>1686195228488</millis>
+  <nanos>914400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>25</thread>
+  <message>Illegal operation on empty result set.****[Ljava.lang.StackTraceElement;@e124a84</message>
+</record>
+</log>
