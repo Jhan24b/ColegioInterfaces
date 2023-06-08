@@ -13,6 +13,9 @@ import BusinessLayer.DocenteBO;
 import BusinessLayer.HistorialNotasBO;
 import BusinessLayer.MatriculaBO;
 import BusinessLayer.NotasBO;
+import BusinessLayer.PagoMatriculaBO;
+import BusinessLayer.PagoPensionBO;
+import BusinessLayer.PagoVariosBO;
 import BusinessLayer.UsuarioBO;
 import DataAccessLayer.AlumnoDao;
 import DataAccessLayer.ApoderadoDAO;
@@ -27,6 +30,9 @@ import JavaBean.HistorialNotas;
 import JavaBean.Matricula;
 import JavaBean.Notas;
 import JavaBean.Usuario;
+import JavaBean.pagoMatricula;
+import JavaBean.pagoPensiones;
+import JavaBean.pagoVarios;
 import Utilities.Validator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -314,7 +320,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jComboxPagos = new javax.swing.JComboBox<>();
+        cbPagos = new javax.swing.JComboBox<>();
         jButton9 = new javax.swing.JButton();
         jPanelMatricula = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -808,10 +814,19 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jComboxPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Matricula", "Pago Pensiones", "Pago Varios" }));
-        jComboxPagos.addActionListener(new java.awt.event.ActionListener() {
+        cbPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Matricula", "Pago Pensiones", "Pago Varios" }));
+        cbPagos.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbPagosPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+        cbPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboxPagosActionPerformed(evt);
+                cbPagosActionPerformed(evt);
             }
         });
 
@@ -829,7 +844,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanelPagosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboxPagos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbPagos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane3)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelPagosLayout.createSequentialGroup()
@@ -849,7 +864,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboxPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1783,17 +1798,56 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        int fila = jTablePagos.getSelectedRow();
+        String tipoPago = cbPagos.getSelectedItem().toString();
+
+        try {
+            System.out.println( "Eliminando "+tipoPago+" con id: "+jTablePagos.getValueAt(fila, 1) );
+            int id = (int) jTablePagos.getValueAt(fila, 1);
+            System.out.println("ID :"+id);
+            switch (tipoPago) {
+            case "Pago Matricula" -> {
+                modeloPagoMatricula.removeRow(fila);
+                pagoMatBO.eliminarPagoMatriculaPorId(id);
+            }
+            case "Pago Pensiones" -> {
+                modeloPagoPension.removeRow(fila);
+                pagoPenBO.eliminarPagoPensionPorId(id);
+            }
+            case "Pago Varios" -> {
+                modeloPagoVarios.removeRow(fila);
+                pagoVarBO.eliminarPagoVariosPorId(id);
+            }
+        }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jComboxPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboxPagosActionPerformed
+    private void cbPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPagosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboxPagosActionPerformed
+    }//GEN-LAST:event_cbPagosActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        String tipoPago = String.valueOf(jComboxPagos.getSelectedItem());
-        InsertPagos insPagos = new InsertPagos(tipoPago);
-        insPagos.setVisible(true);
+        String tipoPago = String.valueOf(cbPagos.getSelectedItem());
+        
+        VentanaPagos ventanaInsertar = ventanaInsertar = new VentanaPagos(tipoPago);
+        
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    ActualizarTablaXTipoPago(tipoPago);
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1803,6 +1857,42 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        String tipoPago = String.valueOf(cbPagos.getSelectedItem());
+        int fila = jTablePagos.getSelectedRow();
+        
+        VentanaPagos ventanaInsertar;
+        
+        switch (tipoPago) {
+            case "Pago Matricula" -> {
+                pagoMatricula newPago = pagosMatricula.get(fila);
+                ventanaInsertar = new VentanaPagos(tipoPago, newPago);
+            }
+            case "Pago Pensiones" -> {
+                pagoPensiones newPago = pagosPensiones.get(fila);
+                ventanaInsertar = new VentanaPagos(tipoPago, newPago);
+                }
+            case "Pago Varios" -> {
+                pagoVarios newPago = pagosVarios.get(fila);
+                ventanaInsertar = new VentanaPagos(tipoPago, newPago);
+                }
+            default -> {
+                ventanaInsertar = new VentanaPagos(tipoPago);
+            }
+        }
+        
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    ActualizarTablaXTipoPago(tipoPago);
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void btnSalirApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirApoderadoActionPerformed
@@ -2521,6 +2611,11 @@ public class Inicio extends javax.swing.JFrame {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cbCursoNotaPopupMenuWillBecomeInvisible
+
+    private void cbPagosPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbPagosPopupMenuWillBecomeInvisible
+        // TODO add your handling code here:
+        ActualizarTablaXTipoPago((String) cbPagos.getSelectedItem());
+    }//GEN-LAST:event_cbPagosPopupMenuWillBecomeInvisible
     
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -2708,11 +2803,126 @@ public class Inicio extends javax.swing.JFrame {
         }
     }
     
+    private DefaultTableModel modeloPagoMatricula;
+    private PagoMatriculaBO pagoMatBO = new PagoMatriculaBO();
+    private ArrayList<pagoMatricula>  pagosMatricula;
+    
+    private void actualizarTablaPagoMatricula(){
+        modeloPagoMatricula = new DefaultTableModel();
+        
+        jTablePagos.setModel(modeloPagoMatricula);
+        
+        modeloPagoMatricula.addColumn("#");
+        modeloPagoMatricula.addColumn("Pago Matricula ID");
+        modeloPagoMatricula.addColumn("Fecha");
+        modeloPagoMatricula.addColumn("Monto");
+        modeloPagoMatricula.addColumn("Observacion");
+        modeloPagoMatricula.addColumn("Alumno ID");
+        
+        try {
+            System.out.println(pagosMatricula.size());
+            for (int i = 0; i < pagosMatricula.size(); i++) {
+                pagoMatricula pagoMat = pagosMatricula.get(i);
+                
+                Object [] fila = new Object[] { (i+1) , pagoMat.getPago_matricula_id(), pagoMat.getFecha(), 
+                    pagoMat.getMonto(), pagoMat.getObservacion(), pagoMat.getAlumno_id()};
+                modeloPagoMatricula.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloPagoPension;
+    private PagoPensionBO pagoPenBO = new PagoPensionBO();
+    private ArrayList<pagoPensiones>  pagosPensiones;
+    
+    private void actualizarTablaPagoPensiones(){
+        modeloPagoPension = new DefaultTableModel();
+        
+        jTablePagos.setModel(modeloPagoPension);
+        
+        modeloPagoPension.addColumn("#");
+        modeloPagoPension.addColumn("Pago Pension ID");
+        modeloPagoPension.addColumn("Fecha");
+        modeloPagoPension.addColumn("Monto");
+        modeloPagoPension.addColumn("Observacion");
+        modeloPagoPension.addColumn("Alumno ID");
+        
+        try {
+            System.out.println(pagosPensiones.size());
+            for (int i = 0; i < pagosPensiones.size(); i++) {
+                pagoPensiones pagoPen = pagosPensiones.get(i);
+                
+                Object [] fila = new Object[] { (i+1) , pagoPen.getPago_pensiones_id(), pagoPen.getFecha(), 
+                    pagoPen.getMonto(), pagoPen.getObservacion(), pagoPen.getAlumno_id()};
+                modeloPagoPension.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private DefaultTableModel modeloPagoVarios;
+    private PagoVariosBO pagoVarBO = new PagoVariosBO();
+    private ArrayList<pagoVarios>  pagosVarios;
+    
+    private void actualizarTablaPagoVarios(){
+        modeloPagoVarios = new DefaultTableModel();
+        
+        jTablePagos.setModel(modeloPagoVarios);
+        
+        modeloPagoVarios.addColumn("#");
+        modeloPagoVarios.addColumn("Pago Varios ID");
+        modeloPagoVarios.addColumn("Fecha");
+        modeloPagoVarios.addColumn("Monto");
+        modeloPagoVarios.addColumn("Descripción");
+        modeloPagoVarios.addColumn("Alumno ID");
+        
+        try {
+            System.out.println(pagosVarios.size());
+            for (int i = 0; i < pagosVarios.size(); i++) {
+                pagoVarios pagoVar = pagosVarios.get(i);
+                
+                Object [] fila = new Object[] { (i+1) , pagoVar.getPago_varios_id(), pagoVar.getFecha(), 
+                    pagoVar.getMonto(), pagoVar.getObservacion(), pagoVar.getAlumno_id()};
+                modeloPagoVarios.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /*****
     *
     * FUNCIONES
     *
     *****/
+    
+    //Actualizar Tabla por Tipo de Pago
+    public void ActualizarTablaXTipoPago(String tipo){
+        try {
+            switch (tipo) {
+                case "Pago Matricula":
+                    pagosMatricula = pagoMatBO.listarPagoMatricula();
+                    actualizarTablaPagoMatricula();
+                    //PAGO MATRICULA
+                    break;
+                case "Pago Varios":
+                    pagosVarios = pagoVarBO.listarPagoVarios();
+                    actualizarTablaPagoVarios();
+                    //PAGO VARIOS
+                    break;
+                case "Pago Pensiones":
+                    pagosPensiones = pagoPenBO.listarPagoPension();
+                    actualizarTablaPagoPensiones();
+                    //PAGO PENSIONES
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     //Funcion para ordenar a los alumnos de acuerdo a su DNI
     public ArrayList<Alumno> ordenarPorAlumnosDNI(ArrayList<Alumno> alumnos){
@@ -2978,6 +3188,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbGradoNota;
     private javax.swing.JComboBox<String> cbNivelNota;
     private javax.swing.JComboBox<String> cbOpcionesBuscarAlumnos;
+    private javax.swing.JComboBox<String> cbPagos;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
@@ -2991,7 +3202,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboxPagos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
