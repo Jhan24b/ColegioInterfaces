@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.util.Collections;
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,7 @@ public class InsertNotas extends javax.swing.JFrame {
     private Docente docente = new Docente();
     private Usuario usuario = new Usuario();
     private Notas notas = new Notas();
+    private int codigoHnotas = -1;
     
     /// BUSSINESSLAYER
     private AsistenciaDocenteBO asisdocBO = new AsistenciaDocenteBO();
@@ -544,6 +546,38 @@ public class InsertNotas extends javax.swing.JFrame {
         txtNota3.setText("0");
         txtNota4.setText("0");
         txtNota5.setText("0");
+    }
+    
+    public void obtenerValores() throws Exception{
+        boolean ver = false;
+        double n1=0,n2=0,n3=0,n4=0,n5=0;
+        notas = null;
+        notas.setHistorial_notas_id(1);
+        try {
+            n1 = Double.parseDouble(txtNota1.getText());
+            n2 = Double.parseDouble(txtNota2.getText());
+            n3 = Double.parseDouble(txtNota3.getText());
+            n4 = Double.parseDouble(txtNota4.getText());
+            n5 = Double.parseDouble(txtNota5.getText());
+            ver = true;
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Error en las notas, verifique los valores");
+        }
+        
+        if(ver){
+            notas.setNota1(n1);
+            notas.setNota2(n2);
+            notas.setNota3(n3);
+            notas.setNota4(n4);
+            notas.setNota5(n5);
+            try {
+                notasBO.insertar(notas);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            
+        }        
     }
     /**
      * @param args the command line arguments

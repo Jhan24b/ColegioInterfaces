@@ -7,6 +7,7 @@ package DataAccessLayer;
 
 import Connection.UConnection;
 import JavaBean.Alumno;
+import JavaBean.HistorialNotas;
 import Utilities.Bitacora;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -323,6 +324,7 @@ public class AlumnoDao {
      
         ArrayList<Alumno>alumnos=new ArrayList<>();
         Alumno alumno=null;
+        HistorialNotas hn = null;
         
         Connection con=null;
         CallableStatement cstm = null;  
@@ -341,6 +343,7 @@ public class AlumnoDao {
             
             while(rs.next()){
                 alumno = new Alumno();
+                
                 alumno.setAlumno_id(rs.getInt("alumno_id"));
 //                alumno.setDni(rs.getString("dni"));
                 alumno.setApellidosNombres(rs.getString("Apellidos y Nombres"));
@@ -348,10 +351,12 @@ public class AlumnoDao {
 //                System.out.println(rs.getString("Apellidos y Nombres"));
 //                alumno.setApellido_paterno(nombres[0]);
 //                alumno.setApellido_materno(nombres[1]);
-//                
+                hn.setHistorial_id(rs.getInt("historial_notas_id"));
+                hn.setCurso_id(rs.getInt("curso_id"));
+                hn.setAlumno_id(rs.getInt("alumno_id"));
 //                if (nombres.length < 4) alumno.setNombres(nombres[2]);
 //                else alumno.setNombres(nombres[2]+" "+nombres[3]);
-                
+                alumno.agregarHnotas(hn);
                 alumnos.add(alumno);
             }
             
