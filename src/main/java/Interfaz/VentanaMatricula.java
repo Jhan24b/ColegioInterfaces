@@ -50,7 +50,8 @@ public class VentanaMatricula extends javax.swing.JFrame {
         jlID.setText("");
         jbPrincipal.setText("Insertar");
         
-        jbPrincipal.setEnabled(false);
+        jbPrincipal.setEnabled(false);       
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar Matricula"));
     }
 
     /**
@@ -208,7 +209,7 @@ public class VentanaMatricula extends javax.swing.JFrame {
                 .addComponent(btnBuscarAlumno))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar Notas"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actualizar Matricula"));
         jPanel3.setToolTipText("");
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.setMaximumSize(new java.awt.Dimension(275, 680));
@@ -388,6 +389,8 @@ public class VentanaMatricula extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 355, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel3.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
