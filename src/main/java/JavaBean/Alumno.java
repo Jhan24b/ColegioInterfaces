@@ -22,8 +22,8 @@ public class Alumno {
     private LocalDate fecha_nacimiento;
     private String correo_electrico;
     private String apellidosNombres;
-    private ArrayList<HistorialNotas> hnotas = null;
-    private HistorialNotas hnot = null;
+    private ArrayList<HistorialNotas> hnotas = new ArrayList<>();
+    private HistorialNotas hnot = new HistorialNotas();
     
     private Map<String,String> errores = new HashMap<>();
     

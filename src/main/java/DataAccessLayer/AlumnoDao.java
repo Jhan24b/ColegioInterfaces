@@ -323,8 +323,8 @@ public class AlumnoDao {
     public ArrayList<Alumno> buscarPorAlumnoxCurso(String nombre, String grado, String nivel) throws Exception{
      
         ArrayList<Alumno>alumnos=new ArrayList<>();
-        Alumno alumno=null;
-        HistorialNotas hn = null;
+        Alumno alumno= new Alumno();
+        HistorialNotas hn = new HistorialNotas();
         
         Connection con=null;
         CallableStatement cstm = null;  
@@ -352,11 +352,14 @@ public class AlumnoDao {
 //                alumno.setApellido_paterno(nombres[0]);
 //                alumno.setApellido_materno(nombres[1]);
                 hn.setHistorial_id(rs.getInt("historial_notas_id"));
+                System.out.println("este valor viene del DAO +++ " + rs.getInt("historial_notas_id"));
                 hn.setCurso_id(rs.getInt("curso_id"));
                 hn.setAlumno_id(rs.getInt("alumno_id"));
 //                if (nombres.length < 4) alumno.setNombres(nombres[2]);
 //                else alumno.setNombres(nombres[2]+" "+nombres[3]);
-                alumno.agregarHnotas(hn);
+                alumno.setHnot(hn);
+                System.out.println("valores anadidos por el dao en el objeto: "+ hn.getHistorial_id());
+                System.out.println("valor cambiado en el alumno: " + alumno.getHnot().getHistorial_id());
                 alumnos.add(alumno);
             }
             

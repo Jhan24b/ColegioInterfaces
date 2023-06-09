@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +38,7 @@ public class InsertNotas extends javax.swing.JFrame {
     private Usuario usuario = new Usuario();
     private Notas notas = new Notas();
     private int codigoHnotas = -1;
+    private HistorialNotas hnob = new HistorialNotas();
     
     /// BUSSINESSLAYER
     private AsistenciaDocenteBO asisdocBO = new AsistenciaDocenteBO();
@@ -101,6 +103,11 @@ public class InsertNotas extends javax.swing.JFrame {
         btnDescartarNotas = new javax.swing.JButton();
         txtAlumnoNombreNotaInsertar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        errorn1 = new javax.swing.JLabel();
+        errorn2 = new javax.swing.JLabel();
+        errorn3 = new javax.swing.JLabel();
+        errorn4 = new javax.swing.JLabel();
+        errorn5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtBuscarNombre = new javax.swing.JTextField();
@@ -223,7 +230,7 @@ public class InsertNotas extends javax.swing.JFrame {
                     .addComponent(jLabel22)
                     .addComponent(cbCursoNotaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -266,51 +273,77 @@ public class InsertNotas extends javax.swing.JFrame {
 
         jLabel1.setText("Alumno:");
 
+        errorn1.setForeground(new java.awt.Color(255, 51, 51));
+        errorn1.setText("-");
+
+        errorn2.setForeground(new java.awt.Color(255, 51, 51));
+        errorn2.setText("-");
+
+        errorn3.setForeground(new java.awt.Color(255, 51, 51));
+        errorn3.setText("-");
+
+        errorn4.setForeground(new java.awt.Color(255, 51, 51));
+        errorn4.setText("-");
+
+        errorn5.setForeground(new java.awt.Color(255, 51, 51));
+        errorn5.setText("-");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtAlumnoNombreNotaInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(errorn5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInsertarNotas)
+                .addGap(26, 26, 26)
+                .addComponent(btnDescartarNotas)
+                .addGap(41, 41, 41))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(errorn1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel8))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNota3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNota4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(errorn3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(errorn4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btnInsertarNotas)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnDescartarNotas)))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errorn2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(txtAlumnoNombreNotaInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAlumnoNombreNotaInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,27 +351,37 @@ public class InsertNotas extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(errorn1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
+                .addComponent(errorn2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNota3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(0, 0, 0)
+                .addComponent(errorn3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNota3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNota4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtNota4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(0, 0, 0)
+                .addComponent(errorn4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtNota5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(0, 0, 0)
+                .addComponent(errorn5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertarNotas)
                     .addComponent(btnDescartarNotas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar"));
@@ -384,22 +427,21 @@ public class InsertNotas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -418,11 +460,6 @@ public class InsertNotas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDescartarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarNotasActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnDescartarNotasActionPerformed
-
     private void cbCursoNotaInsertPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbCursoNotaInsertPopupMenuWillBecomeInvisible
         try {
             // TODO add your handling code here:
@@ -436,6 +473,8 @@ public class InsertNotas extends javax.swing.JFrame {
                 btnBuscarAlumno.setEnabled(true);
             }
         } catch (Exception ex) {
+            System.out.println("no se si es aqui");
+            System.out.println(ex);
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cbCursoNotaInsertPopupMenuWillBecomeInvisible
@@ -504,19 +543,54 @@ public class InsertNotas extends javax.swing.JFrame {
         cbGradoNotaInsert.setEnabled(true);
     }//GEN-LAST:event_cbNivelNotaInsertPopupMenuWillBecomeInvisible
 
-    private void btnInsertarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarNotasActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnInsertarNotasActionPerformed
-
     private void tblAlumnosDelCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnosDelCursoMouseClicked
         // TODO add your handling code here:
+        System.out.println("++++++++++++++++++++++++++++");
+        System.out.println("valor array: " + alumnosXCurso.size());
+        System.out.println("alumno 1:" + alumnosXCurso.get(0).getHnot().getHistorial_id());
+        System.out.println("alumno 2:" + alumnosXCurso.get(1).getHnot().getHistorial_id());
+        System.out.println("++++++++++++++++++++++++++++");
         if(tblAlumnosDelCurso.getSelectedRow()!=-1){
             txtAlumnoNombreNotaInsertar.setText(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getApellidosNombres());
             btnInsertarNotas.setEnabled(true);
             inicializarNotas();
+            System.out.println("elegido: " + tblAlumnosDelCurso.getSelectedRow());
+            System.out.println("valor que debe votar == " + alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getApellidosNombres());
+            System.out.println("valor que devuelve del array: " + alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot());
+            System.out.println("mejora posible: ++== " + tblAlumnosDelCurso.getValueAt(tblAlumnosDelCurso.getSelectedRow(), tblAlumnosDelCurso.getSelectedColumn()));
+            System.out.println("problema aqui maybe ==== " + alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getHistorial_id());
+            
+            hnob.setHistorial_id(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getHistorial_id());
+            hnob.setCurso_id(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getCurso_id());
+            System.out.println("id cusro: ++ " + alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getCurso_id());
+            
+            hnob.setAlumno_id(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getAlumno_id());
+            notas.setHistorial_notas_id(hnob.getHistorial_id());
+            System.out.println("Este es el codigo del historial id +++ " + hnob.getHistorial_id());
         }
     }//GEN-LAST:event_tblAlumnosDelCursoMouseClicked
+
+    private void btnDescartarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarNotasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnDescartarNotasActionPerformed
+
+    private void btnInsertarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarNotasActionPerformed
+        try {
+            // TODO add your handling code here:
+            obtenerValores();
+            if(notas.getErrores().isEmpty()){
+                hnotasBO.insertar(hnob);
+                notasBO.insertar(notas);
+            }else{
+                ImprimirErrores(notas.getErrores());
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            Logger.getLogger(InsertNotas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnInsertarNotasActionPerformed
 
     ///
     ///////    Funciones
@@ -551,8 +625,7 @@ public class InsertNotas extends javax.swing.JFrame {
     public void obtenerValores() throws Exception{
         boolean ver = false;
         double n1=0,n2=0,n3=0,n4=0,n5=0;
-        notas = null;
-        notas.setHistorial_notas_id(1);
+        notas = new Notas();
         try {
             n1 = Double.parseDouble(txtNota1.getText());
             n2 = Double.parseDouble(txtNota2.getText());
@@ -579,6 +652,21 @@ public class InsertNotas extends javax.swing.JFrame {
             
         }        
     }
+    
+    private void ImprimirErrores(Map<String, String> errores){    
+        for (String error : errores.keySet().toArray(new String[0])) {
+            System.out.println(errores.get(error));
+            switch (error) {
+                case "nota1" -> errorn1.setText(errores.get(error));
+                case "nota2" -> errorn2.setText(errores.get(error));
+                case "nota3" -> errorn3.setText(errores.get(error));
+                case "nota4" -> errorn4.setText(errores.get(error));
+                case "nota5" -> errorn5.setText(errores.get(error));
+            }
+            System.out.println(error);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -621,6 +709,11 @@ public class InsertNotas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbCursoNotaInsert;
     private javax.swing.JComboBox<String> cbGradoNotaInsert;
     private javax.swing.JComboBox<String> cbNivelNotaInsert;
+    private javax.swing.JLabel errorn1;
+    private javax.swing.JLabel errorn2;
+    private javax.swing.JLabel errorn3;
+    private javax.swing.JLabel errorn4;
+    private javax.swing.JLabel errorn5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
