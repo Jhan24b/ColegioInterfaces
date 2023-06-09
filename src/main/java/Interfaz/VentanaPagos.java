@@ -103,6 +103,8 @@ public class VentanaPagos extends javax.swing.JFrame {
         
         this.tipoPago = tipoPago;
         jbPrincipal.setEnabled(false);
+        
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar Pago"));
     }
     
     
@@ -147,7 +149,7 @@ public class VentanaPagos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar Notas"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Actualizar Pago"));
         jPanel3.setToolTipText("");
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel3.setMaximumSize(new java.awt.Dimension(275, 680));
@@ -408,7 +410,6 @@ public class VentanaPagos extends javax.swing.JFrame {
         );
 
         jPanel3.getAccessibleContext().setAccessibleName("Insertar Pagos");
-        jPanel3.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
