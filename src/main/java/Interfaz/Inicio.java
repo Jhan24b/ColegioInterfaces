@@ -109,7 +109,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         MyInitComponents();   
         actualizarTablaUsuarios();
-        
+        ActualizarTablaXTipoPago("Pago Matricula");
                     
         try {
             alumnos = alumBO.buscarPorAlumno("");
