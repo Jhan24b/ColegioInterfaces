@@ -343,14 +343,11 @@ public class AlumnoDao {
             
             while(rs.next()){
                 alumno = new Alumno();
+                hn = new HistorialNotas();
                 
                 alumno.setAlumno_id(rs.getInt("alumno_id"));
-//                alumno.setDni(rs.getString("dni"));
                 alumno.setApellidosNombres(rs.getString("Apellidos y Nombres"));
-//                String[] nombres = rs.getString("Apellidos y Nombres").replace(",", "").split(" ");
-//                System.out.println(rs.getString("Apellidos y Nombres"));
-//                alumno.setApellido_paterno(nombres[0]);
-//                alumno.setApellido_materno(nombres[1]);
+
                 hn.setHistorial_id(rs.getInt("historial_notas_id"));
                 System.out.println("este valor viene del DAO +++ " + rs.getInt("historial_notas_id"));
                 hn.setCurso_id(rs.getInt("curso_id"));
@@ -374,7 +371,14 @@ public class AlumnoDao {
             } catch (Exception e) {
                 Bitacora.registrar(e);
             }        
-        }        
+        }
+        System.out.println("DAOOOO+++");
+        System.out.println(alumnos.get(0).getApellidosNombres());
+        System.out.println(alumnos.get(0).getHnot().getHistorial_id());
+        System.out.println(alumnos.get(1).getApellidosNombres());
+        System.out.println(alumnos.get(1).getHnot().getHistorial_id());
+        System.out.println("DAOOOO+++");
+        
         return alumnos;     
      }
 }

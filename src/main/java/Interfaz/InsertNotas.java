@@ -467,6 +467,10 @@ public class InsertNotas extends javax.swing.JFrame {
             String grado = String.valueOf(cursosXGrado.get(0).getGrado());
             String nivel = String.valueOf(cbNivelNotaInsert.getItemAt(cbNivelNotaInsert.getSelectedIndex()).charAt(0));
             alumnosXCurso = alumBO.buscarPorAlumnoxCurso(name,grado,nivel);
+            System.out.println("==================================================== OBTENIENDO EL ARRAY");
+            System.out.println(alumBO.buscarPorAlumnoxCurso(name,grado,nivel).get(0).getHnot().getHistorial_id());
+            System.out.println(alumBO.buscarPorAlumnoxCurso(name,grado,nivel).get(1).getHnot().getHistorial_id());
+            System.out.println("==========================================================================");
             mostrarTablaAlumnosDelCurso(alumnosXCurso);
             if(alumnosXCurso.size()>=1){
                 txtBuscarNombre.setEnabled(true);
@@ -548,9 +552,12 @@ public class InsertNotas extends javax.swing.JFrame {
         System.out.println("++++++++++++++++++++++++++++");
         System.out.println("valor array: " + alumnosXCurso.size());
         System.out.println("alumno 1:" + alumnosXCurso.get(0).getHnot().getHistorial_id());
+        System.out.println("alumno 1:" + alumnosXCurso.get(0).getApellidosNombres());
         System.out.println("alumno 2:" + alumnosXCurso.get(1).getHnot().getHistorial_id());
+        System.out.println("alumno 1:" + alumnosXCurso.get(1).getApellidosNombres());
         System.out.println("++++++++++++++++++++++++++++");
         if(tblAlumnosDelCurso.getSelectedRow()!=-1){
+            notas = new Notas();
             txtAlumnoNombreNotaInsertar.setText(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getApellidosNombres());
             btnInsertarNotas.setEnabled(true);
             inicializarNotas();
@@ -567,6 +574,7 @@ public class InsertNotas extends javax.swing.JFrame {
             hnob.setAlumno_id(alumnosXCurso.get(tblAlumnosDelCurso.getSelectedRow()).getHnot().getAlumno_id());
             notas.setHistorial_notas_id(hnob.getHistorial_id());
             System.out.println("Este es el codigo del historial id +++ " + hnob.getHistorial_id());
+            System.out.println("Este es el id  de notas +++ " + notas.getHistorial_notas_id());
         }
     }//GEN-LAST:event_tblAlumnosDelCursoMouseClicked
 
@@ -576,12 +584,15 @@ public class InsertNotas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescartarNotasActionPerformed
 
     private void btnInsertarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarNotasActionPerformed
+        limpiarErrores();
         try {
             // TODO add your handling code here:
             obtenerValores();
             if(notas.getErrores().isEmpty()){
-                hnotasBO.insertar(hnob);
+//                hnotasBO.insertar(hnob);
+                System.out.println("ID EN INSERTAR NOTA::::: " + notas.getHistorial_notas_id());
                 notasBO.insertar(notas);
+                this.dispose();
             }else{
                 ImprimirErrores(notas.getErrores());
             }
@@ -626,6 +637,8 @@ public class InsertNotas extends javax.swing.JFrame {
         boolean ver = false;
         double n1=0,n2=0,n3=0,n4=0,n5=0;
         notas = new Notas();
+        notas.setHistorial_notas_id(hnob.getHistorial_id());
+        System.out.println("botando y corrigiendo ++++ " + notas.getHistorial_notas_id());
         try {
             n1 = Double.parseDouble(txtNota1.getText());
             n2 = Double.parseDouble(txtNota2.getText());
@@ -643,13 +656,7 @@ public class InsertNotas extends javax.swing.JFrame {
             notas.setNota2(n2);
             notas.setNota3(n3);
             notas.setNota4(n4);
-            notas.setNota5(n5);
-            try {
-                notasBO.insertar(notas);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-            
+            notas.setNota5(n5);            
         }        
     }
     
@@ -665,6 +672,14 @@ public class InsertNotas extends javax.swing.JFrame {
             }
             System.out.println(error);
         }
+    }
+    
+    private void limpiarErrores(){
+        errorn1.setText("");
+        errorn2.setText("");
+        errorn3.setText("");
+        errorn4.setText("");
+        errorn5.setText("");
     }
     
     /**

@@ -273,6 +273,11 @@ public class HistorialNotasDAO {
             rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones 
             
             while(rs.next()){
+                hnotas = new HistorialNotas();
+                notas = new Notas();
+                alumno = new Alumno();
+                curso = new Curso();
+                
                 hnotas.setHistorial_id(rs.getInt("historial_notas_id"));
             
                 notas.setHistorial_notas_id(rs.getInt("historial_notas_id"));
