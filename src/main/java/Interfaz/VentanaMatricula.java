@@ -5,12 +5,20 @@
 package Interfaz;
 
 import BusinessLayer.AlumnoBO;
+import BusinessLayer.CursoBO;
+import BusinessLayer.HistorialNotasBO;
 import BusinessLayer.MatriculaBO;
+import BusinessLayer.NotasBO;
 import JavaBean.Alumno;
+import JavaBean.Curso;
+import JavaBean.HistorialNotas;
 import JavaBean.Matricula;
+import JavaBean.Notas;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -403,8 +411,9 @@ public class VentanaMatricula extends javax.swing.JFrame {
         // TODO add your handling code here:
         Matricula matricula = RecibirDatos();
         
-        if(jbPrincipal.getText().equals("Insertar"))
+        if(jbPrincipal.getText().equals("Insertar")){
             Insertar(matricula);
+        }
         
         else if(jbPrincipal.getText().equals("Actualizar"))
             Actualizar(matricula);
@@ -464,6 +473,7 @@ public class VentanaMatricula extends javax.swing.JFrame {
         if(matricula.getErrores().isEmpty()){
             try {
                 matBO.insertarMatricula(matricula);
+                InsertarHistorialCurso(matricula.getNivel(), matricula.getGrado());
                 dispose();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -510,6 +520,29 @@ public class VentanaMatricula extends javax.swing.JFrame {
         jLabelNivel.setText("-");
         jLabelGrado.setText("-");
         jLabelTurno.setText("-");
+    }
+    
+     
+    private void InsertarHistorialCurso(char nivel, char grado) throws Exception{
+        CursoBO cursoBO = new CursoBO();
+        HistorialNotasBO hNotasBO = new HistorialNotasBO();
+        NotasBO notasBO = new NotasBO();
+        ArrayList<HistorialNotas> listaHNotas = new ArrayList<>();
+        
+        for (Curso curso : cursoBO.buscarPorNivelYGrado(nivel , grado)) {
+            System.out.println("Nivel: "+ curso.getGrado() + ", Grado: "+curso.getGrado());
+            HistorialNotas hNota = new HistorialNotas();
+            
+            hNota.setAlumno_id(Integer.parseInt(jTextAlumnoId.getText()));
+            hNota.setCurso_id(curso.getCurso_id());
+            
+            try {
+                hNotasBO.insertar(hNota);
+                listaHNotas.add(hNota);
+            } catch (Exception e) {
+                System.out.println("Ventana /InsertarHistorialCurso: "+e);
+            }
+        }
     }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -568,7 +601,6 @@ public class VentanaMatricula extends javax.swing.JFrame {
                 Alumno alumno = alumnos.get(i);
                 String apellidosNombres = alumno.getApellido_paterno()+" "+alumno.getApellido_materno()+" , "+alumno.getNombres();
                 
-                System.out.println(alumno.getCorreo_electrico());
                 Object [] fila = new Object[] { alumno.getAlumno_id(), apellidosNombres, alumno.getDni()};
                 modeloAlumnos.addRow(fila);
             }

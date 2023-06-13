@@ -382,7 +382,6 @@ public class Inicio extends javax.swing.JFrame {
         jPanelNotas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableNotas = new javax.swing.JTable();
-        btnEditarNota = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnInsertarNota = new javax.swing.JButton();
         cbCursoNota = new javax.swing.JComboBox<>();
@@ -1545,13 +1544,6 @@ public class Inicio extends javax.swing.JFrame {
             jTableNotas.getColumnModel().getColumn(0).setMaxWidth(300);
         }
 
-        btnEditarNota.setText("Editar");
-        btnEditarNota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarNotaActionPerformed(evt);
-            }
-        });
-
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("GESTION NOTAS");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1623,8 +1615,6 @@ public class Inicio extends javax.swing.JFrame {
                             .addGroup(jPanelNotasLayout.createSequentialGroup()
                                 .addComponent(btnInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnEditarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
                                 .addComponent(btnEliminarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
@@ -1661,7 +1651,6 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertarNota)
-                    .addComponent(btnEditarNota)
                     .addComponent(btnEliminarNota))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
@@ -2028,10 +2017,6 @@ public class Inicio extends javax.swing.JFrame {
         InsertNotas insNotas = new InsertNotas();
         insNotas.setVisible(true);
     }//GEN-LAST:event_btnInsertarNotaActionPerformed
-
-    private void btnEditarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarNotaActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
@@ -3160,7 +3145,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEditarAlumnos;
     private javax.swing.JButton btnEditarApoderado;
-    private javax.swing.JButton btnEditarNota;
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnEliminarAlumnos;
     private javax.swing.JButton btnEliminarApoderado;
