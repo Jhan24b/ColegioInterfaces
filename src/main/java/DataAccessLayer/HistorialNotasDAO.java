@@ -44,7 +44,12 @@ public class HistorialNotasDAO {
             if(cont==0){
                 cstm.setInt(1, hnotas.getAlumno_id());
                 cstm.setInt(2, hnotas.getCurso_id());
-                cstm.setDouble(3, hnotas.getPromedio());
+                
+                Double promedio = hnotas.getPromedio();
+                if(promedio == null)
+                    cstm.setNull(3, java.sql.Types.DOUBLE);
+                else
+                    cstm.setDouble(3, hnotas.getPromedio());
                 cstm.execute();
             }else{
                throw new Exception("No se pudo registrar el historial notas");
