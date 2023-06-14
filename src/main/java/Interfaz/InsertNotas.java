@@ -300,7 +300,6 @@ public class InsertNotas extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,6 +391,11 @@ public class InsertNotas extends javax.swing.JFrame {
 
         btnBuscarAlumno.setText("Buscar");
         btnBuscarAlumno.setEnabled(false);
+        btnBuscarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAlumnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -441,7 +445,7 @@ public class InsertNotas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -602,6 +606,22 @@ public class InsertNotas extends javax.swing.JFrame {
             Logger.getLogger(InsertNotas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnInsertarNotasActionPerformed
+
+    private void btnBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAlumnoActionPerformed
+        // TODO add your handling code here:
+        if(!(txtBuscarNombre.getText().isBlank())){
+            String term = txtBuscarNombre.getText();
+            ArrayList<Alumno> listanueva = new ArrayList<>();
+            for(Alumno al : alumnosXCurso){
+                if(al.getApellidosNombres().contains(term)){
+                    listanueva.add(al);
+                }
+            }
+            mostrarTablaAlumnosDelCurso(listanueva);
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe ingresar algun caracter para buscar");
+        }
+    }//GEN-LAST:event_btnBuscarAlumnoActionPerformed
 
     ///
     ///////    Funciones

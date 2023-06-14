@@ -2602,3 +2602,119 @@
   <message>Cannot add or update a child row: a foreign key constraint fails (`colegio`.`notas`, CONSTRAINT `notas_id_historial_notas` FOREIGN KEY (`historial_notas_id`) REFERENCES `historial_notas` (`historial_notas_id`))****[Ljava.lang.StackTraceElement;@77521f83</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-13T19:30:42.098176100Z</date>
+  <millis>1686684642098</millis>
+  <nanos>176100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@40fd24c8</message>
+</record>
+<record>
+  <date>2023-06-13T19:30:43.464806400Z</date>
+  <millis>1686684643464</millis>
+  <nanos>806400</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@13079594</message>
+</record>
+<record>
+  <date>2023-06-13T19:30:43.964884300Z</date>
+  <millis>1686684643964</millis>
+  <nanos>884300</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@2c267e1</message>
+</record>
+<record>
+  <date>2023-06-13T19:30:44.359540600Z</date>
+  <millis>1686684644359</millis>
+  <nanos>540600</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@2ded0dc9</message>
+</record>
+<record>
+  <date>2023-06-13T19:30:44.539594400Z</date>
+  <millis>1686684644539</millis>
+  <nanos>594400</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@127a3c70</message>
+</record>
+<record>
+  <date>2023-06-13T19:30:44.779269800Z</date>
+  <millis>1686684644779</millis>
+  <nanos>269800</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'curso_nombre' not found.****[Ljava.lang.StackTraceElement;@568360a7</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-13T21:14:44.509207300Z</date>
+  <millis>1686690884509</millis>
+  <nanos>207300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo registrar el historial notas****[Ljava.lang.StackTraceElement;@5143170e</message>
+</record>
+<record>
+  <date>2023-06-13T21:14:44.524845600Z</date>
+  <millis>1686690884524</millis>
+  <nanos>845600</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo registrar el historial notas****[Ljava.lang.StackTraceElement;@3292f4a5</message>
+</record>
+<record>
+  <date>2023-06-13T21:14:44.540614100Z</date>
+  <millis>1686690884540</millis>
+  <nanos>614100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo registrar el historial notas****[Ljava.lang.StackTraceElement;@61f77ad3</message>
+</record>
+</log>
