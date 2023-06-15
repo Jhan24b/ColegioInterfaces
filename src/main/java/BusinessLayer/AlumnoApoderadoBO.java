@@ -7,37 +7,47 @@ package BusinessLayer;
 
 import DataAccessLayer.AlumnoApoderadoDAO;
 import JavaBean.alumnoApoderado;
+import java.util.ArrayList;
 
 public class AlumnoApoderadoBO {
     
-    public void insertarMatricula(alumnoApoderado alumnoApo) throws Exception{
+    public void insertar(alumnoApoderado alumnoApo) throws Exception{
         try {
             AlumnoApoderadoDAO AlumnoApoderadoDAO = new AlumnoApoderadoDAO();
-            AlumnoApoderadoDAO.insertarMatricula(alumnoApo);
+            AlumnoApoderadoDAO.insertar(alumnoApo);
         } catch (Exception e) {
             throw e;
         }
     }
-    public void actualizarApoderado(alumnoApoderado alumnoApo) throws Exception{
+    public void actualizar(alumnoApoderado alumnoApo) throws Exception{
         try {
             AlumnoApoderadoDAO AlumnoApoderadoDAO = new AlumnoApoderadoDAO();
-            AlumnoApoderadoDAO.actualizarApoderado(alumnoApo);
+            AlumnoApoderadoDAO.actualizar(alumnoApo);
         } catch (Exception e) {
             throw e;
         }
     }
-    public void eliminarApoderado(int id) throws Exception{
+    public void eliminar(int alumno_id, int apoderado_id) throws Exception{
         try {
             AlumnoApoderadoDAO AlumnoApoderadoDAO = new AlumnoApoderadoDAO();
-            AlumnoApoderadoDAO.eliminarApoderado(id);
+            AlumnoApoderadoDAO.eliminar( alumno_id , apoderado_id);
         } catch (Exception e) {
             throw e;
         }
     }
-    public alumnoApoderado buscarApoderadoPorAlumnoId(int id) throws Exception{
+    public alumnoApoderado buscarPorAlumnoId(int id) throws Exception{
         try {
             AlumnoApoderadoDAO alumnoApoderadoDAO = new AlumnoApoderadoDAO();
-            return alumnoApoderadoDAO.buscarApoderadoPorAlumnoId(id);
+            return alumnoApoderadoDAO.buscarPorAlumnoId(id);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public ArrayList<alumnoApoderado> listar() throws Exception{
+        try {
+            AlumnoApoderadoDAO alumnoApoderadoDAO = new AlumnoApoderadoDAO();
+            return alumnoApoderadoDAO.listar();
         } catch (Exception e) {
             throw e;
         }

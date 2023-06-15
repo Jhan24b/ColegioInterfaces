@@ -36,8 +36,8 @@ public class PRUEBA6 {
             obj1.setApoderado_id(1);
             obj1.setParentesco("Tio");
 
-           alumApoDAO.actualizarApoderado(obj1);
-            System.out.println(alumApoDAO.buscarApoderadoPorAlumnoId(1).getParentesco());
+            alumApoDAO.actualizar(obj1);
+            System.out.println(alumApoDAO.buscarPorAlumnoId(1).getParentesco());
             
             AsistenciaAlumno asisAlum = new AsistenciaAlumno();
             
