@@ -49,9 +49,9 @@ public class alumnoApoderado {
         return parentesco;
     }
 
-    public void setParentesco(String parentesco) throws Exception{
-        if (( parentesco == null ) && ( parentesco.isEmpty() )) {
-            errores.put("parentesco","El campo parentesco esta vaico");
+    public void setParentesco(String parentesco){
+        if (( parentesco == null ) || ( parentesco.isEmpty() )) {
+            errores.put("parentesco","El campo parentesco no puede estar vacio");
         }
         this.parentesco = parentesco;
     }

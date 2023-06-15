@@ -69,7 +69,7 @@
               <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
-          <Component id="jTabbedPane2" alignment="1" pref="912" max="32767" attributes="0"/>
+          <Component id="jTabbedPane2" alignment="1" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -1027,7 +1027,7 @@
                               <Component id="jScrollPane10" pref="412" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="btnInsertarCurso" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                   <Component id="btnActualizarCurso" min="-2" pref="99" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnEliminarCurso" min="-2" max="-2" attributes="0"/>

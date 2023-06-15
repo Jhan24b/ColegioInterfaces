@@ -66,3 +66,19 @@
   <message>No se pudo registrar el curso****[Ljava.lang.StackTraceElement;@12b502d1</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-15T03:39:29.837167Z</date>
+  <millis>1686800369837</millis>
+  <nanos>167000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Duplicate entry '11-1' for key 'alumno_apoderado.PRIMARY'****[Ljava.lang.StackTraceElement;@2dce796d</message>
+</record>
+</log>
