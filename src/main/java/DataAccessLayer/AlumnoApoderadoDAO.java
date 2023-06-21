@@ -5,6 +5,7 @@
 package DataAccessLayer;
 
 import Connection.UConnection;
+import JavaBean.Apoderado;
 import JavaBean.AsistenciaAlumno;
 import JavaBean.alumnoApoderado;
 import Utilities.Bitacora;
@@ -101,8 +102,10 @@ public class AlumnoApoderadoDAO {
         }        
     }
 
-    public alumnoApoderado buscarPorAlumnoId(int id) throws Exception{
+    public ArrayList<alumnoApoderado> buscarPorAlumnoId(int id) throws Exception{
+        ArrayList<alumnoApoderado> alumnoApoderados = new ArrayList<>();
         alumnoApoderado alumnoApo = null;
+        Apoderado apoderado = null;
         ResultSet rs = null;
         try {
             con = UConnection.getConnection();
@@ -113,11 +116,24 @@ public class AlumnoApoderadoDAO {
             rs = cstm.executeQuery();
             while(rs.next()){
                 alumnoApo = new alumnoApoderado();
+                apoderado = new Apoderado();
                 
-                alumnoApo.setAlumno_id(rs.getInt("alumno_id"));  
+                alumnoApo.setAlumno_id(id);  
                 alumnoApo.setApoderado_id(rs.getInt("apoderado_id"));
                 if(!rs.getString("parentesco").isEmpty()) 
-                    alumnoApo.setParentesco(rs.getString("parentesco"));   
+                    alumnoApo.setParentesco(rs.getString("parentesco"));
+                
+                apoderado.setApoderado_id(rs.getInt("apoderado_id"));
+                apoderado.setDni(rs.getString("dni"));  
+                apoderado.setNombres(rs.getString("nombres"));
+                apoderado.setApellido_materno(rs.getString("apellido_materno"));
+                apoderado.setApellido_paterno(rs.getString("apellido_paterno"));
+                if (!rs.getString("contacto").isEmpty()) 
+                    apoderado.setContacto(rs.getString("contacto"));   
+                
+                alumnoApo.setApoderado(apoderado);
+                
+                alumnoApoderados.add(alumnoApo);
             }
         } catch (Exception e) {
             Bitacora.registrar(e);
@@ -131,7 +147,7 @@ public class AlumnoApoderadoDAO {
                 Bitacora.registrar(e);
             }    
         }
-        return alumnoApo;
+        return alumnoApoderados;
     }
     
     public ArrayList<alumnoApoderado> listar() throws Exception{

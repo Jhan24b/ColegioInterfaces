@@ -40,10 +40,10 @@ public class DocenteCursoBO {
         }
     }
     
-    public void eliminar(int id) throws Exception{    
+    public void eliminar(int docenteId, int cursoId) throws Exception{    
         try {
             DocenteCursoDAO docuDAO = new DocenteCursoDAO();
-            docuDAO.eliminar(id);
+            docuDAO.eliminar(docenteId, cursoId);
         } catch (Exception e) {
             throw e;
         }

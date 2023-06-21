@@ -4,6 +4,7 @@
  */
 package JavaBean;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,16 @@ public class alumnoApoderado {
     private int alumno_id;
     private int apoderado_id;
     private String parentesco;
+    
+    Apoderado apoderado = new Apoderado();
+
+    public Apoderado getApoderado() {
+        return apoderado;
+    }
+
+    public void setApoderado(Apoderado apoderado) {
+        this.apoderado = apoderado;
+    }
     
     private Map<String,String> errores = new HashMap<>();
     

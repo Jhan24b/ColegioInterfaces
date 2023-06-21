@@ -35,7 +35,7 @@ public class AlumnoApoderadoBO {
             throw e;
         }
     }
-    public alumnoApoderado buscarPorAlumnoId(int id) throws Exception{
+    public ArrayList<alumnoApoderado> buscarPorAlumnoId(int id) throws Exception{
         try {
             AlumnoApoderadoDAO alumnoApoderadoDAO = new AlumnoApoderadoDAO();
             return alumnoApoderadoDAO.buscarPorAlumnoId(id);
