@@ -58,7 +58,7 @@ public class DocenteCursoDAO {
                 area.setArea_nombre(rs.getString("area"));
                 docenteCurso.setTurno(rs.getString("turno").charAt(0));
                 
-                docenteCurso.setCurso_int(curso.getArea_id());
+                docenteCurso.setCurso_id(curso.getArea_id());
                 curso.setArea_id(area.getArea_id());
                 
                 
@@ -91,7 +91,7 @@ public class DocenteCursoDAO {
             cstm=con.prepareCall(sql);
                     
             cstm.setInt(1, docenteCurso.getDocente_id());
-            cstm.setInt(2, docenteCurso.getCurso_int());
+            cstm.setInt(2, docenteCurso.getCurso_id());
             cstm.setString(3, String.valueOf(docenteCurso.getTurno()));
             
           
@@ -101,6 +101,9 @@ public class DocenteCursoDAO {
                       
         } catch (Exception e) {
             System.out.println(e);
+            if(e.getMessage().contains("Duplicate entry")){
+                throw new Exception("El turno para ese curso ya está registrado");
+            }
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
@@ -126,7 +129,7 @@ public class DocenteCursoDAO {
             cstm=con.prepareCall(sql);
             
             cstm.setInt(1, docenteCurso.getDocente_id());
-            cstm.setInt(2, docenteCurso.getCurso_int());
+            cstm.setInt(2, docenteCurso.getCurso_id());
             cstm.setString(3, String.valueOf(docenteCurso.getTurno()));
             
             
@@ -151,7 +154,7 @@ public class DocenteCursoDAO {
       
     }
     
-    public void eliminar(int id) throws Exception{    
+    public void eliminar(int docenteId, int cursoId) throws Exception{    
         
         Connection con=null;
         CallableStatement cstm = null;    
@@ -159,9 +162,10 @@ public class DocenteCursoDAO {
         try {
             con=UConnection.getConnection();
             String sql="";            
-            sql="call sp_docente_curso_eliminar(?)";
+            sql="call sp_docente_curso_eliminar(?,?)";
             cstm=con.prepareCall(sql);
-            cstm.setInt(1, id);
+            cstm.setInt(1, docenteId);
+            cstm.setInt(2, cursoId);
          
             cstm.executeUpdate(); //se puede usar .execute() para todas las operaciones
              
@@ -202,7 +206,7 @@ public class DocenteCursoDAO {
                 docenteCurso = new DocenteCurso();
                 
                 docenteCurso.setDocente_id(rs.getInt("docente_id"));
-                docenteCurso.setCurso_int(rs.getInt("curso_id"));                
+                docenteCurso.setCurso_id(rs.getInt("curso_id"));                
                 docenteCurso.setTurno(rs.getString("turno").charAt(0));
        
                 
@@ -243,22 +247,25 @@ public class DocenteCursoDAO {
             cstm=con.prepareCall(sql);
             cstm.setInt(1, id);
          
-            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones         
+            rs=cstm.executeQuery(); //se psp_docente_curso_buscar_cursos_por_docente_iduede usar .execute() para todas las operaciones         
             
             while(rs.next()){
                 docenteCurso = new DocenteCurso();
                 
                 docenteCurso.setDocente_id(id);
-                docenteCurso.setCurso_int(rs.getInt("curso_id"));                
+                docenteCurso.setCurso_id(rs.getInt("curso_id"));                
                 docenteCurso.setTurno(rs.getString("turno").charAt(0));
                 
                 curso = new Curso();
+                curso.setCurso_id(rs.getInt("curso_id"));
                 curso.setNombre(rs.getString("curso"));
                 curso.setGrado(rs.getString("grado").charAt(0));
                 curso.setNivel(rs.getString("nivel").charAt(0));
+                curso.setArea_id(rs.getInt("area_id"));
                 docenteCurso.setCurso(curso);
                 
                 area = new Area();
+                area.setArea_id(rs.getInt("area_id"));
                 area.setArea_nombre(rs.getString("area"));
                 curso.setArea(area);
                 

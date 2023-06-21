@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class DocenteCurso {
     private int docente_id;
-    private int curso_int;
+    private int curso_id;
     private Area area;
     private Curso curso;
     private char turno;
@@ -39,19 +39,19 @@ public class DocenteCurso {
         this.docente_id = docente_id;
     }
 
-    public int getCurso_int() {
-        return curso_int;
+    public int getCurso_id() {
+        return curso_id;
     }
 
-    public void setCurso_int(int curso_int) {
-        this.curso_int = curso_int;
+    public void setCurso_id(int curso_id) {
+        this.curso_id = curso_id;
     }
 
     public char getTurno() {
         return turno;
     }
 
-    public void setTurno(char turno) throws Exception{
+    public void setTurno(char turno){
         if(turno == ' '){
             errores.put("turno","El campo turno no puede estar vacio");
         }
