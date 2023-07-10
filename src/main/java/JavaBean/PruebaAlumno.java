@@ -35,8 +35,8 @@ public class PruebaAlumno {
 //        } catch (Exception e) {
 //            System.out.println(e.getMessage());
 //        }
-        Encriptador en = new Encriptador();
-        String t = en.Encriptar("holamundo");
-        System.out.println(t);
+//
+       String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteCurso.jasper";
+        System.out.println(rutaReporte);
     }    
 }

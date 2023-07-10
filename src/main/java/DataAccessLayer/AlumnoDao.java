@@ -155,7 +155,7 @@ public class AlumnoDao {
                 alumno = new Alumno();
                 alumno.setAlumno_id(rs.getInt("alumno_id"));
                 alumno.setDni(rs.getString("dni"));
-                //alumno.setApellidosNombres(rs.getString("apellidos_nombres"));
+                alumno.setApellidosNombres(rs.getString("apellidos_nombres"));
                 String[] nombres = rs.getString("apellidos_nombres").replace(",", "").split(" ");
                 System.out.println(rs.getString("apellidos_nombres"));
                 alumno.setApellido_paterno(nombres[0]);

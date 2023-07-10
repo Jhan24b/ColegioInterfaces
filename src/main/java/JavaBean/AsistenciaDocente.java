@@ -29,8 +29,16 @@ public class AsistenciaDocente {
     public AsistenciaDocente(){
     }
     
-    public AsistenciaDocente(String dniDocente, Time horaIngreso){
-        
+    public AsistenciaDocente(int docenteId, Time horaIngreso, LocalDate fecha){
+        this.docente_id = docenteId;
+        this.hora_ingreso = horaIngreso;
+        this.fecha = fecha;
+    }
+    
+    public AsistenciaDocente(int docenteId, Time horaIngreso, LocalDate fecha, Boolean str){
+        this.docente_id = docenteId;
+        this.hora_salida = horaIngreso;
+        this.fecha = fecha;
     }
 
     public int getAsistencia_id() {

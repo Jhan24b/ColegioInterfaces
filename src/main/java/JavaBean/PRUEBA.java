@@ -4,6 +4,7 @@
  */
 package JavaBean;
 
+import BusinessLayer.AsistenciaDocenteBO;
 import Connection.UConnection;
 import DataAccessLayer.ApoderadoDAO;
 import Utilities.Bitacora;
@@ -11,6 +12,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,6 +43,8 @@ public class PRUEBA {
         Connection con=null;
         CallableStatement cstm = null;  
         ApoderadoDAO apoDAO = new ApoderadoDAO();
+        
+        
         
         try {
             Apoderado apoderado = new Apoderado();

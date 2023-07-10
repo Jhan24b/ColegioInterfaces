@@ -266,6 +266,7 @@ public class UsuarioDAO {
             }
             
         }catch (Exception e) {         
+            System.out.println(e);
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{

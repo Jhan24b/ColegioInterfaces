@@ -63,6 +63,11 @@ public class Encriptador {
             return "";
         }
     }
+    
+    public Boolean VerificarCredenciales(String ingresado, String base){
+        System.out.println("");
+        return (Encriptar(ingresado).equals(base));
+    }
 
 
 }

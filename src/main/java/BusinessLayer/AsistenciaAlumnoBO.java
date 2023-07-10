@@ -7,6 +7,7 @@ package BusinessLayer;
 import DataAccessLayer.AsistenciaAlumnoDAO;
 import JavaBean.AsistenciaAlumno;
 import java.util.ArrayList;
+import java.sql.Date;
 
 /**
  *
@@ -17,6 +18,15 @@ public class AsistenciaAlumnoBO {
         try {
             AsistenciaAlumnoDAO asistenciaalumnoDAO = new AsistenciaAlumnoDAO();
             asistenciaalumnoDAO.insertarAsistenciaAlumno(asistenciaalumno);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void insertarAsistenciaGrupo(ArrayList<AsistenciaAlumno> asistenciaalumnos) throws Exception{
+        try {
+            AsistenciaAlumnoDAO asistenciaalumnoDAO = new AsistenciaAlumnoDAO();
+            asistenciaalumnoDAO.insertarAsistenciaGrupo(asistenciaalumnos);
         } catch (Exception e) {
             throw e;
         }
@@ -55,6 +65,24 @@ public class AsistenciaAlumnoBO {
         try {
             AsistenciaAlumnoDAO asistenciaalumnoDAO = new AsistenciaAlumnoDAO();
             return asistenciaalumnoDAO.listarAsistenciaAlumno();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public ArrayList<AsistenciaAlumno> listarAsistenciaGrupo(String nivel, String grado) throws Exception{
+        try {
+            AsistenciaAlumnoDAO asistenciaalumnoDAO = new AsistenciaAlumnoDAO();
+            return asistenciaalumnoDAO.listarAsistenciaGrupo(nivel, grado);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public ArrayList<AsistenciaAlumno> listarAsistenciaGrupoFecha(Date fecha, String nivel, String grado) throws Exception{
+        try {
+            AsistenciaAlumnoDAO asistenciaalumnoDAO = new AsistenciaAlumnoDAO();
+            return asistenciaalumnoDAO.listarAsistenciaGrupoFecha(fecha, nivel, grado);
         } catch (Exception e) {
             throw e;
         }

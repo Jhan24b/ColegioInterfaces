@@ -4,6 +4,16 @@
  */
 package Interfaz;
 
+import DataAccessLayer.UsuarioDAO;
+import JavaBean.Usuario;
+import Utilities.Encriptador;
+import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author xbest
@@ -15,7 +25,17 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
+    public void iniciarimagen(){
+        ImageIcon imagen = new ImageIcon(System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg");
+        lblLogo= new JLabel(imagen);
+    }
+    
+    private Encriptador encr = new Encriptador();
+    private UsuarioDAO udao = new UsuarioDAO();
+    private Usuario user = new Usuario();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,9 +51,9 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        pswUsuario = new javax.swing.JPasswordField();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +79,7 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -76,8 +96,8 @@ public class Login extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pswUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -93,11 +113,11 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -105,7 +125,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -115,10 +135,35 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //Open the Inicio frame
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
-        
-        setVisible(false);
+        String usuario = "", password = "";
+//        if (txtUsuario.getText().isBlank() || pswUsuario.getText().isBlank()){
+//            JOptionPane.showMessageDialog(null, "Necesita credenciales para poder ingresar");
+//        }else{
+//            usuario = txtUsuario.getText();
+//            password = encr.Encriptar(pswUsuario.getText());
+//            try {
+//                user = udao.buscarPorUsuario(usuario).get(0);
+//                if(user==null){
+//                    JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+//                }else{
+//                    if (user.getClave().equals(password)) {
+//                        Inicio inicio = new Inicio(user.getNombres(), user.getRol());
+//                        Inicio inicio = new Inicio("", "");
+                        Inicio inicio = new Inicio();
+                        inicio.setVisible(true);
+                        try {
+                            setVisible(false);
+                        } catch (Exception e) {
+                            System.out.println("maybe here look" + e);
+                        }
+//                    }else{
+//                        JOptionPane.showMessageDialog(null, "Revise sus credenciales");
+//                    }
+//                }
+//            } catch (Exception ex) {
+//                System.out.println(ex);
+//            }
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -160,11 +205,11 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JPasswordField pswUsuario;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

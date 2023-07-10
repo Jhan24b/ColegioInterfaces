@@ -47,6 +47,40 @@ public class AsistenciaAlumnoDAO {
         }
     }
     
+    public void insertarAsistenciaGrupo(ArrayList<AsistenciaAlumno> asistencia) throws Exception{
+        LocalDate fecha = LocalDate.now();
+        try {
+            con = UConnection.getConnection();
+            con.setAutoCommit(false);
+            
+            String sql = "call sp_asistenciaAlumno_insertar (?,?,?)";
+            cstm = con.prepareCall(sql);
+            
+            for (AsistenciaAlumno aa: asistencia){
+                cstm.setDate(1, Date.valueOf(fecha));
+                if( aa.getObservacion().isEmpty() ) cstm.setString(2, "");
+                else cstm.setString(2, aa.getObservacion());
+            
+                cstm.setInt(3, aa.getAlumno_id());
+                cstm.addBatch();
+            }
+            
+            cstm.executeBatch();
+            con.commit();
+        } catch (Exception e) {
+            con.rollback();
+            Bitacora.registrar(e);
+            throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
+        }
+        finally{
+            try {
+               if(cstm!=null)cstm.close();             
+            } catch (Exception e) {
+                Bitacora.registrar(e);
+            }       
+        }
+    }
+    
     public void actualizarAsistenciaAlumno(AsistenciaAlumno asistencia) throws Exception{
         try {
             con = UConnection.getConnection();
@@ -135,7 +169,7 @@ public class AsistenciaAlumnoDAO {
     }
     
     public ArrayList<AsistenciaAlumno> listarAsistenciaAlumno() throws Exception{
-        AsistenciaAlumno asistencia = null;
+        AsistenciaAlumno asistencia = new AsistenciaAlumno();
         ResultSet rs = null;
         
         ArrayList<AsistenciaAlumno> asistencias  = new ArrayList<>();
@@ -148,15 +182,110 @@ public class AsistenciaAlumnoDAO {
             rs = cstm.executeQuery();
             while(rs.next()){
                 asistencia = new AsistenciaAlumno();
-                asistencia.setAsistencia_alumno_id(rs.getInt("asistencia_alumno_id"));  
+                asistencia.setAlumno_id(rs.getInt("alumno_id")); 
+                asistencia.setAsistencia_alumno_id(rs.getInt("asistencia_alumno_id")); 
+                System.out.println("BD== " + rs.getInt("asistencia_alumno_id"));
                 asistencia.setFecha(rs.getDate("fecha").toLocalDate());
                 
                 if (!rs.getString("observacion").isEmpty()) 
                     asistencia.setObservacion(rs.getString("observacion"));  
-                
+                else
+                    asistencia.setObservacion("");
                 asistencias.add(asistencia);
+                System.out.println("VALOR:: "+asistencia.getAlumno_id());
             }
         } catch (Exception e) {
+            Bitacora.registrar(e);
+            throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
+        }
+        finally{
+            try {
+                if(rs!=null)rs.close();
+                if(cstm!=null)cstm.close();                
+            } catch (Exception e) {
+                Bitacora.registrar(e);
+            }    
+        }
+        return asistencias;
+    }
+    
+    public ArrayList<AsistenciaAlumno> listarAsistenciaGrupo(String nivel, String grado) throws Exception{
+        AsistenciaAlumno asistencia = new AsistenciaAlumno();
+        ResultSet rs = null;
+        
+        ArrayList<AsistenciaAlumno> asistencias  = new ArrayList<>();
+        
+        try {
+            con = UConnection.getConnection();
+            String sql = "call sp_asistenciaAlumno_listarPorGrupo(?,?)";
+            cstm = con.prepareCall(sql);
+            cstm.setString(1, nivel);
+            cstm.setString(2, grado);
+            
+            rs = cstm.executeQuery();
+            while(rs.next()){
+                asistencia = new AsistenciaAlumno();
+                asistencia.setAlumno_id(rs.getInt("alumno_id")); 
+                asistencia.setAsistencia_alumno_id(rs.getInt("asistencia_alumno_id")); 
+                System.out.println("BD== " + rs.getInt("asistencia_alumno_id"));
+                asistencia.setFecha(rs.getDate("fecha").toLocalDate());
+                
+                if (!rs.getString("observacion").isEmpty()) 
+                    asistencia.setObservacion(rs.getString("observacion"));  
+                else
+                    asistencia.setObservacion("");
+                asistencias.add(asistencia);
+                System.out.println("VALOR:: "+asistencia.getAlumno_id());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            Bitacora.registrar(e);
+            throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
+        }
+        finally{
+            try {
+                if(rs!=null)rs.close();
+                if(cstm!=null)cstm.close();                
+            } catch (Exception e) {
+                Bitacora.registrar(e);
+            }    
+        }
+        return asistencias;
+    }
+    
+    
+    
+    public ArrayList<AsistenciaAlumno> listarAsistenciaGrupoFecha(Date fecha, String nivel, String grado) throws Exception{
+        AsistenciaAlumno asistencia = new AsistenciaAlumno();
+        ResultSet rs = null;
+        
+        ArrayList<AsistenciaAlumno> asistencias  = new ArrayList<>();
+        
+        try {
+            con = UConnection.getConnection();
+            String sql = "call sp_asistenciaAlumno_listarPorGrupoFecha(?,?,?)";
+            cstm = con.prepareCall(sql);
+            cstm.setDate(1,fecha);
+            cstm.setString(2, nivel);
+            cstm.setString(3, grado);
+            
+            rs = cstm.executeQuery();
+            while(rs.next()){
+                asistencia = new AsistenciaAlumno();
+                asistencia.setAlumno_id(rs.getInt("alumno_id")); 
+                asistencia.setAsistencia_alumno_id(rs.getInt("asistencia_alumno_id")); 
+                System.out.println("BD== " + rs.getInt("asistencia_alumno_id"));
+                asistencia.setFecha(rs.getDate("fecha").toLocalDate());
+                
+                if (!rs.getString("observacion").isEmpty()) 
+                    asistencia.setObservacion(rs.getString("observacion"));  
+                else
+                    asistencia.setObservacion("");
+                asistencias.add(asistencia);
+                System.out.println("VALOR:: "+asistencia.getAlumno_id());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }
