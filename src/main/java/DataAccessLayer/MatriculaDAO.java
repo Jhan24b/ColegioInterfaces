@@ -25,15 +25,15 @@ public class MatriculaDAO {
     public void insertarMatricula(Matricula matricula) throws Exception{
         try {
             con = UConnection.getConnection();
-            String sql = "call sp_matricula_insertar(?,?,?,?,?,?)";
+            String sql = "call sp_matricula_insertar2(?,?,?,?,?)";
             cstm=con.prepareCall(sql);
             
-            cstm.registerOutParameter(1, java.sql.Types.INTEGER);
-            cstm.setDate(2, Date.valueOf(matricula.getFecha()));
-            cstm.setString(3, String.valueOf(matricula.getGrado() ));
-            cstm.setString(4, String.valueOf(matricula.getNivel() ));
-            cstm.setString(5, String.valueOf(matricula.getTurno() ));
-            cstm.setInt(6, matricula.getAlumno_id());
+//            cstm.registerOutParameter(1, java.sql.Types.INTEGER);
+            cstm.setDate(1, Date.valueOf(matricula.getFecha()));
+            cstm.setString(2, String.valueOf(matricula.getGrado() ));
+            cstm.setString(3, String.valueOf(matricula.getNivel() ));
+            cstm.setString(4, String.valueOf(matricula.getTurno() ));
+            cstm.setInt(5, matricula.getAlumno_id());
             
             cstm.execute();
         } catch (Exception e) {
