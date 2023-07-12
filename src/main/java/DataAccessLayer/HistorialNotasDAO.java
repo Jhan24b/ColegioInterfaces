@@ -270,7 +270,7 @@ public class HistorialNotasDAO {
         try {            
             con=UConnection.getConnection();
             String sql="";            
-            sql="call sp_notas_mostrar_por_curso(?,?,?)";//es historial notas no notas
+            sql="call sp_notas_mostrar_por_curso(?,?,?)";
             cstm=con.prepareCall(sql);
             cstm.setString(1, nombre);
             cstm.setString(2, grado);
