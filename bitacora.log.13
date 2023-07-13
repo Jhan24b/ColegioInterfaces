@@ -2,34 +2,6 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2023-06-05T23:48:02.314235400Z</date>
-  <millis>1686008882314</millis>
-  <nanos>235400</nanos>
-  <sequence>12</sequence>
-  <logger>global</logger>
-  <level>SEVERE</level>
-  <class>Utilities.Bitacora</class>
-  <method>registrar</method>
-  <thread>24</thread>
-  <message>No se pudo registrar el curso****[Ljava.lang.StackTraceElement;@12b502d1</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2023-07-13T05:03:38.005109700Z</date>
-  <millis>1689224618005</millis>
-  <nanos>109700</nanos>
-  <sequence>13</sequence>
-  <logger>global</logger>
-  <level>SEVERE</level>
-  <class>Utilities.Bitacora</class>
-  <method>registrar</method>
-  <thread>24</thread>
-  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@552d7362</message>
-</record>
-<record>
   <date>2023-07-13T05:03:38.231773700Z</date>
   <millis>1689224618231</millis>
   <nanos>773700</nanos>

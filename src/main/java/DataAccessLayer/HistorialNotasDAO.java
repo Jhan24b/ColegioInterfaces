@@ -106,14 +106,6 @@ public class HistorialNotasDAO {
             cstm=con.prepareCall(sql);
             
             
-            if(hnotas.getAlumno_id()<=0){
-                cont++;
-            }
-            
-            if(hnotas.getCurso_id()<=0){
-                cont++;
-            }
-          
             if(cont==0){
                 cstm.setInt(1, hnotas.getHistorial_id());
                 cstm.setInt(2, hnotas.getAlumno_id());
@@ -275,7 +267,7 @@ public class HistorialNotasDAO {
             cstm.setString(1, nombre);
             cstm.setString(2, grado);
             cstm.setString(3, nivel);
-            rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones 
+            rs = cstm.executeQuery(); //se puede usar .execute() para todas las operaciones 
             
             while(rs.next()){
                 hnotas = new HistorialNotas();
@@ -284,6 +276,10 @@ public class HistorialNotasDAO {
                 curso = new Curso();
                 
                 hnotas.setHistorial_id(rs.getInt("historial_notas_id"));
+                hnotas.setAlumno_id(rs.getInt("alumno_id"));
+                hnotas.setCurso_id(rs.getInt("curso_id"));
+                
+                hnotas.setPromedio(rs.getDouble("promedio"));
             
                 notas.setHistorial_notas_id(rs.getInt("historial_notas_id"));
                 notas.setNota1(rs.getDouble("nota1"));
