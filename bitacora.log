@@ -5037,3 +5037,67 @@
   <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@444ab10</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T15:24:05.696302700Z</date>
+  <millis>1689261845696</millis>
+  <nanos>302700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@7f0b0694</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T15:28:09.770632100Z</date>
+  <millis>1689262089770</millis>
+  <nanos>632100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@33261fe4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T15:31:04.792382100Z</date>
+  <millis>1689262264792</millis>
+  <nanos>382100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@33261fe4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T15:33:43.556254Z</date>
+  <millis>1689262423556</millis>
+  <nanos>254000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@ef108f4</message>
+</record>
+</log>

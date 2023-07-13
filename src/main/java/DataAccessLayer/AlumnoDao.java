@@ -225,7 +225,7 @@ public class AlumnoDao {
         return alumno;     
      }     
      
-     public Alumno buscarPorId(int id) throws Exception{        
+     public Alumno buscarPorId(int alumno_id) throws Exception{        
        
         Alumno alumno=null;
         
@@ -238,7 +238,7 @@ public class AlumnoDao {
             String sql="";            
             sql="call sp_alumno_buscar_por_id(?)";
             cstm=con.prepareCall(sql);
-            cstm.setInt(1, id);
+            cstm.setInt(1, alumno_id);
          
             rs=cstm.executeQuery(); //se puede usar .execute() para todas las operaciones
             
@@ -246,10 +246,10 @@ public class AlumnoDao {
                 alumno = new Alumno();
                 alumno.setAlumno_id(rs.getInt("alumno_id"));
                 alumno.setDni(rs.getString("dni"));
-                alumno.setApellidosNombres(rs.getString("apellidos_nombres"));                             
+                alumno.setNombres(rs.getString("apellidos_nombres"));                             
             }
             
-        } catch (Exception e) {         
+        } catch (Exception e) {      
             Bitacora.registrar(e);
             throw new Exception("Error crítico: Comunicarse con el administrador del sistema");
         }finally{
