@@ -48,12 +48,13 @@ public class VentanaPagos extends javax.swing.JFrame {
         
         this.tipoPago = tipoPago;
         
-//        try {
-//            Alumno alumno = alumBO.buscarPorId(pagoMat.getPago_matricula_id());
-//            JTextAlumnoNombrePagoInsertar.setText(alumno.getApellido_paterno()+" "+alumno.getApellido_materno()+" , "+alumno.getNombres());
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
+        try {
+            System.out.println("Buscando alumno de ID: "+pagoMat.getPago_matricula_id());
+            Alumno alumno = alumBO.buscarPorId(pagoMat.getPago_matricula_id());
+            JTextAlumnoNombrePagoInsertar.setText( alumno.getNombres());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     public VentanaPagos(String tipoPago, pagoPensiones pagoPen) {    
