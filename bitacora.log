@@ -3769,3 +3769,1271 @@
   <message>Incorrect number of arguments for PROCEDURE colegio.sp_historial_notas_insertar; expected 4, got 3****[Ljava.lang.StackTraceElement;@14c28ccf</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:10:55.632915200Z</date>
+  <millis>1689207055632</millis>
+  <nanos>915200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@39330376</message>
+</record>
+<record>
+  <date>2023-07-13T00:10:55.723019200Z</date>
+  <millis>1689207055723</millis>
+  <nanos>19200</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@4e27f6e4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:11:26.549414900Z</date>
+  <millis>1689207086549</millis>
+  <nanos>414900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@39330376</message>
+</record>
+<record>
+  <date>2023-07-13T00:11:26.593129900Z</date>
+  <millis>1689207086593</millis>
+  <nanos>129900</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@4e27f6e4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:11:41.659629100Z</date>
+  <millis>1689207101659</millis>
+  <nanos>629100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@39330376</message>
+</record>
+<record>
+  <date>2023-07-13T00:11:41.780176500Z</date>
+  <millis>1689207101780</millis>
+  <nanos>176500</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@4e27f6e4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:42:38.803745200Z</date>
+  <millis>1689208958803</millis>
+  <nanos>745200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@61818395</message>
+</record>
+<record>
+  <date>2023-07-13T00:42:38.842106700Z</date>
+  <millis>1689208958842</millis>
+  <nanos>106700</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@6a867346</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:46:56.786153400Z</date>
+  <millis>1689209216786</millis>
+  <nanos>153400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@61818395</message>
+</record>
+<record>
+  <date>2023-07-13T00:46:56.891453100Z</date>
+  <millis>1689209216891</millis>
+  <nanos>453100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@6a867346</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:49:00.576597100Z</date>
+  <millis>1689209340576</millis>
+  <nanos>597100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@61818395</message>
+</record>
+<record>
+  <date>2023-07-13T00:49:00.623911700Z</date>
+  <millis>1689209340623</millis>
+  <nanos>911700</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@6a867346</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:50:29.702478500Z</date>
+  <millis>1689209429702</millis>
+  <nanos>478500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@5407ab72</message>
+</record>
+<record>
+  <date>2023-07-13T00:50:29.739441400Z</date>
+  <millis>1689209429739</millis>
+  <nanos>441400</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@37327b62</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T00:51:10.047760800Z</date>
+  <millis>1689209470047</millis>
+  <nanos>760800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@c252215</message>
+</record>
+<record>
+  <date>2023-07-13T00:51:10.084789500Z</date>
+  <millis>1689209470084</millis>
+  <nanos>789500</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_alumno_buscar_por_alumno does not exist****[Ljava.lang.StackTraceElement;@410a570e</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:13:33.272929800Z</date>
+  <millis>1689210813272</millis>
+  <nanos>929800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@647d653b</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:20:43.319561900Z</date>
+  <millis>1689211243319</millis>
+  <nanos>561900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@7c6e3348</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:21:19.071965500Z</date>
+  <millis>1689211279071</millis>
+  <nanos>965500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@647d653b</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:23:05.446049200Z</date>
+  <millis>1689211385446</millis>
+  <nanos>49200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@296b4d55</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:24:38.567810400Z</date>
+  <millis>1689211478567</millis>
+  <nanos>810400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@296b4d55</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:37:40.519393400Z</date>
+  <millis>1689212260519</millis>
+  <nanos>393400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@29ef5550</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:38:44.547354600Z</date>
+  <millis>1689212324547</millis>
+  <nanos>354600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@29ef5550</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:41:13.053018200Z</date>
+  <millis>1689212473053</millis>
+  <nanos>18200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@7f55432</message>
+</record>
+<record>
+  <date>2023-07-13T01:41:56.404819100Z</date>
+  <millis>1689212516404</millis>
+  <nanos>819100</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@7dd03545</message>
+</record>
+<record>
+  <date>2023-07-13T01:42:14.095749500Z</date>
+  <millis>1689212534095</millis>
+  <nanos>749500</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@f5af6a6</message>
+</record>
+<record>
+  <date>2023-07-13T01:42:17.008640900Z</date>
+  <millis>1689212537008</millis>
+  <nanos>640900</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@464e7e11</message>
+</record>
+<record>
+  <date>2023-07-13T01:42:22.797446Z</date>
+  <millis>1689212542797</millis>
+  <nanos>446000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'dni' not found.****[Ljava.lang.StackTraceElement;@2891d629</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:46:02.183513600Z</date>
+  <millis>1689212762183</millis>
+  <nanos>513600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@7d3597df</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T01:52:34.867378300Z</date>
+  <millis>1689213154867</millis>
+  <nanos>378300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@3330b5ba</message>
+</record>
+<record>
+  <date>2023-07-13T01:52:44.685801500Z</date>
+  <millis>1689213164685</millis>
+  <nanos>801500</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'area_id' not found.****[Ljava.lang.StackTraceElement;@66d193c6</message>
+</record>
+<record>
+  <date>2023-07-13T01:52:47.353116500Z</date>
+  <millis>1689213167353</millis>
+  <nanos>116500</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'area_id' not found.****[Ljava.lang.StackTraceElement;@47dfd9</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T02:05:04.505110200Z</date>
+  <millis>1689213904505</millis>
+  <nanos>110200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@4481b86a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T02:06:44.005062100Z</date>
+  <millis>1689214004005</millis>
+  <nanos>62100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@4481b86a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T02:07:07.436500900Z</date>
+  <millis>1689214027436</millis>
+  <nanos>500900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@789e131a</message>
+</record>
+<record>
+  <date>2023-07-13T02:08:37.606360900Z</date>
+  <millis>1689214117606</millis>
+  <nanos>360900</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Column 'area_id' not found.****[Ljava.lang.StackTraceElement;@17bba6fe</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T02:12:02.420996400Z</date>
+  <millis>1689214322420</millis>
+  <nanos>996400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@4481b86a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:24:12.005339300Z</date>
+  <millis>1689218652005</millis>
+  <nanos>339300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@242e7abc</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:25:30.926970400Z</date>
+  <millis>1689218730926</millis>
+  <nanos>970400</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@242e7abc</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:34:57.414157500Z</date>
+  <millis>1689219297414</millis>
+  <nanos>157500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:36:36.705711200Z</date>
+  <millis>1689219396705</millis>
+  <nanos>711200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:38:52.277082900Z</date>
+  <millis>1689219532277</millis>
+  <nanos>82900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@16257026</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:41:04.768294Z</date>
+  <millis>1689219664768</millis>
+  <nanos>294000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@4481b86a</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:42:02.474951600Z</date>
+  <millis>1689219722474</millis>
+  <nanos>951600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@c932256</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T03:43:11.188552600Z</date>
+  <millis>1689219791188</millis>
+  <nanos>552600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@c932256</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:38:35.186227300Z</date>
+  <millis>1689223115186</millis>
+  <nanos>227300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>27</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@c2b5a6d</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:38:42.757779200Z</date>
+  <millis>1689223122757</millis>
+  <nanos>779200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:40:56.457401600Z</date>
+  <millis>1689223256457</millis>
+  <nanos>401600</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:45:39.986436700Z</date>
+  <millis>1689223539986</millis>
+  <nanos>436700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:47:27.424042900Z</date>
+  <millis>1689223647424</millis>
+  <nanos>42900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@58b26d60</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T04:54:29.161124500Z</date>
+  <millis>1689224069161</millis>
+  <nanos>124500</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@c932256</message>
+</record>
+<record>
+  <date>2023-07-13T04:54:59.984578600Z</date>
+  <millis>1689224099984</millis>
+  <nanos>578600</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@3767cadd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:03:08.326428300Z</date>
+  <millis>1689224588326</millis>
+  <nanos>428300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@291b29f1</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:29.102076700Z</date>
+  <millis>1689224609102</millis>
+  <nanos>76700</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@5acfeb40</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:34.269210900Z</date>
+  <millis>1689224614269</millis>
+  <nanos>210900</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@1775fdb8</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:34.879141500Z</date>
+  <millis>1689224614879</millis>
+  <nanos>141500</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@29c1248b</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:35.079417800Z</date>
+  <millis>1689224615079</millis>
+  <nanos>417800</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@21ca0296</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:35.261919200Z</date>
+  <millis>1689224615261</millis>
+  <nanos>919200</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@86c44aa</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:35.478300800Z</date>
+  <millis>1689224615478</millis>
+  <nanos>300800</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@348760a</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:36.156710500Z</date>
+  <millis>1689224616156</millis>
+  <nanos>710500</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@7821042b</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:36.641625600Z</date>
+  <millis>1689224616641</millis>
+  <nanos>625600</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@269f93cb</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:36.853853500Z</date>
+  <millis>1689224616853</millis>
+  <nanos>853500</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@24c300b5</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:37.035652200Z</date>
+  <millis>1689224617035</millis>
+  <nanos>652200</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@4881b169</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:37.812582700Z</date>
+  <millis>1689224617812</millis>
+  <nanos>582700</nanos>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@1ba08ac0</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:38.005109700Z</date>
+  <millis>1689224618005</millis>
+  <nanos>109700</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@552d7362</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:38.231773700Z</date>
+  <millis>1689224618231</millis>
+  <nanos>773700</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@2cdc4cfd</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:38.476563900Z</date>
+  <millis>1689224618476</millis>
+  <nanos>563900</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@6e3fc8a9</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:38.708134200Z</date>
+  <millis>1689224618708</millis>
+  <nanos>134200</nanos>
+  <sequence>16</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@78f2cdce</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:38.946638900Z</date>
+  <millis>1689224618946</millis>
+  <nanos>638900</nanos>
+  <sequence>17</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@2104665b</message>
+</record>
+<record>
+  <date>2023-07-13T05:03:39.149183800Z</date>
+  <millis>1689224619149</millis>
+  <nanos>183800</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@39b7a0be</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:04:10.258046200Z</date>
+  <millis>1689224650258</millis>
+  <nanos>46200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@291b29f1</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:28.533790500Z</date>
+  <millis>1689224668533</millis>
+  <nanos>790500</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@bd4aa00</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:31.134787900Z</date>
+  <millis>1689224671134</millis>
+  <nanos>787900</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@7097d449</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:31.308224100Z</date>
+  <millis>1689224671308</millis>
+  <nanos>224100</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@7c206876</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:31.509267500Z</date>
+  <millis>1689224671509</millis>
+  <nanos>267500</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@7e50087</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:31.683288Z</date>
+  <millis>1689224671683</millis>
+  <nanos>288000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@312b39b7</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:31.875859Z</date>
+  <millis>1689224671875</millis>
+  <nanos>859000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@4b7dbfd5</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:32.078423Z</date>
+  <millis>1689224672078</millis>
+  <nanos>423000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@bff8ed4</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:32.267985Z</date>
+  <millis>1689224672267</millis>
+  <nanos>985000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@2951b69d</message>
+</record>
+<record>
+  <date>2023-07-13T05:04:32.475586900Z</date>
+  <millis>1689224672475</millis>
+  <nanos>586900</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@7714b472</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:06:39.822883100Z</date>
+  <millis>1689224799822</millis>
+  <nanos>883100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@291b29f1</message>
+</record>
+<record>
+  <date>2023-07-13T05:06:50.302954900Z</date>
+  <millis>1689224810302</millis>
+  <nanos>954900</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>Cannot add or update a child row: a foreign key constraint fails (`colegio`.`historial_notas`, CONSTRAINT `fk_historial_notas_alumno_id` FOREIGN KEY (`alumno_id`) REFERENCES `alumno` (`alumno_id`))****[Ljava.lang.StackTraceElement;@7079e17f</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:13:38.765006200Z</date>
+  <millis>1689225218765</millis>
+  <nanos>6200</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@291b29f1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:23:15.106550900Z</date>
+  <millis>1689225795106</millis>
+  <nanos>550900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@76f09306</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:56:03.876923900Z</date>
+  <millis>1689227763876</millis>
+  <nanos>923900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@208102e4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:56:38.646477800Z</date>
+  <millis>1689227798646</millis>
+  <nanos>477800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@76f09306</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T06:10:55.956788300Z</date>
+  <millis>1689228655956</millis>
+  <nanos>788300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@ef108f4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T06:18:30.013372100Z</date>
+  <millis>1689229110013</millis>
+  <nanos>372100</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@33261fe4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T06:18:49.308968Z</date>
+  <millis>1689229129308</millis>
+  <nanos>968000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@33261fe4</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T06:29:07.144720700Z</date>
+  <millis>1689229747144</millis>
+  <nanos>720700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@444ab10</message>
+</record>
+</log>

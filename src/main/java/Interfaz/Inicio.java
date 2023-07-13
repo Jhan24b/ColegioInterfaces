@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
-
+    
 import BusinessLayer.AlumnoBO;
 import BusinessLayer.ApoderadoBO;
 import BusinessLayer.AreaBO;
@@ -65,6 +65,9 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import Connection.UConnection;
+import java.util.Arrays;
+import java.util.Comparator;
+import javax.swing.JTable;
 /**
  *
  * @author xbest
@@ -82,7 +85,7 @@ public class Inicio extends javax.swing.JFrame {
     int f = -1;
     String usuarioSistema = "";
     String rolUsuarioSistema = "";
-
+    
     /// OBJETOS
     private AsistenciaDocente adocente = new AsistenciaDocente();
     private Docente docente = new Docente();
@@ -133,6 +136,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         MyInitComponents();
         actualizarTablaUsuarios();
+        
         ActualizarTablaXTipoPago("Pago Matricula");
         actualizarTablaAsistenciaDocentes();
 
@@ -174,6 +178,36 @@ public class Inicio extends javax.swing.JFrame {
                 jHeaderGestionApoderadosMouseClicked(evt);
             }
         });
+        
+        jTableGestionDocente.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHeaderGestionDocenteMouseClicked(evt);
+            }
+        });
+        
+        jTablePagos.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHeaderPagosMouseClicked(evt);
+            }
+        });
+        
+        jTableGestionMatricula.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHeaderGestionMatriculaMouseClicked(evt);
+            }
+        });
+        
+        jTableGestionCurso.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHeaderGestionCursoMouseClicked(evt);
+            }
+        });
+        
+        jTableGestionArea.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHeaderGestionAreaMouseClicked(evt);
+            }
+        });
     }
 
     /**
@@ -183,104 +217,166 @@ public class Inicio extends javax.swing.JFrame {
      *
      ****
      */
+    
+    private String tablaOrdenada = ""; 
+    private boolean asc = true;
+    private int columnOrdenada = -1;
+    
+    private void jHeaderGestionAreaMouseClicked (java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionArea.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+       
+        System.out.println("Seleccion: " + columnIndex);
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionArea.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionArea.getName();
+        }
+        
+        ordenarTabla(jTableGestionArea, columnIndex, asc, areas);
+    }
+    
+    private void jHeaderGestionCursoMouseClicked (java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionCurso.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+       
+        System.out.println("Seleccion: " + columnIndex);
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionCurso.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionCurso.getName();
+        }
+        
+        ordenarTabla(jTableGestionCurso, columnIndex, asc, cursos);
+    }
+    
+    private void jHeaderGestionMatriculaMouseClicked (java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionMatricula.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+       
+        System.out.println("Seleccion: " + columnIndex);
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionMatricula.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionMatricula.getName();
+        }
+        
+        ordenarTabla(jTableGestionMatricula, columnIndex, asc, matriculas);
+    }
+    
+    private void jHeaderPagosMouseClicked (java.awt.event.MouseEvent evt){
+        JTableHeader header = jTablePagos.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+       
+        System.out.println("Seleccion: " + columnIndex);
+        
+        if ( columnIndex == columnOrdenada  && jTablePagos.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTablePagos.getName();
+        }
+        
+        switch ((String) cbPagos.getSelectedItem()) {
+            case "Pago Matricula":
+                ordenarTabla(jTablePagos, columnIndex, asc, pagosMatricula);
+                //PAGO MATRICULA
+                break;
+            case "Pago Varios":
+                ordenarTabla(jTablePagos, columnIndex, asc, pagosVarios);
+                //PAGO VARIOS
+                break;
+            case "Pago Pensiones":
+                ordenarTabla(jTablePagos, columnIndex, asc, pagosPensiones);
+                //PAGO PENSIONES
+                break;
+        }
+    }
+    
+    private void jHeaderGestionDocenteMouseClicked(java.awt.event.MouseEvent evt){
+        JTableHeader header = jTableGestionDocente.getTableHeader();
+        int columnIndex = header.columnAtPoint(evt.getPoint());
+       
+        System.out.println("Seleccion: " + columnIndex);
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionDocente.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionDocente.getName();
+        }
+        
+        ordenarTabla(jTableGestionDocente, columnIndex, asc, docentes);
+    }
+    
     private void jHeaderGestionApoderadosMouseClicked(java.awt.event.MouseEvent evt) {
         JTableHeader header = jTableGestionApoderados.getTableHeader();
         int columnIndex = header.columnAtPoint(evt.getPoint());
+       
         System.out.println("Seleccion: " + columnIndex);
-        switch (columnIndex) {
-            case 1:
-                System.out.println("Ordenando por codigo");
-                break;
-            case 2:
-                System.out.println("Ordenando por dni");
-                ordenarPorApoderadosDNI(apoderados);
-                break;
-            case 3:
-                System.out.println("Ordenando po apellido paterno");
-                ordenarPorApoderadosxApellidoPaterno(apoderados);
-                break;
-            case 4:
-                System.out.println("Ordenando po apellido materno");
-                ordenarPorApoderadosxApellidoMaterno(apoderados);
-                break;
-            case 5:
-                System.out.println("Ordenando po Nombre");
-                ordenarPorApoderadosxNombre(apoderados);
-                break;
-            case 6:
-                System.out.println("Ordenando por Contacto");
-                ordenarPorApoderadosxContacto(apoderados);
-                break;
-            default:
-                throw new AssertionError();
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionApoderados.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionApoderados.getName();
         }
-        actualizarTablaApoderado();
+        
+        ordenarTabla(jTableGestionApoderados, columnIndex, asc, apoderados);
     }
 
     private void jHeaderGestionAlumnosMouseClicked(java.awt.event.MouseEvent evt) {
         JTableHeader header = jTableGestionAlumnos.getTableHeader();
         int columnIndex = header.columnAtPoint(evt.getPoint());
+       
         System.out.println("Seleccion: " + columnIndex);
-        switch (columnIndex) {
-            case 1:
-                System.out.println("Ordenando por codigo");
-                break;
-            case 2:
-                System.out.println("Ordenando por dni");
-                ordenarPorAlumnosDNI(alumnos);
-                break;
-            case 3:
-                System.out.println("Ordenando po apellido paterno");
-                ordenarPorAlumnosxApellidoPaterno(alumnos);
-                break;
-            case 4:
-                System.out.println("Ordenando po apellido materno");
-                ordenarPorAlumnosxApellidoMaterno(alumnos);
-                break;
-            case 5:
-                System.out.println("Ordenando po Nombre");
-                ordenarPorAlumnosxNombre(alumnos);
-                break;
-            case 6:
-                ordenarPorAlumnosxFechaNacimiento(alumnos);
-                break;
-            default:
-                throw new AssertionError();
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionAlumnos.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionAlumnos.getName();
         }
-        actualizarTablaAlumno();
+        
+        ordenarTabla(jTableGestionAlumnos, columnIndex, asc, alumnos);
     }
 
     private void jHeaderGestionUsuariosMouseClicked(java.awt.event.MouseEvent evt) {
         JTableHeader header = jTableGestionUsuarios.getTableHeader();
         int columnIndex = header.columnAtPoint(evt.getPoint());
+       
         System.out.println("Seleccion: " + columnIndex);
-        switch (columnIndex) {
-            case 0:
-                System.out.println("Ordenando por codigo");
-                break;
-            case 1:
-                System.out.println("Ordenando por dni");
-                ordenarUsuariosPorDNI(usuarios);
-                break;
-            case 2:
-                System.out.println("Ordenando po apellido paterno");
-                ordenarUsuariosPorApellidoPaterno(usuarios);
-                break;
-            case 3:
-                System.out.println("Ordenando po apellido materno");
-                ordenarUsuariosPorApellidoMaterno(usuarios);
-                break;
-            case 4:
-                System.out.println("Ordenando po Nombre");
-                ordenarUsuariosPorNombre(usuarios);
-                break;
-            case 6:
-                ordenarUsuariosPorRol(usuarios);
-                break;
-            default:
-                throw new AssertionError();
+        
+        if ( columnIndex == columnOrdenada  && jTableGestionUsuarios.getName().equals(tablaOrdenada)) {
+            asc = !asc;
+        } else {
+            columnOrdenada = columnIndex;
+            asc = true;
+            
+            tablaOrdenada = jTableGestionUsuarios.getName();
         }
-        actualizarTablaAlumno();
+        
+        ordenarTabla(jTableGestionUsuarios, columnIndex, asc, usuarios);
     }
 
     /**
@@ -315,6 +411,7 @@ public class Inicio extends javax.swing.JFrame {
         txtBuscarDocente = new javax.swing.JTextField();
         btnBuscarDocente = new javax.swing.JButton();
         btnReporteDocente = new javax.swing.JButton();
+        btnEliminarApoderado2 = new javax.swing.JButton();
         jPanelApoderado = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -325,6 +422,7 @@ public class Inicio extends javax.swing.JFrame {
         cbBuscarApoderado = new javax.swing.JComboBox<>();
         txtBuscarApoderado = new javax.swing.JTextField();
         btnBuscarApoderados = new javax.swing.JButton();
+        btnEliminarApoderado1 = new javax.swing.JButton();
         jPanelPagos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTablePagos = new javax.swing.JTable();
@@ -393,6 +491,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        btnEliminarNota1 = new javax.swing.JButton();
         jPanelUsuarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableGestionUsuarios = new javax.swing.JTable();
@@ -476,6 +575,7 @@ public class Inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableGestionDocente.setName("tablaDocente"); // NOI18N
         jScrollPane6.setViewportView(jTableGestionDocente);
         if (jTableGestionDocente.getColumnModel().getColumnCount() > 0) {
             jTableGestionDocente.getColumnModel().getColumn(0).setResizable(false);
@@ -542,6 +642,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarApoderado2.setMnemonic('q');
+        btnEliminarApoderado2.setText("Asignar Cursos a los Docentes");
+        btnEliminarApoderado2.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+q]"));
+        btnEliminarApoderado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarApoderado2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelDocenteLayout = new javax.swing.GroupLayout(jPanelDocente);
         jPanelDocente.setLayout(jPanelDocenteLayout);
         jPanelDocenteLayout.setHorizontalGroup(
@@ -561,20 +670,23 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(btnBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnReporteDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelDocenteLayout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnReporteDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnEliminarApoderado2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelDocenteLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 35, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanelDocenteLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelDocenteLayout.setVerticalGroup(
             jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,14 +700,15 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnBuscarDocente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnActualizarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnEliminarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnReporteDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnInsertarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(btnInsertarDocente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarApoderado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Docente", jPanelDocente);
@@ -622,6 +735,7 @@ public class Inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableGestionApoderados.setName("tablaApoderado"); // NOI18N
         jScrollPane5.setViewportView(jTableGestionApoderados);
 
         btnInsertarApoderado.setMnemonic('i');
@@ -660,6 +774,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarApoderado1.setMnemonic('q');
+        btnEliminarApoderado1.setText("Asignar Apoderados a los Alumnos");
+        btnEliminarApoderado1.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+q]"));
+        btnEliminarApoderado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarApoderado1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelApoderadoLayout = new javax.swing.GroupLayout(jPanelApoderado);
         jPanelApoderado.setLayout(jPanelApoderadoLayout);
         jPanelApoderadoLayout.setHorizontalGroup(
@@ -682,7 +805,9 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -704,7 +829,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -729,6 +855,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTablePagos.setName("tablaPagos"); // NOI18N
         jScrollPane3.setViewportView(jTablePagos);
 
         jButton6.setMnemonic('a');
@@ -841,6 +968,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableGestionMatricula.setName("tablaMatricula"); // NOI18N
         jScrollPane8.setViewportView(jTableGestionMatricula);
         if (jTableGestionMatricula.getColumnModel().getColumnCount() > 0) {
             jTableGestionMatricula.getColumnModel().getColumn(0).setResizable(false);
@@ -949,6 +1077,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jTableGestionCurso.setCellSelectionEnabled(true);
+        jTableGestionCurso.setName("tablaCurso"); // NOI18N
         jScrollPane10.setViewportView(jTableGestionCurso);
         jTableGestionCurso.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         if (jTableGestionCurso.getColumnModel().getColumnCount() > 0) {
@@ -963,6 +1092,7 @@ public class Inicio extends javax.swing.JFrame {
             jTableGestionCurso.getColumnModel().getColumn(4).setResizable(false);
             jTableGestionCurso.getColumnModel().getColumn(4).setPreferredWidth(45);
         }
+        jTableGestionCurso.getAccessibleContext().setAccessibleName("");
 
         btnInsertarCurso.setMnemonic('i');
         btnInsertarCurso.setText("INSERTAR");
@@ -1052,6 +1182,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableGestionArea.setName("tablaArea"); // NOI18N
         jScrollPane9.setViewportView(jTableGestionArea);
         if (jTableGestionArea.getColumnModel().getColumnCount() > 0) {
             jTableGestionArea.getColumnModel().getColumn(0).setResizable(false);
@@ -1534,6 +1665,15 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel23.setText("Grado:");
 
+        btnEliminarNota1.setMnemonic('a');
+        btnEliminarNota1.setText("Editar");
+        btnEliminarNota1.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+a]"));
+        btnEliminarNota1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarNota1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelNotasLayout = new javax.swing.GroupLayout(jPanelNotas);
         jPanelNotas.setLayout(jPanelNotasLayout);
         jPanelNotasLayout.setHorizontalGroup(
@@ -1549,6 +1689,8 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(btnInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEliminarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminarNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanelNotasLayout.createSequentialGroup()
@@ -1582,9 +1724,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertarNota)
-                    .addComponent(btnEliminarNota))
+                .addGroup(jPanelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminarNota1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnInsertarNota)
+                        .addComponent(btnEliminarNota)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -1609,6 +1753,7 @@ public class Inicio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableGestionUsuarios.setName("tablaUsuarios"); // NOI18N
         jScrollPane4.setViewportView(jTableGestionUsuarios);
         if (jTableGestionUsuarios.getColumnModel().getColumnCount() > 0) {
             jTableGestionUsuarios.getColumnModel().getColumn(0).setResizable(false);
@@ -1770,6 +1915,7 @@ public class Inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableGestionAlumnos.setName("tablaAlumnos"); // NOI18N
         jScrollPane7.setViewportView(jTableGestionAlumnos);
         if (jTableGestionAlumnos.getColumnModel().getColumnCount() > 0) {
             jTableGestionAlumnos.getColumnModel().getColumn(0).setResizable(false);
@@ -1947,8 +2093,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtRolUser, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -1956,8 +2102,14 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1965,14 +2117,8 @@ public class Inicio extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtRolUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel20)))
-                            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                                    .addComponent(jLabel20))))))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -2272,7 +2418,7 @@ public class Inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "FUNCIONA");
             try {
                 int idNotaEliminar = hnotaslist.get(jTableNotas.getSelectedRow()).getHistorial_id();
-                System.out.println(idNotaEliminar + " ++++++=======SE ELIMINARA ESTO");
+                System.out.println(idNotaEliminar + " =======SE ELIMINARA ESTO");
                 notasBO.eliminar(idNotaEliminar);
             } catch (Exception ex) {
                 System.out.println(ex);
@@ -2285,8 +2431,22 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnInsertarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarNotaActionPerformed
         // TODO add your handling code here:
-        InsertNotas insNotas = new InsertNotas();
-        insNotas.setVisible(true);
+        InsertNotas ventanaInsertar = new InsertNotas();
+                // Agregar el WindowListener a la ventana
+                ventanaInsertar.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        try {
+                            String name = cursosXGrado.get(0).getNombre();
+                            String grado = String.valueOf(cursosXGrado.get(0).getGrado());
+                            String nivel = String.valueOf(cbNivelNota.getItemAt(cbNivelNota.getSelectedIndex()).charAt(0));
+                            hnotaslist = hnotasBO.buscarPorCurso(name, grado, nivel);
+                            mostrarTablaNotas(hnotaslist);
+                        } catch (Exception ex) {
+                            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
     }//GEN-LAST:event_btnInsertarNotaActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
@@ -3189,6 +3349,108 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegistrarSalidaActionPerformed
 
+    private void btnEliminarApoderado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarApoderado1ActionPerformed
+        // TODO add your handling code here:
+        VentanaAlumnoApoderado ventanaInsertar = new VentanaAlumnoApoderado();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    apoderados = apoBO.buscarApoderadoPorNombre("");
+                    actualizarTablaApoderado();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
+    }//GEN-LAST:event_btnEliminarApoderado1ActionPerformed
+
+    private void btnEliminarApoderado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarApoderado2ActionPerformed
+        // TODO add your handling code here:
+        VentanaDocenteCurso ventanaInsertar = new VentanaDocenteCurso();
+        // Agregar el WindowListener a la ventana
+        ventanaInsertar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                try {
+                    docentes = docBO.buscarPorDocente("");
+                    actualizarTablaDocente();
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        // Mostrar la ventana
+        ventanaInsertar.setVisible(true);
+    }//GEN-LAST:event_btnEliminarApoderado2ActionPerformed
+
+    private void btnEliminarNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarNota1ActionPerformed
+        // TODO add your handling code here:
+        if (jTableNotas.getSelectedRow() != -1) {
+            try {
+                int fila_seleccionada = jTableNotas.getSelectedRow();
+                
+                int idHNotaEditar = hnotaslist.get(fila_seleccionada).getHistorial_id();
+                int idAlumnoEditar = hnotaslist.get(fila_seleccionada).getAlumno_id();
+                int idCursoEditar = hnotaslist.get(fila_seleccionada).getCurso_id();
+                
+                System.out.println(idHNotaEditar + " =======SE EDITARA ESTO");
+                
+                String nombre_alumno = jTableNotas.getValueAt(fila_seleccionada, 0).toString();
+                String nombre_curso = cbCursoNota.getSelectedItem().toString();
+                String nivel_grado = cbNivelNota.getSelectedItem().toString()+"/ "+ cbGradoNota.getSelectedItem().toString();
+                
+                String nota1 = "", nota2 = "", nota3 = "", nota4 = "", nota5 = "", promedio = "";
+                
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 1) == null))
+                    nota1 = jTableNotas.getValueAt(fila_seleccionada, 1).toString();
+                    
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 2) == null))
+                    nota2 = jTableNotas.getValueAt(fila_seleccionada, 2).toString();
+                
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 3) == null))
+                    nota3 = jTableNotas.getValueAt(fila_seleccionada, 3).toString();
+                
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 4) == null))
+                    nota4 = jTableNotas.getValueAt(fila_seleccionada, 4).toString();
+                
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 5) == null))
+                    nota5 = jTableNotas.getValueAt(fila_seleccionada, 5).toString();
+                
+                if(!(jTableNotas.getValueAt(fila_seleccionada, 6) == null))
+                    promedio = jTableNotas.getValueAt(fila_seleccionada, 6).toString();
+                
+                
+                VentanaEditarNotas ventanaInsertar = new VentanaEditarNotas(idHNotaEditar, idAlumnoEditar, idCursoEditar, nombre_alumno, nombre_curso, nivel_grado, nota1, nota2, nota3, nota4, nota5, promedio);
+                // Agregar el WindowListener a la ventana
+                ventanaInsertar.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        try {
+                            String name = cursosXGrado.get(0).getNombre();
+                            String grado = String.valueOf(cursosXGrado.get(0).getGrado());
+                            String nivel = String.valueOf(cbNivelNota.getItemAt(cbNivelNota.getSelectedIndex()).charAt(0));
+                            hnotaslist = hnotasBO.buscarPorCurso(name, grado, nivel);
+                            mostrarTablaNotas(hnotaslist);
+                        } catch (Exception ex) {
+                            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                // Mostrar la ventana
+                ventanaInsertar.setVisible(true);
+            } catch (Exception ex) {
+                System.out.println(ex);
+                Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a editar");
+        }
+    }//GEN-LAST:event_btnEliminarNota1ActionPerformed
+
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
     private ArrayList<Alumno> alumnos;
@@ -3495,127 +3757,56 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
-
-    //Funcion para ordenar a los alumnos de acuerdo a su DNI
-    public ArrayList<Alumno> ordenarPorAlumnosDNI(ArrayList<Alumno> alumnos) {
-        alumnos.sort((p1, p2) -> String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
-        return alumnos;
+    
+    //funcion que ordena un Jtable de forma ascendente o descente, ordena según el número de columna seleccionado
+    private static void ordenarTabla(JTable table, int columna, boolean ascendente, ArrayList lista_1) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int rowCount = model.getRowCount();
+        
+        for (int i = 0; i < rowCount - 1; i++) {
+            for (int j = 0; j < rowCount - i - 1; j++) {
+                Object value1 = model.getValueAt(j, columna);
+                Object value2 = model.getValueAt(j + 1, columna);
+                
+                boolean swap = false;
+                
+                if (ascendente) {
+                    if (((Comparable) value1).compareTo(value2) > 0) {
+                        swap = true;
+                    }
+                } else {
+                    if (((Comparable) value1).compareTo(value2) < 0) {
+                        swap = true;
+                    }
+                }
+                
+                if (swap) {
+                    swapRows(model, j, j + 1, lista_1);
+                }
+            }
+        }
     }
-
-    //Funcion para ordenar a los alumnos de acuerdo a su apellido paterno
-    public ArrayList<Alumno> ordenarPorAlumnosxApellidoPaterno(ArrayList<Alumno> alumnos) {
-        alumnos.sort((p1, p2) -> String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
-        return alumnos;
+    
+    private static void swapRows(DefaultTableModel model, int row1, int row2, ArrayList lista_1) {
+        Object[] rowData1 = new Object[model.getColumnCount()];
+        Object[] rowData2 = new Object[model.getColumnCount()];
+        
+        for (int i = 0; i < model.getColumnCount(); i++) {
+            rowData1[i] = model.getValueAt(row1, i);
+            rowData2[i] = model.getValueAt(row2, i);
+        }
+        
+        for (int i = 0; i < model.getColumnCount(); i++) {
+            model.setValueAt(rowData2[i], row1, i);
+            model.setValueAt(rowData1[i], row2, i);
+        }
+        
+        Object temp = lista_1.get(row1);
+        lista_1.set(row1, lista_1.get(row2));
+        lista_1.set(row2, temp);
     }
-
-    //Funcion para ordenar a los alumnos de acuerdo a su apellido materno
-    public ArrayList<Alumno> ordenarPorAlumnosxApellidoMaterno(ArrayList<Alumno> alumnos) {
-        alumnos.sort((p1, p2) -> String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
-        return alumnos;
-    }
-
-    //Funcion para ordenar a los alumnos de acuerdo a su nombre
-    public ArrayList<Alumno> ordenarPorAlumnosxNombre(ArrayList<Alumno> alumnos) {
-        alumnos.sort((p1, p2) -> String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
-        return alumnos;
-    }
-
-    //Funcion para ordenar a los alumnos de acuerdo a su fecha de nacimientos
-    public ArrayList<Alumno> ordenarPorAlumnosxFechaNacimiento(ArrayList<Alumno> alumnos) {
-        alumnos.sort((p1, p2) -> String.valueOf(p1.getFecha_nacimiento()).compareTo(String.valueOf(p2.getFecha_nacimiento())));;
-        return alumnos;
-    }
-
-    //Funcion para ordenar a los usuarios de acuerdo a su dni
-    public ArrayList<Usuario> ordenarUsuariosPorDNI(ArrayList<Usuario> usuarios) {
-        usuarios.sort((p1, p2) -> String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
-        return usuarios;
-    }
-
-    //Funcion para ordenar a los usuarios de acuerdo a su apellido paterno
-    public ArrayList<Usuario> ordenarUsuariosPorApellidoPaterno(ArrayList<Usuario> usuarios) {
-        usuarios.sort((p1, p2) -> String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
-        return usuarios;
-    }
-
-    //Funcion para ordenar a los usuarios de acuerdo a su apellido materno
-    public ArrayList<Usuario> ordenarUsuariosPorApellidoMaterno(ArrayList<Usuario> usuarios) {
-        usuarios.sort((p1, p2) -> String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
-        return usuarios;
-    }
-
-    //Funcion para ordenar a los usuarios de acuerdo a su nombre
-    public ArrayList<Usuario> ordenarUsuariosPorNombre(ArrayList<Usuario> usuarios) {
-        usuarios.sort((p1, p2) -> String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
-        return usuarios;
-    }
-
-    //Funcion para ordenar a los usuarios de acuerdo a su nombre
-    public ArrayList<Usuario> ordenarUsuariosPorRol(ArrayList<Usuario> usuarios) {
-        usuarios.sort((p1, p2) -> String.valueOf(p1.getRol()).compareTo(String.valueOf(p2.getRol())));;
-        return usuarios;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su DNI
-    public ArrayList<Apoderado> ordenarPorApoderadosDNI(ArrayList<Apoderado> apoderados) {
-        apoderados.sort((p1, p2) -> String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
-        return apoderados;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su apellido paterno
-    public ArrayList<Apoderado> ordenarPorApoderadosxApellidoPaterno(ArrayList<Apoderado> apoderados) {
-        apoderados.sort((p1, p2) -> String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
-        return apoderados;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su apellido materno
-    public ArrayList<Apoderado> ordenarPorApoderadosxApellidoMaterno(ArrayList<Apoderado> apoderados) {
-        apoderados.sort((p1, p2) -> String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
-        return apoderados;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su nombre
-    public ArrayList<Apoderado> ordenarPorApoderadosxNombre(ArrayList<Apoderado> apoderados) {
-        apoderados.sort((p1, p2) -> String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
-        return apoderados;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su fecha de nacimientos
-    public ArrayList<Apoderado> ordenarPorApoderadosxContacto(ArrayList<Apoderado> apoderados) {
-        apoderados.sort((p1, p2) -> String.valueOf(p1.getContacto()).compareTo(String.valueOf(p2.getContacto())));;
-        return apoderados;
-    }
-
-    //Funcion para ordenar a los docentes de acuerdo a su DNI
-    public ArrayList<Docente> ordenarPorDocenteDNI(ArrayList<Docente> docentes) {
-        docentes.sort((p1, p2) -> String.valueOf(p1.getDni()).compareTo(String.valueOf(p2.getDni())));;
-        return docentes;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su apellido paterno
-    public ArrayList<Docente> ordenarPorDocentesxApellidoPaterno(ArrayList<Docente> docentes) {
-        docentes.sort((p1, p2) -> String.valueOf(p1.getApellido_paterno()).compareTo(String.valueOf(p2.getApellido_paterno())));;
-        return docentes;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su apellido materno
-    public ArrayList<Docente> ordenarPorDocentesxApellidoMaterno(ArrayList<Docente> docentes) {
-        docentes.sort((p1, p2) -> String.valueOf(p1.getApellido_materno()).compareTo(String.valueOf(p2.getApellido_materno())));;
-        return docentes;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su nombre
-    public ArrayList<Docente> ordenarPorDocentesxNombre(ArrayList<Docente> docentes) {
-        docentes.sort((p1, p2) -> String.valueOf(p1.getNombres()).compareTo(String.valueOf(p2.getNombres())));;
-        return docentes;
-    }
-
-    //Funcion para ordenar a los apoderados de acuerdo a su fecha de nacimientos
-    public ArrayList<Docente> ordenarPorDocentesxContacto(ArrayList<Docente> docentes) {
-        docentes.sort((p1, p2) -> String.valueOf(p1.getContacto()).compareTo(String.valueOf(p2.getContacto())));;
-        return docentes;
-    }
-
+    
+    //Funcion para actualizar la tabla Asistencia Docente
     private void actualizarTablaAsistenciaDocentes() {
         try {
             modeloAdocentes = (DefaultTableModel) tableAsistenciaDocentes.getModel();
@@ -3677,7 +3868,8 @@ public class Inicio extends javax.swing.JFrame {
                     n.getNota2(),
                     n.getNota3(),
                     n.getNota4(),
-                    n.getNota5(),};
+                    n.getNota5(),
+                    hhh.getPromedio()};
                 modeloNotas.addRow(fila);
             }
             jTableNotas.setModel(modeloNotas);
@@ -3769,10 +3961,13 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnEliminarAlumnos;
     private javax.swing.JButton btnEliminarApoderado;
+    private javax.swing.JButton btnEliminarApoderado1;
+    private javax.swing.JButton btnEliminarApoderado2;
     private javax.swing.JButton btnEliminarArea;
     private javax.swing.JButton btnEliminarCurso;
     private javax.swing.JButton btnEliminarDocente;
     private javax.swing.JButton btnEliminarNota;
+    private javax.swing.JButton btnEliminarNota1;
     private javax.swing.JButton btnInsertarAlumnos;
     private javax.swing.JButton btnInsertarApoderado;
     private javax.swing.JButton btnInsertarArea;

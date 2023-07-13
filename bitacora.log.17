@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T05:03:39.149183800Z</date>
+  <millis>1689224619149</millis>
+  <nanos>183800</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>No se pudo actualizar el historial notas****[Ljava.lang.StackTraceElement;@39b7a0be</message>
+</record>
+</log>
