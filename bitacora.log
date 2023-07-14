@@ -5101,3 +5101,50 @@
   <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@ef108f4</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T16:29:11.979539900Z</date>
+  <millis>1689265751979</millis>
+  <nanos>539900</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@ef108f4</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T20:01:42.777228300Z</date>
+  <millis>1689278502777</millis>
+  <nanos>228300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@4bad9a91</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-07-13T20:03:20.202090700Z</date>
+  <millis>1689278600202</millis>
+  <nanos>90700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>Utilities.Bitacora</class>
+  <method>registrar</method>
+  <thread>24</thread>
+  <message>PROCEDURE colegio.sp_asistenciaDocente_listarPorHoy does not exist****[Ljava.lang.StackTraceElement;@ef108f4</message>
+</record>
+</log>
