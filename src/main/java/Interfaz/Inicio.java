@@ -423,6 +423,7 @@ public class Inicio extends javax.swing.JFrame {
         txtBuscarApoderado = new javax.swing.JTextField();
         btnBuscarApoderados = new javax.swing.JButton();
         btnEliminarApoderado1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanelPagos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTablePagos = new javax.swing.JTable();
@@ -438,6 +439,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
         jPanelCursoArea = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -465,6 +467,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         cbGradoAsis = new javax.swing.JComboBox<>();
         btnMostrarHistorial = new javax.swing.JButton();
+        btnReporteHoy = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         tableAsistenciaDocentes = new javax.swing.JTable();
@@ -501,7 +504,7 @@ public class Inicio extends javax.swing.JFrame {
         btnInsertarUsuario = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         FiltroCbx = new javax.swing.JComboBox<>();
-        btnReporteCurso3 = new javax.swing.JButton();
+        btnReporteUsuarios = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnReporteCurso4 = new javax.swing.JButton();
         jPanelAlumno = new javax.swing.JPanel();
@@ -783,6 +786,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setMnemonic('r');
+        jButton2.setText("Reporte");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelApoderadoLayout = new javax.swing.GroupLayout(jPanelApoderado);
         jPanelApoderado.setLayout(jPanelApoderadoLayout);
         jPanelApoderadoLayout.setHorizontalGroup(
@@ -807,7 +819,9 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApoderadoLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -830,8 +844,9 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         jTabbedPane2.addTab("Apoderado", jPanelApoderado);
@@ -1015,6 +1030,15 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton32.setMnemonic('r');
+        jButton32.setText("Reporte");
+        jButton32.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMatriculaLayout = new javax.swing.GroupLayout(jPanelMatricula);
         jPanelMatricula.setLayout(jPanelMatriculaLayout);
         jPanelMatriculaLayout.setHorizontalGroup(
@@ -1030,6 +1054,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanelMatriculaLayout.createSequentialGroup()
@@ -1048,7 +1074,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanelMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -1301,6 +1328,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btnMarcarTodo.setMnemonic('a');
         btnMarcarTodo.setText("Marcar todos");
+        btnMarcarTodo.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+a]"));
         btnMarcarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMarcarTodoActionPerformed(evt);
@@ -1309,6 +1337,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btnRegistrarSalon.setMnemonic('g');
         btnRegistrarSalon.setText("Guardar");
+        btnRegistrarSalon.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+g]"));
         btnRegistrarSalon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarSalonActionPerformed(evt);
@@ -1359,11 +1388,21 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btnMostrarHistorial.setMnemonic('g');
+        btnMostrarHistorial.setMnemonic('h');
         btnMostrarHistorial.setText("Historial");
+        btnMostrarHistorial.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+h]"));
         btnMostrarHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMostrarHistorialActionPerformed(evt);
+            }
+        });
+
+        btnReporteHoy.setMnemonic('r');
+        btnReporteHoy.setText("Reporte de Hoy");
+        btnReporteHoy.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
+        btnReporteHoy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteHoyActionPerformed(evt);
             }
         });
 
@@ -1381,12 +1420,6 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnRegistrarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMostrarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtAlumnoAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1400,7 +1433,14 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(27, 27, 27))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(cbGradoAsis, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnReporteHoy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRegistrarSalon, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(btnMarcarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(btnMostrarHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addGap(37, 37, 37)))
                         .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1423,12 +1463,14 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbGradoAsis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnRegistrarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnMostrarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMarcarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegistrarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnMostrarHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReporteHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1474,6 +1516,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btnRegistrarIngreso.setMnemonic('e');
         btnRegistrarIngreso.setText("Registrar entrada");
+        btnRegistrarIngreso.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+e]"));
         btnRegistrarIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarIngresoActionPerformed(evt);
@@ -1482,6 +1525,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btnRegistrarSalida.setMnemonic('s');
         btnRegistrarSalida.setText("Registrar salida");
+        btnRegistrarSalida.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+s]"));
         btnRegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarSalidaActionPerformed(evt);
@@ -1517,11 +1561,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDNIDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegistrarIngreso)
-                            .addComponent(btnRegistrarSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtDNIDocente, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -1556,10 +1600,10 @@ public class Inicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnRegistrarIngreso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRegistrarSalida)
-                        .addGap(32, 32, 32)
+                        .addComponent(btnRegistrarIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btnRegistrarSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1813,11 +1857,11 @@ public class Inicio extends javax.swing.JFrame {
 
         FiltroCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apellidos y Nombres", "DNI", "Correo Electronico" }));
 
-        btnReporteCurso3.setText("Reporte Usuarios");
-        btnReporteCurso3.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
-        btnReporteCurso3.addActionListener(new java.awt.event.ActionListener() {
+        btnReporteUsuarios.setText("Reporte Usuarios");
+        btnReporteUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
+        btnReporteUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteCurso3ActionPerformed(evt);
+                btnReporteUsuariosActionPerformed(evt);
             }
         });
 
@@ -1859,7 +1903,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCambiarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnReporteCurso3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnReporteUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanelUsuariosLayout.createSequentialGroup()
@@ -1884,7 +1928,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnInsertarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCambiarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReporteCurso3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReporteUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReporteCurso4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
@@ -2514,6 +2558,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMarcarTodoActionPerformed
 
     private void btnRegistrarSalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalonActionPerformed
+        //needs improve it with an exhaustive filter
+        //also need ad more reports
         for (int i = 0; i < asalonasistencia.size(); i++) {
             asisalumno = new AsistenciaAlumno();
             Boolean asistenciadia = (Boolean) (jtblAsistenciaAlumnos.getValueAt(i, 2));
@@ -2529,11 +2575,16 @@ public class Inicio extends javax.swing.JFrame {
                     asisalumno.setObservacion("");
                 }
 
-                aalumnos.add(asisalumno);
+                
+            }else{
+                asisalumno.setAlumno_id(asalonasistencia.get(i).getAlumno_id());
+                asisalumno.setObservacion("Falto");
             }
+            
+            aalumnos.add(asisalumno);
 
         }
-        if (aalumnos.size() > 0) {
+        if (!aalumnos.isEmpty()) {
             try {
                 System.out.println(aalumnos.size());
                 asisalumBO.insertarAsistenciaGrupo(aalumnos);
@@ -3120,7 +3171,7 @@ public class Inicio extends javax.swing.JFrame {
 
             Connection con=UConnection.getConnection();
             
-            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteCurso.jasper";
+            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReportesAlumno.jasper";
             
             JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
 //            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
@@ -3149,8 +3200,8 @@ public class Inicio extends javax.swing.JFrame {
             
             Map<String, Object> params = new HashMap<String, Object>();
             String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
-//            params.put("ruta_imagen", rutaimg);
-            params.put("AnioMatricula", "2023");
+            params.put("url", rutaimg);
+//            params.put("AnioMatricula", "2023");
 //            params.put("turno","m");
 //            params.put("bimestre", 1);
 
@@ -3182,9 +3233,41 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void btnReporteCurso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteCurso3ActionPerformed
+    private void btnReporteUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReporteCurso3ActionPerformed
+        try {
+            
+            
+            Map<String, Object> params = new HashMap<String, Object>();
+            String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
+            params.put("url", rutaimg);
+//            params.put("AnioMatricula", "2023");
+//            params.put("turno","m");
+//            params.put("bimestre", 1);
+
+            Connection con=UConnection.getConnection();
+            
+            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteUsuarios.jasper";
+            
+            JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
+            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperPrint print= JasperFillManager.fillReport(jasperReport,null,con);
+            JasperViewer view = new JasperViewer(print,false);
+            view.setVisible(true);
+            
+            
+//            String fileJasper=System.getProperty("user.dir")+"\\src\\Reports\\AlumnosNotasPorCursoBimestreTurno.jrxml";
+//            JasperDesign jasperDesign= JRXmlLoader.load(fileJasper);
+//            JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
+//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperViewer jasperViewer = new JasperViewer(jasperPrint,true);
+//            jasperViewer.setVisible(true);
+            
+        } catch (Exception e) {
+            
+             JOptionPane.showMessageDialog(null,e.getMessage(),"Aviso",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnReporteUsuariosActionPerformed
 
     private void btnReporteCurso4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteCurso4ActionPerformed
         // TODO add your handling code here:
@@ -3450,6 +3533,114 @@ public class Inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a editar");
         }
     }//GEN-LAST:event_btnEliminarNota1ActionPerformed
+
+    private void btnReporteHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteHoyActionPerformed
+        // TODO add your handling code here:
+        try {
+            
+            
+            Map<String, Object> params = new HashMap<String, Object>();
+            String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
+            params.put("url", rutaimg);
+//            params.put("AnioMatricula", "2023");
+//            params.put("turno","m");
+//            params.put("bimestre", 1);
+
+            Connection con=UConnection.getConnection();
+            
+            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteAsistenciaAlumnosHoy.jasper";
+            
+            JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
+            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperPrint print= JasperFillManager.fillReport(jasperReport,null,con);
+            JasperViewer view = new JasperViewer(print,false);
+            view.setVisible(true);
+            
+            
+//            String fileJasper=System.getProperty("user.dir")+"\\src\\Reports\\AlumnosNotasPorCursoBimestreTurno.jrxml";
+//            JasperDesign jasperDesign= JRXmlLoader.load(fileJasper);
+//            JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
+//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperViewer jasperViewer = new JasperViewer(jasperPrint,true);
+//            jasperViewer.setVisible(true);
+            
+        } catch (Exception e) {
+            
+             JOptionPane.showMessageDialog(null,e.getMessage(),"Aviso",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnReporteHoyActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            
+            
+            Map<String, Object> params = new HashMap<String, Object>();
+            String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
+            params.put("url", rutaimg);
+//            params.put("AnioMatricula", "2023");
+//            params.put("turno","m");
+//            params.put("bimestre", 1);
+
+            Connection con=UConnection.getConnection();
+            
+            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteApoderado.jasper";
+            
+            JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
+            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperPrint print= JasperFillManager.fillReport(jasperReport,null,con);
+            JasperViewer view = new JasperViewer(print,false);
+            view.setVisible(true);
+            
+            
+//            String fileJasper=System.getProperty("user.dir")+"\\src\\Reports\\AlumnosNotasPorCursoBimestreTurno.jrxml";
+//            JasperDesign jasperDesign= JRXmlLoader.load(fileJasper);
+//            JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
+//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperViewer jasperViewer = new JasperViewer(jasperPrint,true);
+//            jasperViewer.setVisible(true);
+            
+        } catch (Exception e) {
+            
+             JOptionPane.showMessageDialog(null,e.getMessage(),"Aviso",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+        try {
+            
+            
+            Map<String, Object> params = new HashMap<String, Object>();
+            String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
+            params.put("url", rutaimg);
+//            params.put("AnioMatricula", "2023");
+//            params.put("turno","m");
+//            params.put("bimestre", 1);
+
+            Connection con=UConnection.getConnection();
+            
+            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteMatricula.jasper";
+            
+            JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
+            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperPrint print= JasperFillManager.fillReport(jasperReport,null,con);
+            JasperViewer view = new JasperViewer(print,false);
+            view.setVisible(true);
+            
+            
+//            String fileJasper=System.getProperty("user.dir")+"\\src\\Reports\\AlumnosNotasPorCursoBimestreTurno.jrxml";
+//            JasperDesign jasperDesign= JRXmlLoader.load(fileJasper);
+//            JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
+//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,params,con);
+//            JasperViewer jasperViewer = new JasperViewer(jasperPrint,true);
+//            jasperViewer.setVisible(true);
+            
+        } catch (Exception e) {
+            
+             JOptionPane.showMessageDialog(null,e.getMessage(),"Aviso",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton32ActionPerformed
 
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -3982,9 +4173,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarSalon;
     private javax.swing.JButton btnReporteAlumnos;
     private javax.swing.JButton btnReporteCurso;
-    private javax.swing.JButton btnReporteCurso3;
     private javax.swing.JButton btnReporteCurso4;
     private javax.swing.JButton btnReporteDocente;
+    private javax.swing.JButton btnReporteHoy;
+    private javax.swing.JButton btnReporteUsuarios;
     private javax.swing.JComboBox<String> cbBuscarApoderado;
     private javax.swing.JComboBox<String> cbBuscarDocente;
     private javax.swing.JComboBox<String> cbCursoNota;
@@ -3995,9 +4187,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbOpcionesBuscarAlumnos;
     private javax.swing.JComboBox<String> cbPagos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

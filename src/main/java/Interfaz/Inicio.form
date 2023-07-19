@@ -373,6 +373,8 @@
                               <Component id="btnEliminarApoderado" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnEliminarApoderado1" min="-2" pref="220" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -402,8 +404,9 @@
                           <Component id="btnEditarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="btnEliminarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="btnEliminarApoderado1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -520,6 +523,20 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarApoderado1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="mnemonic" type="int" value="114"/>
+                <Property name="text" type="java.lang.String" value="Reporte"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+r]"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -703,6 +720,8 @@
                               <Component id="jButton28" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton31" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton32" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -727,6 +746,7 @@
                           <Component id="jButton30" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="jButton28" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="jButton31" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="jButton32" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
@@ -841,6 +861,20 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton31ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton32">
+              <Properties>
+                <Property name="mnemonic" type="int" value="114"/>
+                <Property name="text" type="java.lang.String" value="Reporte"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+r]"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton32ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1191,14 +1225,6 @@
                               <Component id="jScrollPane11" min="-2" pref="600" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnRegistrarSalon" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="btnMarcarTodo" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="btnMostrarHistorial" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="txtAlumnoAsistencia" min="-2" pref="228" max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" pref="122" max="-2" attributes="0"/>
@@ -1217,6 +1243,15 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="cbGradoAsis" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="btnReporteHoy" max="32767" attributes="0"/>
+                                          <Component id="btnRegistrarSalon" alignment="1" pref="150" max="32767" attributes="0"/>
+                                          <Component id="btnMarcarTodo" alignment="1" pref="150" max="32767" attributes="0"/>
+                                          <Component id="btnMostrarHistorial" alignment="1" pref="150" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
@@ -1245,12 +1280,14 @@
                               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cbGradoAsis" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="btnMarcarTodo" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="btnRegistrarSalon" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="btnMostrarHistorial" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnMarcarTodo" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnRegistrarSalon" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="btnMostrarHistorial" min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnReporteHoy" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1324,6 +1361,11 @@
               <Properties>
                 <Property name="mnemonic" type="int" value="97"/>
                 <Property name="text" type="java.lang.String" value="Marcar todos"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+a]"/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMarcarTodoActionPerformed"/>
@@ -1333,6 +1375,11 @@
               <Properties>
                 <Property name="mnemonic" type="int" value="103"/>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+g]"/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarSalonActionPerformed"/>
@@ -1397,11 +1444,30 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnMostrarHistorial">
               <Properties>
-                <Property name="mnemonic" type="int" value="103"/>
+                <Property name="mnemonic" type="int" value="104"/>
                 <Property name="text" type="java.lang.String" value="Historial"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+h]"/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarHistorialActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnReporteHoy">
+              <Properties>
+                <Property name="mnemonic" type="int" value="114"/>
+                <Property name="text" type="java.lang.String" value="Reporte de Hoy"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+r]"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReporteHoyActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1432,11 +1498,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtContrasena" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
-                                  <Component id="txtDNIDocente" min="-2" pref="125" max="-2" attributes="0"/>
-                                  <Component id="btnRegistrarIngreso" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRegistrarSalida" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtContrasena" alignment="1" pref="125" max="32767" attributes="0"/>
+                                  <Component id="txtDNIDocente" pref="125" max="32767" attributes="0"/>
+                                  <Component id="btnRegistrarIngreso" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnRegistrarSalida" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1481,10 +1547,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtContrasena" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnRegistrarIngreso" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnRegistrarSalida" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnRegistrarIngreso" min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="btnRegistrarSalida" min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
@@ -1584,6 +1650,11 @@
               <Properties>
                 <Property name="mnemonic" type="int" value="101"/>
                 <Property name="text" type="java.lang.String" value="Registrar entrada"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+e]"/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarIngresoActionPerformed"/>
@@ -1593,6 +1664,11 @@
               <Properties>
                 <Property name="mnemonic" type="int" value="115"/>
                 <Property name="text" type="java.lang.String" value="Registrar salida"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="[alt+s]"/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarSalidaActionPerformed"/>
@@ -1935,7 +2011,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnCambiarClave" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnReporteCurso3" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="btnReporteUsuarios" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1968,7 +2044,7 @@
                           <Component id="btnInsertarUsuario" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="btnEditarUsuario" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="btnCambiarClave" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="btnReporteCurso3" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="btnReporteUsuarios" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="btnReporteCurso4" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -2120,7 +2196,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnReporteCurso3">
+            <Component class="javax.swing.JButton" name="btnReporteUsuarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reporte Usuarios"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -2130,7 +2206,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReporteCurso3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReporteUsuariosActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
