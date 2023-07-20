@@ -439,7 +439,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
+        btnReporteMatricula = new javax.swing.JButton();
         jPanelCursoArea = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -840,12 +840,13 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelApoderadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnInsertarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminarApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminarApoderado1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
         );
 
@@ -1030,12 +1031,12 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton32.setMnemonic('r');
-        jButton32.setText("Reporte");
-        jButton32.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        btnReporteMatricula.setMnemonic('r');
+        btnReporteMatricula.setText("Reporte");
+        btnReporteMatricula.setBorder(javax.swing.BorderFactory.createTitledBorder("[alt+r]"));
+        btnReporteMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                btnReporteMatriculaActionPerformed(evt);
             }
         });
 
@@ -1054,8 +1055,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnReporteMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanelMatriculaLayout.createSequentialGroup()
@@ -1075,7 +1076,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReporteMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -3606,41 +3607,11 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    private void btnReporteMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteMatriculaActionPerformed
         // TODO add your handling code here:
-        try {
-            
-            
-            Map<String, Object> params = new HashMap<String, Object>();
-            String rutaimg = System.getProperty("user.dir")+"/src/main/java/Interfaz/logoHD.jpg";
-            params.put("url", rutaimg);
-//            params.put("AnioMatricula", "2023");
-//            params.put("turno","m");
-//            params.put("bimestre", 1);
-
-            Connection con=UConnection.getConnection();
-            
-            String rutaReporte=System.getProperty("user.dir")+"/src/main/java/Reportes/ReporteMatricula.jasper";
-            
-            JasperReport jasperReport= (JasperReport)JRLoader.loadObjectFromFile(rutaReporte);
-            JasperPrint print= JasperFillManager.fillReport(jasperReport,params,con);
-//            JasperPrint print= JasperFillManager.fillReport(jasperReport,null,con);
-            JasperViewer view = new JasperViewer(print,false);
-            view.setVisible(true);
-            
-            
-//            String fileJasper=System.getProperty("user.dir")+"\\src\\Reports\\AlumnosNotasPorCursoBimestreTurno.jrxml";
-//            JasperDesign jasperDesign= JRXmlLoader.load(fileJasper);
-//            JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
-//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,params,con);
-//            JasperViewer jasperViewer = new JasperViewer(jasperPrint,true);
-//            jasperViewer.setVisible(true);
-            
-        } catch (Exception e) {
-            
-             JOptionPane.showMessageDialog(null,e.getMessage(),"Aviso",JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButton32ActionPerformed
+        ReporteMatricula rmatricula = new ReporteMatricula();
+        rmatricula.setVisible(true);
+    }//GEN-LAST:event_btnReporteMatriculaActionPerformed
 
     private DefaultTableModel modeloAlumnos;
     private AlumnoBO alumBO = new AlumnoBO();
@@ -4176,6 +4147,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnReporteCurso4;
     private javax.swing.JButton btnReporteDocente;
     private javax.swing.JButton btnReporteHoy;
+    private javax.swing.JButton btnReporteMatricula;
     private javax.swing.JButton btnReporteUsuarios;
     private javax.swing.JComboBox<String> cbBuscarApoderado;
     private javax.swing.JComboBox<String> cbBuscarDocente;
@@ -4191,7 +4163,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

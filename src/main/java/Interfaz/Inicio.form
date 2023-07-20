@@ -399,12 +399,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" pref="400" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnInsertarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btnEditarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btnEliminarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btnEliminarApoderado1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnInsertarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="btnEditarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="btnEliminarApoderado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="btnEliminarApoderado1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
@@ -720,8 +722,8 @@
                               <Component id="jButton28" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton31" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton32" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnReporteMatricula" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -746,7 +748,7 @@
                           <Component id="jButton30" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="jButton28" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="jButton31" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jButton32" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btnReporteMatricula" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
@@ -863,7 +865,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton31ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton32">
+            <Component class="javax.swing.JButton" name="btnReporteMatricula">
               <Properties>
                 <Property name="mnemonic" type="int" value="114"/>
                 <Property name="text" type="java.lang.String" value="Reporte"/>
@@ -874,7 +876,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton32ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReporteMatriculaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
