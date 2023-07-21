@@ -14,6 +14,7 @@ import JavaBean.Curso;
 import JavaBean.HistorialNotas;
 import JavaBean.Matricula;
 import JavaBean.Notas;
+import Utilities.CorreoElectronico;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Map;
@@ -469,11 +470,15 @@ public class VentanaMatricula extends javax.swing.JFrame {
     
     private void Insertar(Matricula matricula){
         MatriculaBO matBO = new MatriculaBO();
+        CorreoElectronico correo = new CorreoElectronico();
+        AlumnoBO albo = new AlumnoBO();
         
         if(matricula.getErrores().isEmpty()){
             try {
                 matBO.insertarMatricula(matricula);
                 InsertarHistorialCurso(matricula.getNivel(), matricula.getGrado());
+                //Envia correo de verificacion
+                correo.enviarCorreo("Matricula registrada", "La matricula fue registrada exitosamente. Bienvenido a la familia UNICOM - LA MOLINA", albo.buscarPorId(matricula.getAlumno_id()));
                 dispose();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
